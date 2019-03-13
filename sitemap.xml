@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://fjank.no/blog/</loc>
+<lastmod>2019-03-13T21:42:07+01:00</lastmod>
+</url>
+<url>
+<loc>https://fjank.no/blog/2019-03-13-first-post/</loc>
+<lastmod>2019-03-13T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://fjank.no/about/</loc>
+</url>
+<url>
+<loc>https://fjank.no/</loc>
+</url>
+<url>
+<loc>https://fjank.no/assets/Resume.pdf</loc>
+<lastmod>2019-03-13T21:42:05+01:00</lastmod>
+</url>
+</urlset>
