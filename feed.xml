@@ -1,3 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-03-13T21:42:07+01:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
-</subtitle><author><name>Frank Karlstrøm</name></author><entry><title type="html">First post</title><link href="https://fjank.no/blog/2019-03-13-first-post/" rel="alternate" type="text/html" title="First post" /><published>2019-03-13T00:00:00+01:00</published><updated>2019-03-13T00:00:00+01:00</updated><id>https://fjank.no/blog/first-post</id><content type="html" xml:base="https://fjank.no/blog/2019-03-13-first-post/">&lt;p&gt;Simple writeups, and more complex writeups will probably come.
-This page will also probably be deleted. :)&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><summary type="html">Simple writeups, and more complex writeups will probably come. This page will also probably be deleted. :)</summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-03-14T21:25:07+01:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
+</subtitle><author><name>Frank Karlstrøm</name></author><entry><title type="html">OverTheWire natas 0-4</title><link href="https://fjank.no/blog/2019-03-14-overthewire-natas-0-4/" rel="alternate" type="text/html" title="OverTheWire natas 0-4" /><published>2019-03-14T00:00:00+01:00</published><updated>2019-03-14T00:00:00+01:00</updated><id>https://fjank.no/blog/overthewire-natas-0-4</id><content type="html" xml:base="https://fjank.no/blog/2019-03-14-overthewire-natas-0-4/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://overthewire.org&quot;&gt;OverTheWire&lt;/a&gt; is a wargame site with several challenges.
+For a beginner like me, it contains several challenges with a nice increase in
+difficulty.
+This is the first entry of a writeup of the &lt;a href=&quot;http://overthewire.org/wargames/natas/&quot;&gt;natas&lt;/a&gt;
+challenges, which teaches the basics of serverside web-security. I will not
+expose the actual passwords, but rather walk you through the mind-process
+of searching for and finding vulnerabilities.&lt;/p&gt;
+
+&lt;p&gt;By going through all the levels of these challenges, you will learn how to
+break basic security (and protect against these attacks!), gain basic knowledge on various
+tools such as: html, server configuration, browser developer tools,
+basic shell commands, vulnerability checker tools, kali linux and get some basic
+programming experience.&lt;/p&gt;
+
+&lt;h2 id=&quot;level-0&quot;&gt;Level 0&lt;/h2&gt;
+&lt;p class=&quot;message&quot;&gt;&lt;strong&gt;Tools recommended:&lt;/strong&gt; A browser. I use &lt;a href=&quot;https://www.google.com/chrome/&quot;&gt;Chrome&lt;/a&gt;
+or &lt;a href=&quot;https://www.mozilla.org/en-US/firefox/new/&quot;&gt;Firefox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;View &lt;a href=&quot;https://www.w3schools.com/html/html_intro.asp&quot;&gt;the source&lt;/a&gt;,
+and look for the comment with the password for the next level.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Lessons learned: Don’t leave comments with sensitive data, they are easy to find.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;level-1&quot;&gt;Level 1&lt;/h2&gt;
+&lt;p&gt;Use the web developer tools (&lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/&quot;&gt;Chrome DevTools&lt;/a&gt;,
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Tools&quot;&gt;Firefox developer tools&lt;/a&gt;)
+to show the source where you will find the password.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Lessons learned: Blocking right-click is useless.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;level-2&quot;&gt;Level 2&lt;/h2&gt;
+&lt;p class=&quot;message&quot;&gt;&lt;strong&gt;Tools recommended:&lt;/strong&gt; &lt;a href=&quot;http://linuxcommand.org/lc3_lts0010.php&quot;&gt;A shell&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As the page says, there is nothing on this page.
+As in the previous level, I started by looking at the source, this time there
+was nothing hidden in the source, except a reference to an image.&lt;br /&gt;
+I inspected the &lt;a href=&quot;https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039&quot;&gt;response headers&lt;/a&gt;
+to see if anything was hidden there, nada.&lt;br /&gt;
+I downloaded the image and displayed the raw data to see if there was something hidden
+in the image, nada.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;pixel.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Perhaps there are other files in the same folder as the image? Lets try to open
+the folder in the browser: http://natas2.natas.labs.overthewire.org/files/.&lt;br /&gt;
+Directory browsing is allowed, thus we see all the files including a file
+containing the password to the next level.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Lessons learned: Make sure directory browsing is disabled.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;level-3&quot;&gt;Level 3&lt;/h2&gt;
+&lt;p class=&quot;message&quot;&gt;&lt;strong&gt;Tools recommended:&lt;/strong&gt; &lt;a href=&quot;https://tools.kali.org/web-applications/dirb&quot;&gt;dirb&lt;/a&gt;/&lt;a href=&quot;https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project&quot;&gt;dirbuster&lt;/a&gt;/&lt;a href=&quot;https://www.kali.org/&quot;&gt;Kali linux&lt;/a&gt;.
+You can manage nicely at this point
+without using any of these tools, but everything will be easier if you install
+Kali linux, as it contains massive amount of tools, almost everything you need.&lt;/p&gt;
+&lt;p&gt;Another page where there is nothing on the page.
+The source contains a comment with a hint. Since I hate to guess, I used &lt;code class=&quot;highlighter-rouge&quot;&gt;dirb&lt;/code&gt;
+to enumerate all common files/directories that may be found on a server.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;dirb http://natas3.natas.labs.overthewire.org &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; natas3:&amp;lt;passwd&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Amongst the output you should find an interesting file: &lt;code class=&quot;highlighter-rouge&quot;&gt;robots.txt&lt;/code&gt;&lt;br /&gt;
+The &lt;a href=&quot;http://www.robotstxt.org/&quot;&gt;robots file&lt;/a&gt; revealed a hidden directory (still with directory browsing enabled),
+where a file containing the password to the next level can be found.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Lessons learned: robots.txt should not expose sensitive information.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;level-4&quot;&gt;Level 4&lt;/h2&gt;
+&lt;p class=&quot;message&quot;&gt;&lt;strong&gt;Tools recommended:&lt;/strong&gt; &lt;a href=&quot;https://www.gnu.org/software/wget/manual/wget.html&quot;&gt;wget&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The text on the page says it all. The way the page knows where we are coming
+from is usually by inspecting the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer&quot;&gt;Referer header&lt;/a&gt;.
+This can easily be faked, and there are tons of tools that can do this for us.
+There is no need to bring up the big cannons yet, so we just use a “simple” tool
+like &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt;. It seems simple enough, but there is enormous power hiding behind
+the four letters. I recommend to use &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt; as a first “go-to-tool”
+when you need to do simple request manipulation, as that will let you experiment
+very quickly with various variables.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# The standard get of the page with no referer.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --quiet to stop wget's output, you may want to skip this to see what wget is doing.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -O - Will write the output to the standard out instead of a file.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;--quiet&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; - http://natas4:&amp;lt;passwd&amp;gt;@natas4.natas.labs.overthewire.org/
+&lt;span class=&quot;c&quot;&gt;# A get with a faked referer header.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;--quiet&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--referer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://natas5.natas.labs.overthewire.org/ &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; - http://natas4:&amp;lt;passwd&amp;gt;@natas4.natas.labs.overthewire.org/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;It seems the referer header was the correct assumption, and the page delivered
+the password for the next level.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Lessons learned: Do not trust the browser, everything can be faked.&lt;/em&gt;&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><summary type="html">OverTheWire natas 0-4</summary></entry></feed>
