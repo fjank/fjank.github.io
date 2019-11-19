@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://fjank.no/blog/</loc>
-<lastmod>2019-05-31T20:58:23+02:00</lastmod>
+<lastmod>2019-11-19T21:49:51+01:00</lastmod>
 </url>
 <url>
 <loc>https://fjank.no/blog/2019-03-14-overthewire-natas-0-4/</loc>
@@ -13,8 +13,12 @@
 <lastmod>2019-03-17T00:00:00+01:00</lastmod>
 </url>
 <url>
-<loc>https://fjank.no/blog/2019-05-31-overthewire-natas-10/</loc>
-<lastmod>2019-05-31T00:00:00+02:00</lastmod>
+<loc>https://fjank.no/blog/2019-03-18-overthewire-natas-10/</loc>
+<lastmod>2019-03-18T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://fjank.no/blog/2019-11-18-adidas-smart-run/</loc>
+<lastmod>2019-11-18T00:00:00+01:00</lastmod>
 </url>
 <url>
 <loc>https://fjank.no/about/</loc>

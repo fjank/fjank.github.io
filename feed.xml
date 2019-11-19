@@ -1,10 +1,336 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-05-31T20:58:23+02:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
-</subtitle><author><name>Fjank</name></author><entry><title type="html">OverTheWire natas 10</title><link href="https://fjank.no/blog/2019-05-31-overthewire-natas-10/" rel="alternate" type="text/html" title="OverTheWire natas 10" /><published>2019-05-31T00:00:00+02:00</published><updated>2019-05-31T00:00:00+02:00</updated><id>https://fjank.no/blog/overthewire-natas-10</id><content type="html" xml:base="https://fjank.no/blog/2019-05-31-overthewire-natas-10/">&lt;p&gt;&lt;a href=&quot;/blog/2019-03-17-overthewire-natas-5-9/&quot;&gt;Read Previous - OverTheWire level 5-9 walkthrough.&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-11-19T21:49:51+01:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
+</subtitle><author><name>Fjank</name></author><entry><title type="html">Adidas Smart Run</title><link href="https://fjank.no/blog/2019-11-18-adidas-smart-run/" rel="alternate" type="text/html" title="Adidas Smart Run" /><published>2019-11-18T00:00:00+01:00</published><updated>2019-11-18T00:00:00+01:00</updated><id>https://fjank.no/blog/adidas-smart-run</id><content type="html" xml:base="https://fjank.no/blog/2019-11-18-adidas-smart-run/">&lt;p&gt;&lt;img src=&quot;/assets/img/blog/adidas_smart_run_outside.jpg&quot; alt=&quot;Adidas smart run outside stylistic&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;For a very good review of the watch and all it has to offer, check out &lt;a href=&quot;https://www.dcrainmaker.com/2013/12/adidas-smart-review.html&quot;&gt;DC Rainmakers blog entry&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There was quite a few complaints from customers that bought the watch, but only a few
+  got their money back.&lt;br /&gt;
+  &lt;a href=&quot;https://www.change.org/p/adidas-keep-alive-adidas-smart-run-400-not-to-be-thrown-away&quot;&gt;Keep alive Adidas Smart Run - 400 $ not to be thrown away&lt;/a&gt;&lt;br /&gt;
+  &lt;a href=&quot;https://help.runtastic.com/hc/en-us/articles/360000371649-miCoach-End-of-Service&quot;&gt;miCoach End of Service&lt;/a&gt;&lt;br /&gt;
+  Now, I want to tackle the challenge of actually getting both data out and in from the
+  watch, and make it usable for the unlucky owners of this little gem. This first blog entry will
+  be about the information gathering phase.&lt;/p&gt;
+
+&lt;h2 id=&quot;strategy&quot;&gt;Strategy&lt;/h2&gt;
+&lt;p&gt;I’m going to try to get access very methodically, following the below path, and updating this
+  post as I go further. Hopefully I will not need to reach the last step. 
+  Main goal is to root the watch, to be able to figure out how the communication to the now 
+  non-existing micoach server works, and hopefully be able to put in a mock server of my own.
+  I will not attempt to replace or update the firmware, because the firmware is very good
+  as it is.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Information gathering&lt;br /&gt;
+Get as much information as possible from the watch, online services, documentation etc.&lt;/li&gt;
+  &lt;li&gt;UI access to internals (recovery/development mode/USB debugging)&lt;br /&gt;
+If development mode is possible to enter from the UI, we are golden.&lt;/li&gt;
+  &lt;li&gt;Network access&lt;br /&gt;
+Check out all ports and all networkactivity by the watch when connected to Wifi.&lt;/li&gt;
+  &lt;li&gt;USB access&lt;br /&gt;
+Try different techniques via the USB port&lt;/li&gt;
+  &lt;li&gt;Remote vulnerabilities&lt;br /&gt;
+Explore the wifi/bluetooth chip for vulnerabilities&lt;/li&gt;
+  &lt;li&gt;Physical access&lt;br /&gt;
+Explore the outside and inside connection ports for wired access&lt;/li&gt;
+  &lt;li&gt;Chip-off&lt;br /&gt;
+Get a second watch with intact firmware, remove the chip and connect directly to the chip to read off the data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;information-gathering&quot;&gt;Information Gathering&lt;/h2&gt;
+&lt;p&gt;For the information gathering to see what we have to work with I have based the information on&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;DC Rainmaker as mentioned above made a very thorough review of the watch.&lt;/li&gt;
+  &lt;li&gt;The initial user guide.&lt;/li&gt;
+  &lt;li&gt;Poking around on the watch itself.&lt;/li&gt;
+  &lt;li&gt;Opening the watch to inspect the inside.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blog/adidas_smart_run_inside.jpg&quot; alt=&quot;inside of Adidas smart run, backcover with heart sensor off&quot; /&gt;
+  Lots of interesting stuff that is possible to figure out, by just using public sources and
+  examining the watch on both inside and outside.
+  I have not done extensive searches for the chips and libraries found, 
+  that will be done when I go further into the details.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Possible to connect to a micro-USB for charging and MP3 file transfer; only that.&lt;/li&gt;
+  &lt;li&gt;Five contact points for the USB charger (micro-usb B)&lt;/li&gt;
+  &lt;li&gt;Mio Alpha Heartrate Sensor&lt;/li&gt;
+  &lt;li&gt;Wifi&lt;/li&gt;
+  &lt;li&gt;GPS&lt;/li&gt;
+  &lt;li&gt;Bluetooth 4.0&lt;/li&gt;
+  &lt;li&gt;Support for MP3, AAC, Ogg, Vorbis music files and playlists&lt;/li&gt;
+  &lt;li&gt;Touch screen with click and swipe&lt;/li&gt;
+  &lt;li&gt;All configuration is done from server and then synced to watch, little configuration done directly on the watch.&lt;/li&gt;
+  &lt;li&gt;Hardware
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.ti.com/lit/ml/swpt034b/swpt034b.pdf&quot;&gt;Texas Instruments OMAP4430 application processor PWM IC TWL6030&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;WLAN / BT / GPS / FM combo chip Murata LBEL1CESEC (WL1281) - difficult to find datasheet&lt;/li&gt;
+      &lt;li&gt;PoP RAM 512 MB&lt;/li&gt;
+      &lt;li&gt;eMMC 4GB (Samsung KLM4G1YE4C-B001) - datasheet available&lt;/li&gt;
+      &lt;li&gt;Chip with unknown functionality (RAM?) - SKhynix H9TKNNN4GOMA HRNGM 317a - difficult to find datasheet&lt;/li&gt;
+      &lt;li&gt;Several extra contact points on the inside of the watch.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;First firmware: Android JellyBean 4.1.1 (with custom UI obviously)&lt;/li&gt;
+  &lt;li&gt;Current firmware version 5.0.1 (corresponds to android version?)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Huge list of open source licenses as they are required to list, and the files they are connected to.
+This can obviously be used to do an educated guess on what libraries they have used for the different functionality, 
+and also what potential software that exists on the watch, can be useful later down the road.&lt;/p&gt;
+
+&lt;p&gt;I’ll finish off this post with a list of all the files that are mentioned. 
+Next post will be to look for easter-eggs/backdoors/dev-doors that is exposed via the UI.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;/fake_packages/ti-wpan-fw&lt;/li&gt;
+  &lt;li&gt;/kernel&lt;/li&gt;
+  &lt;li&gt;/root/init&lt;/li&gt;
+  &lt;li&gt;/root/sbin/adbd&lt;/li&gt;
+  &lt;li&gt;/system/app/MediaProvider.apk&lt;/li&gt;
+  &lt;li&gt;/system/app/SettingsProvider.apk&lt;/li&gt;
+  &lt;li&gt;/system/bin/adb&lt;/li&gt;
+  &lt;li&gt;/system/bin/app_process&lt;/li&gt;
+  &lt;li&gt;/system/bin/applypatch&lt;/li&gt;
+  &lt;li&gt;/system/bin/atrace&lt;/li&gt;
+  &lt;li&gt;/system/bin/bluetoothd&lt;/li&gt;
+  &lt;li&gt;/system/bin/bu&lt;/li&gt;
+  &lt;li&gt;/system/bin/dbus-daemon&lt;/li&gt;
+  &lt;li&gt;/system/bin/debuggerd&lt;/li&gt;
+  &lt;li&gt;/system/bin/dhcpcd&lt;/li&gt;
+  &lt;li&gt;/system/bin/dnsmasq&lt;/li&gt;
+  &lt;li&gt;/system/bin/drmserver&lt;/li&gt;
+  &lt;li&gt;/system/bin/dumpsys&lt;/li&gt;
+  &lt;li&gt;/system/bin/fsck_msdos&lt;/li&gt;
+  &lt;li&gt;/system/bin/gzip&lt;/li&gt;
+  &lt;li&gt;/system/bin/hciattach&lt;/li&gt;
+  &lt;li&gt;/system/bin/ip&lt;/li&gt;
+  &lt;li&gt;/system/bin/linker&lt;/li&gt;
+  &lt;li&gt;/system/bin/logcat&lt;/li&gt;
+  &lt;li&gt;/system/bin/logwrapper&lt;/li&gt;
+  &lt;li&gt;/system/bin/make_ext4fs&lt;/li&gt;
+  &lt;li&gt;/system/bin/mediaserver&lt;/li&gt;
+  &lt;li&gt;/system/bin/mksh&lt;/li&gt;
+  &lt;li&gt;/system/bin/mtpd&lt;/li&gt;
+  &lt;li&gt;/system/bin/netcfg&lt;/li&gt;
+  &lt;li&gt;/system/bin/pand&lt;/li&gt;
+  &lt;li&gt;/system/bin/ping&lt;/li&gt;
+  &lt;li&gt;/system/bin/pppd&lt;/li&gt;
+  &lt;li&gt;/system/bin/racoon&lt;/li&gt;
+  &lt;li&gt;/system/bin/requestsync&lt;/li&gt;
+  &lt;li&gt;/system/bin/run-as&lt;/li&gt;
+  &lt;li&gt;/system/bin/sdptool&lt;/li&gt;
+  &lt;li&gt;/system/bin/service&lt;/li&gt;
+  &lt;li&gt;/system/bin/system_server&lt;/li&gt;
+  &lt;li&gt;/system/bin/tc&lt;/li&gt;
+  &lt;li&gt;/system/bin/tinycap&lt;/li&gt;
+  &lt;li&gt;/system/bin/tinymix&lt;/li&gt;
+  &lt;li&gt;/system/bin/tinyplay&lt;/li&gt;
+  &lt;li&gt;/system/bin/toolbox&lt;/li&gt;
+  &lt;li&gt;/system/etc/dhcpcd/dhcdcp-hooks/20-dns.conf&lt;/li&gt;
+  &lt;li&gt;/system/etc/dhcpcd/dhcpcd-hooks/95-configured&lt;/li&gt;
+  &lt;li&gt;/system/etc/dhcdcd/dhcdcd-run-hooks&lt;/li&gt;
+  &lt;li&gt;/system/etc/fallback_fonts-ja.xml&lt;/li&gt;
+  &lt;li&gt;/system/etc/firmware/ti-connectivity/wl-1271-nvs_127x.bin&lt;/li&gt;
+  &lt;li&gt;/system/etc/firmware/ti-connectivity/wl-127x-fw-4-mr.bin&lt;/li&gt;
+  &lt;li&gt;/system/etc/firmware/ti-connectivity/wl-127x-fw-4-plt.bin&lt;/li&gt;
+  &lt;li&gt;/system/etc/firmware/ti-connectivity/wl-127x-fw-4-sr.bin&lt;/li&gt;
+  &lt;li&gt;/system/etc/firmware/ti-connectivity/wl-128x-fw-4-mr.bin&lt;/li&gt;
+  &lt;li&gt;/system/etc/firmware/ti-connectivity/wl-128x-fw-4-rs.bin&lt;/li&gt;
+  &lt;li&gt;/system/etc/mkshrc&lt;/li&gt;
+  &lt;li&gt;/system/etc/security/cacerts/many many&lt;/li&gt;
+  &lt;li&gt;/system/fonts/many many&lt;/li&gt;
+  &lt;li&gt;/system/framework/am.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/apache-xml.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/bmgr.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/bouncycastle.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/bu.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/content.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/core-junit.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/core.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/ext.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/framework-res.apk&lt;/li&gt;
+  &lt;li&gt;/system/framework/framework.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/jme.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/input.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/javax_obex.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/monkey.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/pm.jar&lt;/li&gt;
+  &lt;li&gt;/system/framework/svc.jar&lt;/li&gt;
+  &lt;li&gt;/system/lib/bluez-plugin/audio.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/bluez-plugin/bluetooth-health.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/bluez-plugin/input.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/bluez-plugin/mcapapp.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/bluez-plugin/network.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/drm/libfwdlockengine.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/hw/audio.a2dp.default.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libESR_Portable.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libFFTEm.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libFLAC.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libFraunhoferAAC.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libLLVMAnalysis.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libSR_AudioIn.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libaah_rtp.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libandroid_runtime.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libandroidfw.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libapplypatch.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libaudioflinger.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libbcc.so.sha1&lt;/li&gt;
+  &lt;li&gt;/system/lib/libbcc.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libbluetoothd.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libbtio.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libbuiltinplugin.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libbz.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libc.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libc.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libc_common.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libc_nomalloc.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libcamera_client.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libcameraservice.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libcommon_time_client.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libcorkscrew.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libcrypto.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libctest.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libcutils.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libcutils.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libdbus-tools-common.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libdbus.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libdl.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libdrmframework.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libdrmframeworkcommon.sa&lt;/li&gt;
+  &lt;li&gt;/system/lib/libdrmutility.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libexif.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libexif_jni.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libexpat.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libext4_utils.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libfdlibm.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libft2.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libgccdemangle.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libgdbus_static.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libgif.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libgsm.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libhardware.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libhardware_legacy.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libharfbuzz.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libhwui.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libhyphenation.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libicuii18n.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libicuuc.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libiprouteutil.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libipsec.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libjavacore.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libjpeg.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/liblog.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/liblog.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/liblzf.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libm.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libmedia.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libmedia_helper.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libmedia_jni.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libmediaplayerservice.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libmincrypt.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libmtp.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libmusicbundle.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libnativehelper.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libnbaio.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libnetlink.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libnetutils.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libnfc_ndef.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libpixelflinger.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libpng.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libpower.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libreference-ril.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libreverb.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libscheduling_policy.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libskia.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libskiagpu.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libsonivox.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libsoundpool.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libspeexresampler.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/liblibsqlite.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libsqlite3_android.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libsqlite_jni.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libssl.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_aacenc.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_amrnb_common.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_amrnbdec.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_amrnbenc.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_avc_common.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_color_conversion&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_enc_common.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_foundation.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_httplive.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_matroska.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_mp3dec.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_mpeg2ts.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_nuplayer.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_omx.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_rtsp.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_soft_aacdec.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_soft_mp3dec.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_soft_rawdec.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_soft_vorbisdec.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_soft_vpxdec.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_timedtext.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstagefright_yuv.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstdc++.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstlport.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libstorage.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libthread_db.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libthread_db.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libtinyalsa.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libui.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libunz.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libutils.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libv8.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvideoeditor_3gpwriter.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvideoeditor_core.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvideoeditor_jni.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvideoeditor_mcs.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvideoeditor_stagefrightshe&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvideoeditor_videofilters.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/liblibvideoeditorplayer.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvorbisidec.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libvpx.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libwebcore.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libwebcore.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libwfd_mpeg2tsrtsp.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libxml2.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libxslt.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/libz.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/libzipfile.a&lt;/li&gt;
+  &lt;li&gt;/system/lib/soundfx/libaudiopreprocessing.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/soundfx/libbundlewrapper.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/soundfx/libdownmix.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/soundfx/libreverbwrapper.so&lt;/li&gt;
+  &lt;li&gt;/system/lib/soundfx/libvisualizer.so&lt;/li&gt;
+  &lt;li&gt;/system/usr/icu/icudt48l.dat&lt;/li&gt;
+  &lt;li&gt;/system/xbin/agent&lt;/li&gt;
+  &lt;li&gt;/system/xbin/attest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/avinfo&lt;/li&gt;
+  &lt;li&gt;/system/xbin/avtest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/bdaddr&lt;/li&gt;
+  &lt;li&gt;/system/xbin/dbus-monitor&lt;/li&gt;
+  &lt;li&gt;/system/xbin/dbus-send&lt;/li&gt;
+  &lt;li&gt;/system/xbin/dexdump&lt;/li&gt;
+  &lt;li&gt;/system/xbin/gaptest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/hciconfig&lt;/li&gt;
+  &lt;li&gt;/system/xbin/hcitool&lt;/li&gt;
+  &lt;li&gt;/system/xbin/hstest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/l2ping&lt;/li&gt;
+  &lt;li&gt;/system/xbin/l2test&lt;/li&gt;
+  &lt;li&gt;/system/xbin/lmptest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/rctest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/rfcomm&lt;/li&gt;
+  &lt;li&gt;/system/xbin/scotest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/sdptest&lt;/li&gt;
+  &lt;li&gt;/system/xbin/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Fjank</name></author><summary type="html">Adidas Smart Run Introduction For a very good review of the watch and all it has to offer, check out DC Rainmakers blog entry.</summary></entry><entry><title type="html">OverTheWire natas 10</title><link href="https://fjank.no/blog/2019-03-18-overthewire-natas-10/" rel="alternate" type="text/html" title="OverTheWire natas 10" /><published>2019-03-18T00:00:00+01:00</published><updated>2019-03-18T00:00:00+01:00</updated><id>https://fjank.no/blog/overthewire-natas-10</id><content type="html" xml:base="https://fjank.no/blog/2019-03-18-overthewire-natas-10/">&lt;p&gt;&lt;a href=&quot;/blog/2019-03-17-overthewire-natas-5-9/&quot;&gt;Read Previous - OverTheWire level 5-9 walkthrough.&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;http://overthewire.org&quot;&gt;OverTheWire&lt;/a&gt; is a wargame site with several challenges.
 For a beginner like me, it contains several challenges with a nice increase in
 difficulty.
-This is the third entry of a writeup of the &lt;a href=&quot;http://overthewire.org/wargames/natas/&quot;&gt;natas&lt;/a&gt;
+This is the second entry of a writeup of the &lt;a href=&quot;http://overthewire.org/wargames/natas/&quot;&gt;natas&lt;/a&gt;
 challenges, which teaches the basics of serverside web-security. I will not
 expose the actual passwords, but rather walk you through the mind-process
 of searching for and finding vulnerabilities.&lt;/p&gt;
@@ -16,56 +342,10 @@ basic shell commands, vulnerability checker tools, kali linux and get some basic
 programming experience.&lt;/p&gt;
 
 &lt;h2 id=&quot;level-10&quot;&gt;Level 10&lt;/h2&gt;
-&lt;p&gt;It looks like a hardened version of &lt;a href=&quot;/blog/2019-03-17-overthewire-natas-5-9/&quot;&gt;Level 9&lt;/a&gt;. Same functionality, even so kind to let us peek at the actual source code, to avoid guessing.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/overthewire-natas10-1.png&quot; alt=&quot;Natas 10 landing page&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;natas10&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-For security reasons, we now filter on certain characters&lt;span class=&quot;nt&quot;&gt;&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
-Find words containing: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;needle&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
-
-
-Output:
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;pre&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;needle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;needle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/[;|&amp;amp;]/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Input contains an illegal character!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;passthru&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;grep -i &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; dictionary.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewsource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;index-source.html&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;View sourcecode&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;The change this time is that they have a &lt;a href=&quot;http://regextutorials.com/&quot;&gt;regex&lt;/a&gt; check first for the characters &lt;code class=&quot;highlighter-rouge&quot;&gt;;|&amp;amp;&lt;/code&gt;, so our previous trick to chain commands will not work this time. But they have not escaped &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;, so we can actually use grep to get the contents of our required file. Consider what is actually invoked by using “” as a search parameter:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; dictionary.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;This will return the entire file, just as cat. Soo by searching for &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&quot; /etc/natas_webpass/natas11 #&lt;/code&gt; The command will be:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; /etc/natas_webpass/natas11 &lt;span class=&quot;c&quot;&gt;# dictionary.txt&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# We are now searching for everything, listing the entire file, and commenting out the dictionary.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Blacklisting defaults to approve all, and reject only the items you have listed.
-Blacklisting requires you to know of all vulnerabilities and threats for the item you are sanitizing, both known and unknown. This is usually a very bad idea of obvious reasons. 
-Whitelisting defaults to deny all, and approve only the items you have listed, in this case only allow characters &lt;code class=&quot;highlighter-rouge&quot;&gt;a-z A-z 0-9&lt;/code&gt; and perhaps &lt;code class=&quot;highlighter-rouge&quot;&gt;'&lt;/code&gt;, do remember to properly escape the singlequote before sending in to passthru.&lt;/p&gt;
-
-&lt;p&gt;Blacklist/Whitelist principles is not only for command injection, but should be used wherever there exists a possibility for a user to input text that will be passed through to SQL, command, HTML etc. etc.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Lessons learned: If you need to sanitize input, use a whitelist of allowed items, never a blacklist of illegal items.&lt;/em&gt;&lt;/p&gt;</content><author><name>Fjank</name></author><summary type="html">OverTheWire natas 10</summary></entry><entry><title type="html">OverTheWire natas 5-9</title><link href="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/" rel="alternate" type="text/html" title="OverTheWire natas 5-9" /><published>2019-03-17T00:00:00+01:00</published><updated>2019-03-17T00:00:00+01:00</updated><id>https://fjank.no/blog/overthewire-natas-5-9</id><content type="html" xml:base="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/">&lt;p&gt;&lt;a href=&quot;/blog/2019-03-14-overthewire-natas-0-4/&quot;&gt;Read Previous - OverTheWire level 0-4 walkthrough.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Desc.
+&lt;img src=&quot;/assets/img/overthewire-natas5-1.png&quot; alt=&quot;Natas 5 landing page&quot; /&gt;
+OMG, &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&quot; /etc/natas_webpass/natas11 #&lt;/code&gt;
+&lt;em&gt;Lessons learned: whitelist, not blacklist&lt;/em&gt;&lt;/p&gt;</content><author><name>Fjank</name></author><summary type="html">OverTheWire natas 10</summary></entry><entry><title type="html">OverTheWire natas 5-9</title><link href="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/" rel="alternate" type="text/html" title="OverTheWire natas 5-9" /><published>2019-03-17T00:00:00+01:00</published><updated>2019-03-17T00:00:00+01:00</updated><id>https://fjank.no/blog/overthewire-natas-5-9</id><content type="html" xml:base="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/">&lt;p&gt;&lt;a href=&quot;/blog/2019-03-14-overthewire-natas-0-4/&quot;&gt;Read Previous - OverTheWire level 0-4 walkthrough.&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;http://overthewire.org&quot;&gt;OverTheWire&lt;/a&gt; is a wargame site with several challenges.
 For a beginner like me, it contains several challenges with a nice increase in
