@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en"><!--
+ __  __                __                                     __
+/\ \/\ \              /\ \             __                    /\ \
+\ \ \_\ \   __  __    \_\ \      __   /\_\      __       ___ \ \ \/'\
+ \ \  _  \ /\ \/\ \   /'_` \   /'__`\ \/\ \   /'__`\    /'___\\ \ , <
+  \ \ \ \ \\ \ \_\ \ /\ \L\ \ /\  __/  \ \ \ /\ \L\.\_ /\ \__/ \ \ \\`\
+   \ \_\ \_\\/`____ \\ \___,_\\ \____\ _\ \ \\ \__/.\_\\ \____\ \ \_\ \_\
+    \/_/\/_/ `/___/> \\/__,_ / \/____//\ \_\ \\/__/\/_/ \/____/  \/_/\/_/
+                /\___/                \ \____/
+                \/__/                  \/___/
+
+Powered by Hydejack v8.5.2 <https://hydejack.com/>
+--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><title>NPST utlyser en midlertidig stilling som snikende alvebetjent | Fjanks security pages</title><meta name="generator" content="Jekyll v3.8.6" /><meta property="og:title" content="NPST utlyser en midlertidig stilling som snikende alvebetjent" /><meta name="author" content="Fjank" /><meta property="og:locale" content="en" /><meta name="description" content="PST (Politiets Sikkerhetstjeneste) hadde i 2019 en julekalender. Den ble annonsert via en fiktiv annonse for NPST (Norpolar Sikkerhetstjeneste), som hadde en jobbannonse etter midlertidig stilling som snikende alvebetjent. Dette er en gjennomgang av julekalenderen som var en full CTF." /><meta property="og:description" content="PST (Politiets Sikkerhetstjeneste) hadde i 2019 en julekalender. Den ble annonsert via en fiktiv annonse for NPST (Norpolar Sikkerhetstjeneste), som hadde en jobbannonse etter midlertidig stilling som snikende alvebetjent. Dette er en gjennomgang av julekalenderen som var en full CTF." /><link rel="canonical" href="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/" /><meta property="og:url" content="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/" /><meta property="og:site_name" content="Fjanks security pages" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2020-01-04T00:00:00+01:00" /> <script type="application/ld+json"> {"@type":"BlogPosting","headline":"NPST utlyser en midlertidig stilling som snikende alvebetjent","dateModified":"2020-01-04T00:00:00+01:00","datePublished":"2020-01-04T00:00:00+01:00","url":"https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/","mainEntityOfPage":{"@type":"WebPage","@id":"https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/"},"author":{"@type":"Person","name":"Fjank"},"description":"PST (Politiets Sikkerhetstjeneste) hadde i 2019 en julekalender. Den ble annonsert via en fiktiv annonse for NPST (Norpolar Sikkerhetstjeneste), som hadde en jobbannonse etter midlertidig stilling som snikende alvebetjent. Dette er en gjennomgang av julekalenderen som var en full CTF.","@context":"https://schema.org"}</script><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Fjanks security pages"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="application-name" content="Fjanks security pages"><meta name="msapplication-config" content="/assets/ieconfig.xml"><meta name="theme-color" content="rgb(25,55,71)"><meta name="generator" content="Hydejack v8.5.2" /><link type="application/atom+xml" rel="alternate" href="https://fjank.no/feed.xml" title="Fjanks security pages" /><link rel="alternate" href="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/" hreflang="en"><link rel="shortcut icon" href="/assets/icons/favicon.ico"><link rel="apple-touch-icon" href="/assets/icons/icon.png"><link rel="manifest" href="/assets/manifest.json"><link rel="dns-prefetch" href="https://fonts.googleapis.com"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="dns-prefetch" href="/" id="_baseURL"><link rel="dns-prefetch" href="/sw.js" id="_hrefSW"><link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.js" id="_hrefKatexJS"><link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.css" id="_hrefKatexCSS"><link rel="dns-prefetch" href="/assets/bower_components/katex/dist/contrib/copy-tex.min.js" id="_hrefKatexCopyJS"><link rel="dns-prefetch" href="/assets/bower_components/katex/dist/contrib/copy-tex.min.css" id="_hrefKatexCopyCSS"><link rel="dns-prefetch" href="/assets/img/swipe.svg" id="_hrefSwipeSVG"><link rel="dns-prefetch" href="https://fjank-no.disqus.com" id="_hrefDisqus"> <script> !function(e,t){"use strict";function n(e,t,n,o){e.addEventListener?e.addEventListener(t,n,o):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n}e.loadJS=function(e,o){var r=t.createElement("script");r.src=e,o&&n(r,"load",o,{once:!0});var a=t.scripts[0];return a.parentNode.insertBefore(r,a),r},e._loaded=!1,e.loadJSDeferred=function(o,r){function a(){e._loaded=!0,r&&n(c,"load",r,{once:!0});var o=t.scripts[0];o.parentNode.insertBefore(c,o)}var c=t.createElement("script");return c.src=o,e._loaded?a():n(e,"load",a,{once:!0}),c},e.setRel=e.setRelStylesheet=function(e){function o(){this.rel="stylesheet"}n(t.getElementById(e),"load",o,{once:!0})}}(window,document); ; !function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this); ; !function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this); ; !function(w, d) { w._noPushState = false; w._noDrawer = false; }(window, document); </script> <!--[if gt IE 8]><!----><style> body{--code-font-family: Menlo,Monaco,Consolas,monospace;--font-weight: 400;--font-weight-bold: 700;--font-weight-heading: 400;--text-muted: #888;--gray-bg: rgba(0,0,0,0.025);--gray-text: #666;--menu-text: #bbb;--body-color: #333;--body-bg: #fff;--border-color: #ebebeb}.clearfix,.sidebar-social::after{content:"";display:table;clear:both}.color-transition,body,p,hr,.hr,table:not(.highlight) td,table:not(.highlight) th,.message{transition:background-color 1s ease, border-color 1s ease}.no-color-transition{transition:none !important}*{box-sizing:border-box}html,body{margin:0;padding:0}html{font-size:16px;line-height:1.75}body{color:var(--body-color);background-color:var(--body-bg);font-weight:var(--font-weight);overflow-y:scroll}a{text-decoration:none}.lead{margin-left:-1rem;margin-right:-1rem}.content img,.img,.content video,.video{max-width:100%}.content img.lead,.img.lead,.content video.lead,.video.lead{max-width:calc(100% + 2rem);width:calc(100% + 2rem)}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-weight:var(--font-weight-heading);margin:5rem 0 1rem}h1,.h1{font-size:2rem;line-height:1.3}h2,.h2{font-size:1.5rem;line-height:1.4}h3,.h3{font-size:1.17em;line-height:1.5}h4,h5,h6,.h4,.h5,.h6{font-size:1rem;margin-bottom:0.5rem}p{margin-top:0;margin-bottom:1rem}p.lead{font-size:1.2em;margin-top:1.5rem;margin-bottom:1.5rem;padding:0 1rem}ul,ol,dl{margin-top:0;margin-bottom:1rem}ul,ol{padding-left:1.25rem}hr{position:relative;margin:3rem 0;border:0;border-top:1px solid var(--border-color)}.hr{border-bottom:1px solid var(--border-color);padding-bottom:1rem;margin-bottom:2rem}table:not(.highlight){border-collapse:collapse;margin-bottom:2rem;margin-left:-1rem}table:not(.highlight) td,table:not(.highlight) th{padding:.25rem .5rem;border:1px solid var(--border-color)}table:not(.highlight) td:first-child,table:not(.highlight) th:first-child{padding-left:1rem}table:not(.highlight) td:last-child,table:not(.highlight) th:last-child{padding-right:1rem}.page{margin-bottom:3em}.page li+li{margin-top:.25rem}.page>header{margin-bottom:2rem}.page-title,.post-title{margin-top:0}.post-date{display:block;margin-top:-0.5rem;margin-bottom:1rem;color:var(--text-muted)}.related-posts{padding-left:0;list-style:none;margin-bottom:2rem}.related-posts>li,.related-posts>li+li{margin-top:1rem}.message{margin-bottom:1rem;padding:1rem;color:var(--gray-text);background-color:var(--gray-bg);margin-left:-1rem;margin-right:-1rem}@media screen{body::before{content:'';width:.5rem;background:var(--border-color);position:fixed;left:0;top:0;bottom:0}}@media screen and (min-width: 64em){body::before{width:21rem}}@media screen and (min-width: 1666px){body::before{width:calc(50% - 28rem)}}@media screen and (min-width: 42em){html{font-size:17px}}@media screen and (min-width: 124em){html{font-size:18px}}.fade-in{animation-duration:500ms;animation-timing-function:ease;animation-name:fade-in;animation-fill-mode:forwards}@keyframes fade-in{from{transform:translateY(-3rem);opacity:0}50%{transform:translateY(-3rem);opacity:0}to{transform:translateY(0);opacity:1}}.fl{float:left}.fr{float:right}.mb4{margin-bottom:4rem}.mb6{margin-bottom:6rem}.mt0{margin-top:0}.mt2{margin-top:2rem}.mt3{margin-top:3rem}.mt4{margin-top:4rem}.pb0{padding-bottom:0}.sixteen-nine{position:relative}.sixteen-nine::before{display:block;content:"";width:100%;padding-top:56.25%}.sixteen-nine>*{position:absolute;top:0;left:0;right:0;bottom:0}.sr-only{display:none}.border{border:1px solid var(--border-color)}hy-push-state a,.a{position:relative;padding-bottom:.15rem;border-bottom:1px solid}hy-push-state a.no-hover,.a.no-hover{border-bottom:none;padding-bottom:0}.content .img{overflow:hidden}.content .img img{margin:0;width:100%;height:100%;background-color:var(--gray-bg)}hy-drawer{width:100%;position:relative;overflow:hidden}@media screen and (min-width: 64em){hy-drawer{position:fixed;width:21rem;top:0;left:0;bottom:0;margin-left:0}hy-drawer.cover{position:relative;width:100%}}@media screen and (min-width: 1666px){hy-drawer{width:calc(50% - 28rem)}}.sidebar{position:relative;display:flex;justify-content:center;align-items:center;color:rgba(255,255,255,0.75);text-align:center;z-index:2;min-height:100vh}.sidebar a{color:#fff;border-bottom-color:rgba(255,255,255,0.2)}.sidebar-bg{position:absolute;top:0;left:calc(50% - 50vw);width:100vw;height:100%;background:#202020 center / cover}.sidebar-bg::after{content:"";position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,0.05)}.sidebar-bg.sidebar-overlay::after{background:linear-gradient(to bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%)}.sidebar-sticky{position:relative;z-index:3;max-width:21rem;padding:1.5rem;contain:content}.sidebar-about .avatar{margin-bottom:1.5rem}.sidebar-about>h2{margin-top:0}.sidebar-nav>ul{list-style:none;padding-left:0}a.sidebar-nav-item{display:inline-block;font-weight:var(--font-weight-heading);line-height:1.75;padding:.25rem;border-bottom:1px solid rgba(255,255,255,0.2)}.sidebar-social>ul{display:inline-block;list-style:none;padding-left:0;margin-bottom:0}.sidebar-social>ul>li{float:left}.sidebar-social>ul>li>a{display:inline-block;text-align:center;font-size:1.4rem;width:3rem;height:4rem;padding:.5rem 0;line-height:3rem}.sidebar-social>ul li+li{margin-top:0}.fixed-common,.fixed-top,.fixed-bottom{position:fixed;left:0;width:100%;z-index:2}.fixed-top{top:0}.fixed-bottom{bottom:0}.navbar>.content{padding-top:0;padding-bottom:0;min-height:0;color:var(--menu-text)}.nav-btn-bar{margin:0 -1rem 0 -.875rem}.nav-btn{background:none;border:none;padding:1.75rem .875rem;color:var(--menu-text) !important;cursor:pointer}.animation-main{opacity:0;pointer-events:none}.content{position:relative;margin-left:auto;margin-right:auto;padding:6rem 1rem 12rem}@media screen{.content{padding-left:1.5rem;max-width:38rem;min-height:100vh}}@media screen and (min-width: 54em){.content{max-width:42rem}}@media screen and (min-width: 64em){.content{padding-left:1rem;margin-left:24rem;margin-right:3rem}}@media screen and (min-width: 88em){.content{margin-left:25rem;margin-right:4rem;max-width:48rem}}@media screen and (min-width: 1666px){.content{margin:auto}}.avatar{width:6.5rem;height:6.5rem;border-radius:100%;overflow:hidden}@media screen and (min-width: 88em){.avatar{width:7rem;height:7rem}}.content .avatar{float:right;margin-left:.5rem}html{font-family:Noto Sans,Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.heading{font-family:Roboto Slab,Helvetica,Arial,sans-serif}.content a:not(.btn){color:#4fb1ba;border-color:rgba(79,177,186,0.2)}.content a:not(.btn):hover{border-color:#4fb1ba}:focus{outline-color:#4fb1ba !important}.btn-primary{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:focus,.btn-primary.focus,.form-control:focus,.form-control.focus{box-shadow:0 0 0 3px rgba(79,177,186,0.5)}.btn-primary:hover,.btn-primary.hover{color:#fff;background-color:#409ba3;border-color:#409ba3}.btn-primary:disabled,.btn-primary.disabled{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:active,.btn-primary.active{color:#fff;background-color:#409ba3;border-color:#409ba3}::selection{color:#fff;background:#4fb1ba}::-moz-selection{color:#fff;background:#4fb1ba}</style><link rel="preload" as="style" href="/assets/css/hydejack-8.5.2.css" id="_stylePreload"><link rel="preload" as="style" href="/assets/icomoon/style.css" id="_iconsPreload"><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400|Noto+Sans:400,400i,700,700i&display=swap" id="_fontsPreload"> <script>setRel('_stylePreload');setRel('_iconsPreload');/**/setRel('_fontsPreload');/**/</script> <noscript><link rel="stylesheet" href="/assets/css/hydejack-8.5.2.css"><link rel="stylesheet" href="/assets/icomoon/style.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400|Noto+Sans:400,400i,700,700i&display=swap"> </noscript> <!--<![endif]--><body class="no-color-transition"><div id="_navbar" class="navbar fixed-top"><div class="content"><div class="nav-btn-bar"> <span class="sr-only">Jump to:</span> <a id="_menu" class="nav-btn no-hover fl" href="#_navigation"> <span class="sr-only">Navigation</span> <span class="icon-menu"></span> </a></div></div></div><hr class="sr-only" hidden /> <hy-push-state replace-ids="_main" link-selector="a[href]:not([href*='/assets/']):not(.external):not(.no-push-state)" duration="250" script-selector="script:not([type^='math/tex'])" prefetch ><main id="_main" class="content fade-in layout-post" role="main" data-color="rgb(79,177,186)" data-theme-color="rgb(25,55,71)" data-image="/assets/img/sidebar-bg.jpg" data-overlay ><article id="post-blog-pst-chistmas-ctf" class="page post mb6 h-entry" role="article"><header><h1 class="post-title p-name"> NPST utlyser en midlertidig stilling som snikende alvebetjent</h1><p class="post-date heading"> <time class="dt-published" datetime="2020-01-04T00:00:00+01:00">04 Jan 2020</time> in <a href="/blog/" class="flip-title">Blog</a><p class="message" > PST (Politiets Sikkerhetstjeneste) hadde i 2019 en julekalender. Den ble annonsert via en fiktiv annonse for NPST (Norpolar Sikkerhetstjeneste), som hadde en jobbannonse etter midlertidig stilling som snikende alvebetjent. Dette er en gjennomgang av julekalenderen som var en full CTF.</header><div class="e-content"><ul id="markdown-toc"><li><a href="#introduksjon" id="markdown-toc-introduksjon">Introduksjon</a><li><a href="#luke-1" id="markdown-toc-luke-1">Luke 1</a><ul><li><a href="#velkommen-til-npst-10" id="markdown-toc-velkommen-til-npst-10">Velkommen til NPST (10)</a><li><a href="#velg-passord-15" id="markdown-toc-velg-passord-15">Velg passord (15)</a><li><a href="#passordgjenoppretting-20" id="markdown-toc-passordgjenoppretting-20">Passordgjenoppretting (20)</a></ul><li><a href="#luke-2" id="markdown-toc-luke-2">Luke 2</a><li><a href="#luke-3---ppk-0" id="markdown-toc-luke-3---ppk-0">Luke 3 - PPK (0)</a><li><a href="#luke-4" id="markdown-toc-luke-4">Luke 4</a><li><a href="#luke-5---i-5" id="markdown-toc-luke-5---i-5">Luke 5 - 🐒i (5)</a><li><a href="#luke-6---ppkv2-5" id="markdown-toc-luke-6---ppkv2-5">Luke 6 - PPKv2 (5)</a><li><a href="#luke-7" id="markdown-toc-luke-7">Luke 7</a><ul><li><a href="#nissens-verksted-3" id="markdown-toc-nissens-verksted-3">Nissens verksted (3)</a><li><a href="#bedriftsspionasje-2" id="markdown-toc-bedriftsspionasje-2">Bedriftsspionasje (2)</a></ul><li><a href="#luke-8" id="markdown-toc-luke-8">Luke 8</a><ul><li><a href="#8-desember-10" id="markdown-toc-8-desember-10">8. desember (10)</a><li><a href="#spionaktivitet-15" id="markdown-toc-spionaktivitet-15">Spionaktivitet (15)</a><li><a href="#mystiske-profiler-20" id="markdown-toc-mystiske-profiler-20">Mystiske profiler (20)</a></ul><li><a href="#luke-9" id="markdown-toc-luke-9">Luke 9</a><li><a href="#luke-10---vige-vs-nere-5" id="markdown-toc-luke-10---vige-vs-nere-5">Luke 10 - Vige vs. Nere (5)</a><li><a href="#luke-11---1337-5" id="markdown-toc-luke-11---1337-5">Luke 11 - 1337 (5)</a><li><a href="#luke-12---arbitrær-kode-5" id="markdown-toc-luke-12---arbitrær-kode-5">Luke 12 - Arbitrær kode (5)</a><li><a href="#luke-13---token-effort-5" id="markdown-toc-luke-13---token-effort-5">Luke 13 - Token effort (5)</a><li><a href="#luke-14---lekket-data-5" id="markdown-toc-luke-14---lekket-data-5">Luke 14 - Lekket data (5)</a><li><a href="#luke-15" id="markdown-toc-luke-15">Luke 15</a><ul><li><a href="#15-desember-10" id="markdown-toc-15-desember-10">15. desember (10)</a><li><a href="#alternativer-15" id="markdown-toc-alternativer-15">Alternativer (15)</a><li><a href="#feriebilder-20" id="markdown-toc-feriebilder-20">Feriebilder (20)</a></ul><li><a href="#luke-16" id="markdown-toc-luke-16">Luke 16</a><li><a href="#luke-17---passorddatabase-5" id="markdown-toc-luke-17---passorddatabase-5">Luke 17 - Passorddatabase (5)</a><li><a href="#luke-18" id="markdown-toc-luke-18">Luke 18</a><li><a href="#luke-19---ppkv3-5" id="markdown-toc-luke-19---ppkv3-5">Luke 19 - PPKv3 (5)</a><li><a href="#luke-20---mystisk-kort-5" id="markdown-toc-luke-20---mystisk-kort-5">Luke 20 - Mystisk kort (5)</a><li><a href="#luke-21---nytt-kryptosystem-5" id="markdown-toc-luke-21---nytt-kryptosystem-5">Luke 21 - Nytt kryptosystem (5)</a><li><a href="#luke-22" id="markdown-toc-luke-22">Luke 22</a><ul><li><a href="#22-desember" id="markdown-toc-22-desember">22. desember</a><li><a href="#kildekode-15" id="markdown-toc-kildekode-15">Kildekode (15)</a><li><a href="#npsp-20" id="markdown-toc-npsp-20">&amp;npsp; (20)</a></ul><li><a href="#luke-23" id="markdown-toc-luke-23">Luke 23</a><ul><li><a href="#fragmentert-samtale-5" id="markdown-toc-fragmentert-samtale-5">Fragmentert samtale (5)</a><li><a href="#mystisk-julekort-5" id="markdown-toc-mystisk-julekort-5">Mystisk julekort (5)</a></ul><li><a href="#24-desember-24" id="markdown-toc-24-desember-24">24. desember (24)</a><li><a href="#til-slutt" id="markdown-toc-til-slutt">Til slutt</a></ul><h2 id="introduksjon">Introduksjon</h2><p><hy-img root-margin="512px" src="/assets/img/blog/2020-npst/ad.jpeg" alt="Eksempel på annnonse">  <noscript><img data-ignore src="/assets/img/blog/2020-npst/ad.jpeg" alt="Eksempel på annnonse"/></noscript>  <span slot="loading" class="loading"><span class="icon-cog"></span></span></hy-img> Mot slutten av november i 2019 ble det sluppet en del stillingsannonser og <a href="https://www.vg.no/nyheter/innenriks/i/JowQQb/pst-soeker-snikende-alvebetjent-paa-svalbard">artikler</a> om NPST som utlyser en midlertidig stilling som snikende alvebetjent. Etter å ha gått igjennom en del av stillingsannonsene, Kunne man finne en <a href="https://npst.no/">faktisk link</a> til starten av en veldig gøy CTF arrangert av <a href="https://www.pst.no/">PST</a>. Man kunne nok ha gjettet seg fram til domenet også.<p><hy-img root-margin="512px" src="/assets/img/blog/2020-npst/npst-start.png" alt="Forsiden til NPST julekalender">  <noscript><img data-ignore src="/assets/img/blog/2020-npst/npst-start.png" alt="Forsiden til NPST julekalender"/></noscript>  <span slot="loading" class="loading"><span class="icon-cog"></span></span></hy-img> Her var en liten intro video, en link til en webcruiter annonse, og en link til den faktiske kalenderen. <hy-img root-margin="512px" src="/assets/img/blog/2020-npst/kalender.png" alt="kalender startside">  <noscript><img data-ignore src="/assets/img/blog/2020-npst/kalender.png" alt="kalender startside"/></noscript>  <span slot="loading" class="loading"><span class="icon-cog"></span></span></hy-img> Hver dag kl 00:00 åpnes en ny luke og en ny oppgave. Jeg tenkte til å begynne med å løse oppgavene når de åpnet, men så raskt at jeg ikke hadde nok erfaring, for det var alltid noen som hadde løst oppgavene på betydelig kortere tid enn meg, så jeg sluttet raskt med å løse oppgaver på natten. Jeg var fornøyd hvis jeg fikk løst alle oppgavene.<p>Python koden er kun testet at fungerer, den er ikke ryddet opp i, så den er ikke akkurat optimal. 🤪<br /> La oss hoppe i det!<h2 id="luke-1">Luke 1</h2><h3 id="velkommen-til-npst-10">Velkommen til NPST (10)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>De dagene det blir ytret ønske om din ekspertise, trenger vi at du svarer i NPSTs intranett. 
+Svarene vi ofte er på jakt etter pleier å være på formen PST{noenTilfeldigeBokstaver}. 
+Avvik vil tydelig annonseres. For å kunne legge inn besvarelser der må du opprette en bruker. 
+Pass på å benytte en epost der det er mulig å kontakte deg dersom du ønsker å delta i kåringene ukens ansatt 
+og årets alvebetjent (se praktisk info lenger nede).
+
+Intranettet finner man her: https://intranett.npst.no.
+
+Etter du har laget deg en bruker i intranettet trenger vi også at du logger deg på et 
+litt eldre system du finner her: 
+https://login.npst.no. Vi har ikke helt fått klarhet i hva dette systemet brukes til, 
+men vi tror du skal kunne logge inn med følgende brukernavn og passord:
+
+Brukernavn: bruker
+Passord: Advent2019
+</code></pre></div></div><p>Første oppgave er å lage seg en bruker i CTF løsningen som brukes, deretter får man oppgitt brukernavn og passord til <a href="https://login.npst.no">https://login.npst.no</a>. Dette gir deg flagget.<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>███╗   ██╗██████╗ ███████╗████████╗  
+████╗  ██║██╔══██╗██╔════╝╚══██╔══╝  
+██╔██╗ ██║██████╔╝███████╗   ██║    
+██║╚██╗██║██╔═══╝ ╚════██║   ██║   
+██║ ╚████║██║     ███████║   ██║   
+╚═╝  ╚═══╝╚═╝     ╚══════╝   ╚═╝   
+
+Brukernavn: bruker
+Passord: Advent2019
+
+Velkommen!
+Løsningen på oppgaven er PST{a7966bf58e23583c9a5a4059383ff850}.
+
+Du må endre passordet ditt.
+
+Nytt passord: 
+</code></pre></div></div><blockquote><p>Flagg: PST{a7966bf58e23583c9a5a4059383ff850}</blockquote><h3 id="velg-passord-15">Velg passord (15)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gratulerer!    
+Nå er det på tide å bytte passord på brukeren din. 
+Gjeldende passord policy er kjent for å være litt kranglete, så lykke til!
+</code></pre></div></div><p>Det ser her ut til at det er regler som må følges, etter litt prøving og feiling ser det ut til at regelsettet er:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Passordet må inneholde minst ett tegn fra hver av de følgende gruppene:
+ - [a-z]
+ - [A-Z]
+ - [0-9]
+ - [*@!#%&amp;()^~{}]
+Tegnene i passordet må skrives i stigende ASCII-verdi.
+Summen av ASCII-verdier modulo 128 må være lik 24.
+</code></pre></div></div><p>Et lite python program er en løsning or å finne et nytt gyldig passord, Det første og beste passordet <code class="highlighter-rouge">0@Ag</code> gir oss flagg 2.<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Passordet kunne ikke bli endret på nåværende tidspunkt.
+Prøv igjen på nyåret!
+
+PST{6a0f0731d84afa4082031e3a72354991} &gt; Flagg: PST{6a0f0731d84afa4082031e3a72354991}
+</code></pre></div></div><div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">string</span>
+<span class="n">pw</span> <span class="o">=</span> <span class="s">''</span>
+
+<span class="k">def</span> <span class="nf">checkGroups</span><span class="p">(</span><span class="n">attempt</span><span class="p">):</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">special</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">attempt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">lowercase</span><span class="p">:</span>
+            <span class="n">lower</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">uppercase</span><span class="p">:</span>
+            <span class="n">upper</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">:</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="s">'*@!#</span><span class="si">%</span><span class="s">&amp;()^~{}'</span><span class="p">:</span>
+            <span class="n">special</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">continue</span>
+
+    <span class="k">return</span> <span class="n">lower</span> <span class="ow">and</span> <span class="n">upper</span> <span class="ow">and</span> <span class="n">number</span> <span class="ow">and</span> <span class="n">special</span>
+
+<span class="k">def</span> <span class="nf">checkAscending</span><span class="p">(</span><span class="n">attempt</span><span class="p">):</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">attempt</span><span class="p">:</span>
+        <span class="n">o</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">o</span> <span class="o">&lt;=</span> <span class="n">last</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">o</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">checkModulo</span><span class="p">(</span><span class="n">attempt</span><span class="p">):</span>
+    <span class="c1"># now check the modulo according to the rules.
+</span>    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c2</span> <span class="ow">in</span> <span class="n">attempt</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">sum</span> <span class="o">%</span> <span class="mi">128</span> <span class="o">==</span> <span class="mi">24</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">c2</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">c3</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">c4</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span><span class="p">:</span>
+                <span class="n">pw</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">+</span> <span class="n">c3</span> <span class="o">+</span> <span class="n">c4</span>
+                <span class="n">asc</span> <span class="o">=</span> <span class="n">checkAscending</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">asc</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">modCorrect</span> <span class="o">=</span> <span class="n">checkModulo</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">modCorrect</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">groupCorrect</span> <span class="o">=</span> <span class="n">checkGroups</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">groupCorrect</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span>
+</code></pre></div></div><h3 id="passordgjenoppretting-20">Passordgjenoppretting (20)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>En tidligere ansatt måtte slutte etter å ha endt opp på listen over slemme barn. 
+Dessverre glemte vi å be han kopiere ut filene sine før han sluttet, og vi har følgelig ikke passordet.  
+Dette er det vi har av info:  
+      Brukernavn: admin  
+      ???: 42f82ae6e57626768c5f525f03085decfdc5c6fe  
+Klarer du å logge inn på kontoen?
+</code></pre></div></div><p>Her har vi fått oppgitt en hash, <a href="https://code.google.com/archive/p/hash-identifier/">hash-identifier</a> sier at det sannsynligvis er en <a href="https://en.wikipedia.org/wiki/SHA-1">SHA-1</a>, så her bruker jeg <a href="https://hashcat.net/hashcat/">hashcat</a>. Min mangel på erfaring gjør her at jeg begynner i feil ende og kaster bort mye tid. Jeg prøver å cracke den med <a href="https://en.wikipedia.org/wiki/RockYou">rockyou</a>, alle passordlister i <a href="https://github.com/danielmiessler/SecLists">seclists</a>, alle <a href="https://www.notsosecure.com/one-rule-to-rule-them-all/">rules</a> som ligger default i hashcat på alle på alle foregående passordlister, men får ikke noe resultat. Som et siste desperat forsøk setter jeg på en bruteforce, med en plan om å la den stå over natten. 2 sekunder senere har den funnet passordet. 😒<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hashcat <span class="nt">-m</span> 100 <span class="nt">-a</span> 3 <span class="nt">-1</span> ?a <span class="nb">hash</span> ?1?1?1?1
+</code></pre></div></div><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Velkommen! 
+Systemet er deaktivert grunnet julestri. 
+Frem til nyttår kan du nå filene dine her:
+- løsning.txt
+- notater.jpg Løsning.txt inneholder flagget vi er på jakt etter:
+
+███████╗██╗      █████╗  ██████╗  ██████╗    
+██╔════╝██║     ██╔══██╗██╔════╝ ██╔════╝ ██╗
+█████╗  ██║     ███████║██║  ███╗██║  ███╗╚═╝
+██╔══╝  ██║     ██╔══██║██║   ██║██║   ██║██╗
+██║     ███████╗██║  ██║╚██████╔╝╚██████╔╝╚═╝
+╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝                                                 
+PST{36044221cd3e991ffc56eb2f1e368ca0}
+</code></pre></div></div><p><strong>Flagg: PST{36044221cd3e991ffc56eb2f1e368ca0}</strong><p>notater.jpg er et bilde av en pult med en datamaskin, en kopp, en grøtskål og en gul lapp med informasjon <code class="highlighter-rouge">IV PS ⚙️</code> det skal vise seg at vi får bruk for senere.<h2 id="luke-2">Luke 2</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Oppdatert reiseråd
+
+Det vurderes som høy risiko å medbringe tjenestetelefon til SYDPOLARE strøk. 
+Det er lett for fremmede makters etterretningstjenester å ta seg inn i mobiltelefoner og nettbrett. 
+En alvebetjents telefon kan gi god innsikt i NPSTs virke, og inneholde sensitiv informasjon.
+
+I et utenlandsk mobilnett vil all kommunikasjon til og fra enheten kunne avlyttes, 
+uten at brukeren av mobiltelefonen kan oppdage det. NPST anser det som rimelig temmelig sannsynlig 
+at slik kapasitet er etablert på permanent basis i mobilnettverkene og internett i SYDPOLARE områder. 
+NPST tilbyr sikkerhetsbriefer til alvebetjenter 
+og andre offentlige tjenestepersoner i forkant av reiser til høyrisikoområder.
+
+Barn i områder under SYDPOLAR kontroll bør sende sine ønskelister 
+til Jule Nissen gjennom trygge krypterte kanaler.
+</code></pre></div></div><p>Ingen oppgaver denne dagen.<h2 id="luke-3---ppk-0">Luke 3 - PPK (0)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Elektronisk krypteringsmaskin
+
+NPST har avdekket at den norske overvåkingstjenesten overtok 
+en rekke ENIGMA maskiner etter den tyske okkupasjonsmakten. 
+ENIGMA ble i stort omfang benyttet av de fleste tyske militære styrker til både kryptering og dekryptering 
+av informasjon under andre verdenskrig. Den var enkel å bruke, og antatt å være umulig å knekke. 
+Dette var hovedårsaken til dens utbredelse. 
+ENIGMA ble benyttet av den norske overvåkingstjenesten som en reserveløsning frem til 1960.
+
+Som ledd i skjermingen av ønskelister har NPST vurdert 
+å ta i bruk ENIGMA som erstatning for dagens krypteringsprosedyre. 
+Grunnet manglende EDB-entusiasme i grasrota møter dette stor motstand, 
+da medbragt EDB-utstyr ute i felt er svært lite populært. 
+Det har blitt ytret ønske om å beholde dagens penn-og-papir-kryptering (PPK), 
+men det er uvisst hvor sikkert dette er. Kunne noen forsøkt å knekke følgende PPK-kode:
+
+KNO fmwggkymyioån 30å6ø8432æå54710a9æ09a305å7z9829 fmwggkymyioån ngpoo
+
+Skriv gjerne svaret i intranettet.
+</code></pre></div></div><p>Penn og papir kryptering er høyst sannsynlig en enkel krypteringsmåte, <a href="https://gchq.github.io/CyberChef/">cyberchef</a> er mitt goto tool for exploration. Her viser det seg å være en veldig enkel <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a>: ROT5. Cyberchef har ikke støtte for æøå, men det er raskt å manuelt ta de bokstavene som havner i det området.<br /> <strong>Flagg: PST{30e6d8432ce54710f9c09f305e7b9829}</strong><h2 id="luke-4">Luke 4</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ønskelister på avveie
+Takket være mange tilbakemeldinger har NPST konkludert med at 
+krypteringen brukt på ønskelistene ikke er tilstrekkelig. 
+Alvebetjent Methi viste med sin kløkt at det var mulig å knekke koden på under 10 minutter! 
+Jule NISSEN vil også takke følgende alvebetjenter for rask utførelse (under 60 minutter):
+
+unblvr, fjank, ameneon, Furris, kristaver, TrustedInstaller, bjarneUbetjent, lokling, 
+endrelem, sayco, StianS, Olga, ColdCoffeeCup, vidarli, stiffi, potetsos, jallasprit, 
+57ur14, zup, pask, grobert, Noldus og atletiskj.
+
+Med dette som bakteppe har NPST mistanke om at ønskelistene til 453 barn er på avveie. 
+Det er grunn til å tro at sydpolare hackere står bak.
+NISSEN er på joggreise, men vil ta tak i problemet så snart han har returnert.
+
+Overtidspepperkaker
+Det har den siste tiden vært stor pågang etter normal arbeidstid, spesielt rundt midnatt. 
+Dette har gått hardt utover overtidsbudsjettet. NISSEN vil vurdere tiltak for å redusere disse kostnadene.
+</code></pre></div></div><p>Ingen oppgaver denne dag, men jeg har fått en takk fra Jule NISSEN, og ligger i hovedfeltet! 😂<h2 id="luke-5---i-5">Luke 5 - 🐒i (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Oppdatering på ønskeliste-lekkasje
+
+Ytterligere 72 ønskelister ser ut til å være på avveie.
+NISSEN jobber på spreng for å utvikle en ny uknekkelig PPK.
+
+Kranglete API
+Våre analytikere har gravd litt i et system en tidligere ansatt jobbet med før avskjedigelse. 
+Noen av adventsvikarene er kjent med personen fra tidligere 
+gjennom uthenting av filer og gjenoppretting av passord. 
+Det ser ut til at systemet er skrevet i node.js, 
+men analytikerne våre greier ikke helt skjønne hvordan det fungerer. 
+Det finnes heller ikke noen dokumentasjon. 
+Kunne noen EDB-kompetente alvebetjenter sett nærmere på dette, 
+og rapportert tilbake i intranettet om det ligger noe av interesse der?
+
+https://npst.no/api/🙃.js
+
+Julevurdering
+Med bakgrunn i ønskelistelekasjen er julevurderingen nedgradert. Det er nå MULIG at det blir en GOD JUL.
+</code></pre></div></div><p>Ved å åpne denne url får vi en json tilbake:<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="s2">"[&gt;🍕&lt;, 🍉, 🐴, 🐟, 🚀, 🚩]"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"Bruk /api/🙃.js?commands=🤷 for en 📃 over 👌 ,n🚽er."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div><p>Oversatt til: hjelp for en liste over ok kommandoer. Javel, la oss prøve <code class="highlighter-rouge">/api/🙃.js?commands=🤷 </code>.<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nl">"error"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="s2">"[&gt;🍕&lt;, 🍉, 🐴, 🐟, 🚀, 🚩]"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"Tilgjengelig ,n🚽er: ✨, ⚡, 🔑, 🤷. Eksempel: /api/🙃.js?commands=✨⚡✨"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div><p>Jaha, la oss prøve <code class="highlighter-rouge">/api/🙃.js?commands=✨⚡✨</code> da.<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="s2">"[🍕, &gt;🐟&lt;, 🚩, 🚀, 🍉, 🐴]"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div><p>Så, her kan man forsøke å forstå hvordan dette gøye api’et fungerer, for det er jo et flagg i state verdien, det ser ut til at en av verdiene i state er valgt, så oppgaven er nok å få valgt flagget. Jeg forsøker <em>ikke</em> å forstå dette, jeg lager meg et rudimentært brute force python program. Etter kort tid finner jeg flagget på bl.a. command <code class="highlighter-rouge">⚡⚡⚡⚡✨🔑</code><div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="s2">"[🐟, 🚀, 🍉, 🐴, &gt;🚩&lt;, 🍕]"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"PST{ba323c3f5b3f1b536461d41cc7f1ba60}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div><p><strong>Flagg: PST{ba323c3f5b3f1b536461d41cc7f1ba60}</strong><p>Kode:<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># -*- coding: utf-8 -*-
+</span><span class="kn">import</span> <span class="nn">requests</span><span class="p">,</span> <span class="n">codecs</span><span class="p">,</span> <span class="n">sys</span>
+<span class="n">UTF8Writer</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">getwriter</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">UTF8Writer</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+<span class="n">validChars</span> <span class="o">=</span> <span class="s">u'✨⚡🔑🤷'</span>
+
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">u'https://npst.no/api/🙃.js?commands='</span><span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">u'https://npst.no/api/🙃.js?commands='</span><span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="k">print</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">]</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">u'https://npst.no/api/🙃.js?commands='</span><span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">])</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">print</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">f</span><span class="p">]</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">u'https://npst.no/api/🙃.js?commands='</span><span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">f</span><span class="p">])</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="k">print</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">g</span><span class="p">]</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">u'https://npst.no/api/🙃.js?commands='</span><span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">g</span><span class="p">])</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+                        <span class="k">print</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">g</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">h</span><span class="p">]</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">u'https://npst.no/api/🙃.js?commands='</span><span class="o">+</span> <span class="n">validChars</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">g</span><span class="p">]</span><span class="o">+</span><span class="n">validChars</span><span class="p">[</span><span class="n">h</span><span class="p">])</span>
+                        <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div><h2 id="luke-6---ppkv2-5">Luke 6 - PPKv2 (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ny pr053dyr3 f0r kryp73ring
+
+NI553N h4r få77 på p1455 ny PPK. K4n ni553n3 hj31p3r3 v3rifi53r3 4t k0d3n 3r ukn3kk31ig?
+
+KNO fmw55k8m7i179 z98øyåz8æy67aåy0å6æ7aø1å1438åa5a fmw55k8m7i179 95p11
+</code></pre></div></div><p>Her ser det også ut til at det er en standard Caesar Cipher, og et sterkt hint til at <a href="https://simple.wikipedia.org/wiki/Leet">l33t</a> er brukt i tillegg. Standard rotering gir oss imidlertid bare søppel, men roterer vi små/store bokstaver for seg selv (ROT5) og tall for seg selv, så kommer løsningen av seg selv: <code class="highlighter-rouge">PST krø11p4r3n735 b54daeb4ca23fea6e2c3fd7e7094ef1f krø11p4r3n735 51u77</code> skrevet i l33t. Det var forøvring ikke mulig å løse denne til å begynne med, iom at det faktisk var en feil i hashen som var lagt ut. Alikevel var det noen som hadde løst den, se en fantastisk forklaring på hvordan <a href="https://github.com/myrdyr/ctf-writeups/tree/master/npst">her</a>.<p><strong>Flagg: PST{b54daeb4ca23fea6e2c3fd7e7094ef1f}</strong><p>Kode:<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">destriptio2</span> <span class="o">=</span> <span class="s">'Ny pr053dyr3 f0r kryp73ring</span><span class="se">\
+</span><span class="s">NI553N h4r få77 på p1455 ny PPK. K4n ni553n3 hj31p3r3 v3rifi53r3 4t k0d3n 3r ukn3kk31ig?'</span>
+
+
+<span class="n">description</span> <span class="o">=</span> <span class="s">'Ny pr053dyr3 f0r kryp73ring</span><span class="se">\
+</span><span class="s">NI553N h4r få77 på p1455 ny PPK. K4n ni553n3 hj31p3r3 v3rifi53r3 4t k0d3n 3r ukn3kk31ig?'</span>
+
+<span class="c1"># Seems like a standard rot 5, but the devil is in the details...
+</span><span class="n">codeo</span> <span class="o">=</span> <span class="s">'kno fmw55k8m7i179 z98øyåz8æy67aåy0å6æ7aø1å1038åa5a fmw55k8m7i179 95p11'</span>
+<span class="n">coded</span> <span class="o">=</span> <span class="s">'KNO fmw55k8m7i179 z98øyåz8æy67aåy0å6æ7aø1å1438åa5a fmw55k8m7i179 95p11'</span>
+
+<span class="n">original</span> <span class="o">=</span> <span class="s">'abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'</span>
+<span class="n">rotated</span> <span class="o">=</span> <span class="s">'fghijklmnopqrstuvwxyzæøåabcdeFGHIJKLMNOPQRSTUVWXYZÆØÅABCDE'</span>
+
+<span class="n">leetOriginal</span> <span class="o">=</span>  <span class="s">'0123456789'</span>
+<span class="n">leetTranslat1</span> <span class="o">=</span> <span class="s">'0123456789'</span>
+
+<span class="k">def</span> <span class="nf">rotCharsAndNUmbers</span><span class="p">(</span><span class="n">chars</span><span class="p">):</span>
+    <span class="n">rv</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chars</span><span class="p">):</span>
+        <span class="c1"># skip space
+</span>        <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s">' '</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">+=</span> <span class="n">c</span>
+            <span class="k">continue</span>
+        <span class="c1"># skip numbers
+</span>        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="s">'0123456789'</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="mi">6</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">10</span>
+
+
+            <span class="n">rv</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="c1"># skip unknown
+</span>        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="s">'a'</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="s">'z'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">'æøåÆØÅ'</span> <span class="ow">and</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="s">'A'</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="s">'Z'</span><span class="p">):</span>
+            <span class="n">rv</span> <span class="o">+=</span> <span class="n">c</span>
+            <span class="k">continue</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">rv</span> <span class="o">+=</span> <span class="n">rotated</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">rv</span>
+
+
+<span class="k">def</span> <span class="nf">antiLeet</span><span class="p">(</span><span class="n">chars</span><span class="p">,</span> <span class="n">leetTranslat</span><span class="p">):</span>
+    <span class="n">rv</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chars</span><span class="p">):</span>
+        <span class="c1"># skip space
+</span>        <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s">' '</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">+=</span> <span class="n">c</span>
+            <span class="k">continue</span>
+        <span class="c1"># skip numbers
+</span>        <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">'0123456789'</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">+=</span> <span class="n">c</span>
+            <span class="k">continue</span>
+
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">leetOriginal</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">leetTranslat</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">'0123456789abcdefEAB'</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">+=</span> <span class="n">c</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">+=</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">rv</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">coded</span><span class="p">)</span>
+<span class="n">rot</span> <span class="o">=</span> <span class="n">rotCharsAndNUmbers</span><span class="p">(</span><span class="n">coded</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+
+<span class="n">trans</span> <span class="o">=</span> <span class="n">antiLeet</span><span class="p">(</span><span class="n">rot</span><span class="p">,</span> <span class="n">leetTranslat1</span><span class="p">)</span>
+<span class="c1">#print(trans)
+</span></code></pre></div></div><h2 id="luke-7">Luke 7</h2><h3 id="nissens-verksted-3">Nissens verksted (3)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ukens ansatt
+Jule NISSEN gratulerer unblvr som ukens ansatt, og takker for ekstraordinær innsats. 
+NISSENS sekretariat har tatt kontrakt via elektronisk post.
+
+Korrigering av gårsdagens dagsbrief
+NISSEN vil også takke en dyktig alvebetjent som har gjort NPST oppmerksom på 
+en feil i den krypterte teksten gårsdagens dagsbrief. Denne er nå korrigert.
+
+Begrensinger i intranettet
+Som noen kanskje har fått med seg har vi innskrenket antall svar som kan skrives i intranettet. 
+Etter noen ivrige alvebetjenter hadde lagt inn så mange svar at NISSEN ikke orket å lese alle svarene, 
+så han seg nødt til å sette en begrensning på 1000 svar.
+
+Digitalisering
+Som del av nordpolar digitaliseringsstrategi har NPST i det siste jobbet med å digitalisere NISSENS verksted. 
+Der foregår alt av design og snekring for å lage gaver til snille barn, 
+men vi har misstanke om at vi har mistet et flagg der inne. 
+Kunne noen alvebetjenter tatt en titt og sett om de finner det?
+
+https://verksted.npst.no
+
+Julevurdering
+Det er nå SANNSYNLIG at det blir en GOD JUL.
+</code></pre></div></div><p>På juleverkstedet finner vi en sinnsvak liste av bilder. Etter litt analysering, så kan man se at det er ikke bare forskjellige bilder, det er en liste av ca 2340 bilder. Isteden for å lete etter det ene bildet av et flagg, så skriver jeg et program som henter ut alle bilder det er kun ett av. Nedlasting av bilder gjør jeg enkelt og greit med firefox, “save as”. Når jeg nå har en liste med 3 bilder, er det enkelt. En sko, en pingvin og ett flagg. Flagget er løsningen.<br /> <strong>Flagg: PST{8798e1f0a271b09750a6531686fc621b}</strong><p>Kode:<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># get the filenames
+</span><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="n">hashes</span> <span class="o">=</span> <span class="p">{</span><span class="s">""</span><span class="p">}</span>
+<span class="n">mypath</span> <span class="o">=</span> <span class="s">'.'</span>
+<span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">mypath</span><span class="p">)</span> <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="p">{</span><span class="s">''</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filenames</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="s">"/"</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">hexdigest</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">hexdigest</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">hexdigest</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">hexdigest</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">hexdigest</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">counts</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</code></pre></div></div><h3 id="bedriftsspionasje-2">Bedriftsspionasje (2)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Våre analytikere mistenker at det også kan foregå spionasje mot Nissens verksted. 
+Kan du ta en ny titt og se om du finner noe muffens?
+</code></pre></div></div><p>Tjah, kan jo være den teite pingvinen? Pingviner hører jo ikke til på Nordpolen. Jupp, det var det.<br /> <strong>Flagg: PST{b30b4add25b97721ebf0e7ad2eb26eb9}</strong><h2 id="luke-8">Luke 8</h2><h3 id="8-desember-10">8. desember (10)</h3><p><hy-img root-margin="512px" src="/assets/img/blog/2020-npst/8-strava.png" alt="strava.png">  <noscript><img data-ignore src="/assets/img/blog/2020-npst/8-strava.png" alt="strava.png"/></noscript>  <span slot="loading" class="loading"><span class="icon-cog"></span></span></hy-img><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Lokalisering av isbjørn
+
+Den 4. desember dro Jule NISSEN og Rudolf RØDNESE på joggetur til postkontoret 
+for å hente juleønsker fra snille barn. 
+Etter en noe turbulent sledetur iførte de seg NPSTs nye treningsklær og jogget fra sledeplassen til postkontoret. 
+På turen tok Rudolf RØDNESE en liten omvei, hvor han observerte en mistenkelig isbjørn. 
+Uheldigvis greier ikke Rudolf RØDNISSE å huske hvor han befant seg da han observerte isbjørnen.
+
+Kan en alvebetjent se nærmere på dette, og rapportere tilbake lokasjonen til isbjørnen i intranettet?
+
+Rudolf RØDNESE vil helst ha lokasjonen til isbjørnen (så nøyaktig som mulig) 
+i uppercase, inklusive mellomrom, omgitt av PST{ og }.
+
+Eksempel: Julenissens verksted → PST{JULENISSENS VERKSTED}.
+</code></pre></div></div><p>Etter en liten bomtur innom <a href="https://en.wikipedia.org/wiki/Steganography">steganografi</a> på bildet, så er det på tide å ta en titt på <a href="https://www.strava.com/">strava</a> siden det ser ut til at julenissen bruker strava. Joda, både Rudolf Rødnese og Jule Nissen er på Strava, og de logger turene sine public. på den 4 desember ser det et til at rudolf faktisk tok en omvei via North Pole Expedition Museum (Google Maps). Det er faktisk en isbjørn foran der…<br /> <strong>Flagg: PST{NORTH POLE EXPEDITION MUSEUM}</strong><h3 id="spionaktivitet-15">Spionaktivitet (15)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Det har kommet tips om mulig spionaktivitet utført av sørpolare agenter på 
+Svalbard i tidsrommet Nissen og Rudolf var på løpetur.
+Kan du identifisere en agent?
+</code></pre></div></div><p>Ved å bruke strava flyby, så kan vi se enda en teit pingvin (Pen Gwyn), som var ute på tur, fulgte etter Rudolf og Nissen hele tiden. På hans profil finner vi flagget.<br /> <strong>PST{69d26031ea5dbbeb56f22d9647f7c98e}</strong><h3 id="mystiske-profiler-20">Mystiske profiler (20)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Våre analytikere mistenker at Pen Gwyn har rapportert hjem til sine kontakter på sydpolen.
+Klarer du å dekode noe av kommunikasjonen?
+</code></pre></div></div><p>Her ble det et aldri så lite helvete på natten. Det bildet vi skulle ha fått for analyse, det hadde blitt fjernet, og noen begynte å trolle ved å lage enda flere falske stravaprofiler med fiktive flagg og fiktive gåter. Å avholde konkurranser i et ikke-kontrollert miljø (f.eks. Strava) er gøy, men har potensiale til å bli en aldri så liten katastrofe for deltakerene. Når jeg endelig fikk det korrekte bildet var det en annen sak. Alt jeg har tilgjengelig av <a href="https://github.com/DominicBreuker/stego-toolkit">stego-tools</a> ga meg nada. Bakgrunnen i dette bildet har streker i forskjellig tykkelse. Med litt analyse kan man se at det er <a href="https://en.wikipedia.org/wiki/Morse_code">morsekode</a>, en manuell dekoding av morse gir oss siste flagg.<br /> <strong>PST{e06531d19ff020a479520ef28c8d12c}</strong><p>Profil bildet til Pen Gwyn inneholder også en gul lapp med informasjon <code class="highlighter-rouge">VII TF ⚙️</code>.<h2 id="luke-9">Luke 9</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ønskelistelekkasje
+NPST har funnet ut at ønskelistene befant seg på en minnepinne som en alvebetjent 
+hadde glemt igjen i Jule NISSENS reinsdyrslede. 
+Alveteknikere har overført filene på minnepinnen, og ønskelistene er nå forsvarlig oppbevart. 
+Alvebetjenten har blitt irettesatt for å ha oppbevart sensitiv informasjon på minnepenn.
+
+Fotoarkiv
+Takket være noen dyktige alvebetjenter ble det den 8. desember avdekket mystisk aktivitet fra en sydpolar agent. 
+Et bilde lastet opp av agenten har blitt sikret, og er nå tilgjengelig i NPSTs arkiv. 
+Det ryktes at dette kan komme til nytte når man forsøker å løse siste oppgave i gårsdagens luke.
+</code></pre></div></div><p>Ingen oppgaver, men de har lagt ut det manglende bildet Luke 8. 😒<h2 id="luke-10---vige-vs-nere-5">Luke 10 - Vige vs. Nere (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sjakkmesterskap
+
+For tiden arrangeres polarmesterskap i sjakk på Nordpolen. 
+Flere av NPSTs ansatte bruker store deler av arbeidsdagen på å følge med på mesterskapet. 
+Da mange sitter i graderte nett uten mulighet til å strømme sjakk, 
+har NISSEN valgt å legge ved det siste partiet mellom to sørpolare spillere, Vige og Nere:
+PGN:
+
+1. a3 e6 2. b3 Ke7 3. Ra2 d5 4. h3 h6 5. f4 Qd6 6. Nc3 Qa6 7. Nf3 g5 8. Nb1 b5 9. d4 Qa5+ 10. Bd2 Kd6 11. g4 Bg7 
+12. Bc3 f5 13. Nh2 Ba6 14. Qd2 Bc8 15. Qc1 Qb6 16. Ba1 b4 17. Nd2 Ke7 18. Ndf3 Nd7 19. axb4 Ngf6 20. gxf5 Ne5 
+21. Ng4 c5 22. Nh4 Qd6 23. Nf2 Ng8 24. Bg2 a5 25. Ra4 Qd8 26. Be4 Qe8 27. Ra3 Kf7 28. b5 Qe7 29. O-O exf5 
+30. Nxf5 Ba6 31. Ng3 Qf6 32. Nd1 Ra7 33. Kg2 Nc4 34. bxa6 Qb6 35. Nb2 Nxa3 36. Nh5 Qxb3 37. Nxg7 Nb5 38. Nd1 Qe3 
+39. Rh1 Qa3 40. Re1 Rc7 41. Ne8 Kxe8 42. Qb1 Rhh7 43. dxc5 Rce7 44. Rg1 Re5 45. fxg5 Nf6 46. gxh6 Kf8 47. a7 Ng4 
+48. Kh1 Nc7 49. Bxd5 Qb4 50. Kg2 Qa3 51. c6 Qc5 52. Qb8+ Re8 53. Be5 Ne6 54. Nc3 Rf7 55. Qxe8+ Kxe8 56. Bf4 Rf6 
+57. Bg3 Kf7 58. Be1 1-0
+
+Kommentarer til partiet kan legges inn i intranettet.
+</code></pre></div></div><p>Hm, første jeg tenker på er stegano og sjakk. Litt søk rundt omkring gir meg et lovende resultat: <a href="https://incoherency.co.uk/chess-steg/">Chess steganography</a> men alle mine bokstaver er “jumbled around”. <code class="highlighter-rouge">HHL DJDWEDESKWCLXK u02s104y2s665t5v3w2619v6184su50t CGGXDAHTJTFMWH KEMIL</code> Heldigvis får jeg et kraftig hint av Roy Solberg før jeg graver meg for dypt ned i kaninhullet og begynner å analysere biblioteket for å finne ut om de har modifisert det.<p>Sjakkspillerene heter Vige og Nere. Vigenere encryption, selvfølgelig. Siden vi vet teksten over skal være <code class="highlighter-rouge">PST KRØLLPARANTES</code> kan vi begynne med å putte inn PST i cyberchefs vigenere decoder. Kjører man viegnere decoding med resultatet, får man nøkkelen. De tre første bokstavene er <code class="highlighter-rouge">SPS</code>, educated guess gir oss nøkkelen <code class="highlighter-rouge">SPST</code> (kan også bruteforce hvis man vil).<br /> <a href="https://gchq.github.io/CyberChef/#recipe=Vigen%C3%A8re_Decode('SPST')&amp;input=SEhMIERKRFdFREVTS1dDTFhLIHUwMnMxMDR5MnM2NjV0NXYzdzI2MTl2NjE4NHN1NTB0IENHR1hEQUhUSlRGTVdIIEtFTUlM">Her er Cyberchef linken til løsningen</a>.<br /> <strong>Flagg: PST{f02a104f2a665e5d3d2619d6184dc50a}</strong><h2 id="luke-11---1337-5">Luke 11 - 1337 (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Primære faktorer
+En av NPSTs primære oppgaver er å overvåke kommunikasjonen mellom personer 
+mistenkt for å utøve spionasje for sørpolarske aktører. 
+En alvebetjent har snappet opp en melding tiltenkt en spion. Grunnet flere faktorer trenger vi hjelp 
+med å finne ut av hva denne meldingen inneholder. Kan en alvebetjent se over meldingen og finne noen spor?
+
+Forsøk på smøring av alvebetjenter
+En betrodd alvebetjent har mottatt et parti med julebrus. Julebrusen var plassert utenfor NISSENS verksted 
+og adressert alvebetjenten. Det var ingen eksplisitte tegn til avsender, men mistanken er rettet mot Sydpolen 
+pga en sor pingvinfjær som ble funnnet i nærheten av partiet. I tråd med regelverk om smøring fra fremmed makt 
+har alvebetjent informert sin nærmeste leder Jule NISSEN og partiet med julebrus har blitt destruert. 
+Vi oppfordrer andre alvebetjenter til også å rapportere forsøk 
+der de mistenker fremmede makter forsøker å påvirke dem.
+</code></pre></div></div><p>Meldingen er en rekke av 0 og 1. En binærrekke tydeligvis. En god del forsøk på å dekode den til ASCII eller binærformat, morse osv gir ingen resultater. Men det finnes et mønster! Dette hintes til av oppgavens navn: <code class="highlighter-rouge">1337</code>. Hvis man lagrer meldingen i en tekstfil og åpner opp denne i en editor, gjør bredden mindre og større, så vil man se et mønster tre fram. Eller du kan skrive et lite python program for å finne riktig linebreak.<p><strong>Flagg: PST{LINEBREAK_IT_TILL_YOU_MAKE_IT!}</strong><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ███   ██  █████    █  █     ███ █   █ █████ ████  ████  █████   █   █   █       █ █████       █████ █ █     █           █   █  ███  █   █       █   █   █   █   █ █████       █ █████ █  █    
+ █  █ █  █   █     █   █      █  ██  █ █     █   █ █   █ █      █ █  █  █        █   █           █   █ █     █           █   █ █   █ █   █       ██ ██  █ █  █  █  █           █   █   █   █   
+ █  █ █      █     █   █      █  █ █ █ █     █   █ █   █ █     █   █ █ █         █   █           █   █ █     █            █ █  █   █ █   █       █ █ █ █   █ █ █   █           █   █   █   █   
+ ███   ██    █    █    █      █  █ █ █ ████  ████  ████  ████  █   █ ██          █   █           █   █ █     █             █   █   █ █   █       █   █ █   █ ██    ████        █   █   █    █  
+ █       █   █     █   █      █  █  ██ █     █   █ █ █   █     █████ █ █         █   █           █   █ █     █             █   █   █ █   █       █   █ █████ █ █   █           █   █   █   █   
+ █    █  █   █     █   █      █  █   █ █     █   █ █  █  █     █   █ █  █        █   █           █   █ █     █             █   █   █ █   █       █   █ █   █ █  █  █           █   █       █   
+ █     ██    █      █  █████ ███ █   █ █████ ████  █   █ █████ █   █ █   █ █████ █   █   █████   █   █ █████ █████ █████   █    ███   ███  █████ █   █ █   █ █   █ █████ █████ █   █   █  █    
+</code></pre></div></div><p>Kode:<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">binStr</span> <span class="o">=</span> <span class="s">'0111000110011111000010010000011101000101111101111001111001111100010001000100000001011111000000011111010100000⏎</span><span class="err">
+</span><span class="s">         10000000000010001001110010001000000010001000100010001011111000000010111110100100000100101001000100000100010000⏎</span><span class="err">
+</span><span class="s">         00100110010100000100010100010100000010100100100000000100010000000000010001010000010000000000010001010001010001⏎</span><span class="err">
+</span><span class="s">         00000001101100101001001001000000000001000100010001000010010100000010000010001000000100101010100000100010100010⏎</span><span class="err">
+</span><span class="s">         10000010001010100000000010001000000000001000101000001000000000000101001000101000100000001010101000101010001000⏎</span><span class="err">
+</span><span class="s">         00000000100010001000100001110001100001000010000100000010010101011110011110011110011110010001011000000000010001⏎</span><span class="err">
+</span><span class="s">         00000000000100010100000100000000000001000100010100010000000100010100010110000111100000000100010001000010001000⏎</span><span class="err">
+</span><span class="s">         00001000100000100010000001001001101000001000101010001000001111101010000000001000100000000000100010100000100000⏎</span><span class="err">
+</span><span class="s">         00000000100010001010001000000010001011111010100010000000000010001000100010000100001001000100000100010000001001⏎</span><span class="err">
+</span><span class="s">         00010100000100010100100100000100010100100000000100010000000000010001010000010000000000000100010001010001000000⏎</span><span class="err">
+</span><span class="s">         01000101000101001001000000000001000100000001000010000011000010000001001111101110100010111110111100100010111110⏎</span><span class="err">
+</span><span class="s">         10001010001011111010001000111110001000101111101111101111100010000111000111001111101000101000101000101111101111⏎</span><span class="err">
+</span><span class="s">         101000100010010000'</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">binStr</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">binStr</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">191</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">191</span><span class="o">+</span><span class="mi">191</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ch</span><span class="o">==</span><span class="s">'0'</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'█'</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div><h2 id="luke-12---arbitrær-kode-5">Luke 12 - Arbitrær kode (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Evaluering av trusler
+NPST har oppdaget et endepunkt som er tilgjengelig på SPST sin offentlige nettside. 
+Det vites på dette tidspunktet ikke om dette endepunktet er tilgjengelig ved en feiltagelse, 
+eller om det er meningen at dette skal brukes av deres agenter. 
+En av NPSTs teknikere har påpekt at det ser ut til å være mulig å kjøre arbitrær kode via endepunktet. 
+Det er ønskelig at en alvebetjent undersøker dette endepunktet og rapporterer eventuelle flagg via intranettet.
+
+Url: https://api.spst.no/eval?eval=`&lt;pre&gt;${getFlag()}&lt;/pre&gt;`
+
+Jule NISSEN er blitt syk
+Jule NISSEN er utilgjengelig de neste dagene grunnet sykdom. 
+Det mistenkes at sykdommen er influensa ettersom Jule NISSEN har sprøyteskrekk 
+og ikke tok vaksinen sammen med resten av NPST. 
+Ledelsen anbefaler alle alvebetjenter å praktisere god hygiene og benytte seg av antibak for å unngå videre smitte.
+
+Julevurdering
+Med bakgrunn i Jule NISSENS sykdom blir julevurderingen nedgradert. Det er nå mulig at det blir en GOD JUL.
+</code></pre></div></div><p>Her får vi oppgitt en url, med to enorme hint om at her er det mulig å kjøre kode, og <code class="highlighter-rouge">eval=''</code>. Vi kan anta at det faktisk er en eval funksjon som kjøres, og node.js, et populært server-side språk har en slik funksjon. <a href="https://portswigger.net/burp">Burpsuite</a> er vår venn her, den gir oss full kontroll over hva som sendes til server, uten at browseren krøller med hva vi prøver å sende. Ved å hente kildekoden til getFlag ser vi en kommentar om en encrypt funksjon. Denne funksjonen henter et passord for en dato, et salt Natriumhydrogensulfat (<code class="MathJax_Preview">NaHSO_4</code><script type="math/tex">NaHSO_4</script>) og en tredje funksjon, decrypt. Så, ved å se på passord funksjonen, ser vi at den kaller getSecretPasswordNumber med et tall som ser ut til å følge en <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci følge</a>. Aller sist ser det ut til at den siste datoen de har brukt er 2019-12-11.<p>Vi har nå alt vi trenger for å finne flagget. Vi kaller getSecretPasswordNumber med tallet 34, slik at vi får <code class="highlighter-rouge">password = passord-61</code> Så kaller vi decrypt med passordet, saltet og det krypterte flagget. Voila!<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.spst.no//eval?eval=`&lt;pre&gt;${decrypt('passord-61','NaHSO4',getFlag())}&lt;/pre&gt;`
+</code></pre></div></div><p><strong>Flagg: PST{24e592de8b20fe09938916d79b08854e}</strong><p>Kode:<pre><code class="language-nodejs">function getFlag() {
+  // Det er sikkert smartere å kryptere flagget først, og bare skrive inn det
+  // krypterte resultatet her, enn å kryptere på serveren hver gang.
+  // 11.12.19: Kryptert flagget nå. Vi kan sikkert slette encrypt-funksjonen?
+  return "e5a8aadb885cd0db6c98140745daa3acf2d06edc17b08f1aff6daaca93017db9dc8d7ce7579214a92ca103129d0efcdd";
+}
+function encrypt(input) {
+  // Bruk `decrypt` for å dekryptere
+
+  const algorithm = "aes-192-cbc";
+  // 06.12.19: husk å oppdatere denne hver dag!!!
+  // 09.12.19: dette var sykt slitsomt. kan vi finne en bedre løsning?
+  // 11.12.19: Krypteres permanent med dagens passord nå.
+  // Denne funksjonen trengs vel ikke lenger?
+  const password = getPassword("10.12.19");
+
+  // 09.12.19: pepper er ikke et salt. Når vi på sikt krypterer utenfor serveren
+  // burde vi oppdatere dette til noe mer vitenskapelig korrekt.
+  // Natriumhydrogensulfat?
+  // 11.12.19: Oppdatert med den kjemiske formelen ;)
+  const key = crypto.scryptSync(password, formatSalt("pepper"), 24);
+
+  const iv = Buffer.alloc(16, 0);
+  const cipher = crypto.createCipheriv(algorithm, key, iv);
+  
+  let encrypted = cipher.update(input, "utf8", "hex");
+  encrypted += cipher.final("hex");
+
+  return encrypted;
+}
+function getPassword(date) {
+  const passwords = {
+    "06.12.19": "passord-" + getSecretPasswordNumber(3),
+    "07.12.19": "passord-" + getSecretPasswordNumber(5),
+    "08.12.19": "passord-" + getSecretPasswordNumber(8),
+    "09.12.19": "passord-" + getSecretPasswordNumber(13),
+    "10.12.19": "passord-" + getSecretPasswordNumber(21)
+  };
+  // 06.12.19: vi har ikke flere passord etter 10. Burde vurdere alternative
+  // løsninger.
+  return passwords[date] || `fant ikke passord for ${date}`;
+}
+function decrypt(password, salt, input) {
+  const algorithm = "aes-192-cbc";
+  
+  const key = crypto.scryptSync(password, formatSalt(salt), 24);
+  
+  const iv = Buffer.alloc(16, 0);
+  const decipher = crypto.createDecipheriv(algorithm, key, iv);
+  
+  let decrypted = decipher.update(input, 'hex','utf8');
+  decrypted += decipher.final('utf8');
+  
+  return decrypted;
+}
+function getSecretPasswordNumber(n) {
+  return Math.PI.toFixed(48).toString().split(".")[1].slice(n, n+2);
+}
+</code></pre><h2 id="luke-13---token-effort-5">Luke 13 - Token effort (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nøkkel på avveie
+NPST sin driftsansvarlig er dessverre sykemeldt, og jobben hans er midlertidig overtatt av en alv 
+ved pakkeavdelingen til NISSENS verksted. Pakkealven har lagt merke til noe muffens som foregår på Jule NISSENS 
+liste over snille og slemme barn. Pakkealven, som ikke er veldig teknisk anlagt, 
+har behov for hjelp til å finne ut av hvem som snoker i sakene. Han har ikke så mange spor å gi, 
+men han har pakket ned bevismaterialet godt for å unngå bevisforspillelse.
+
+Alvebetjenten som overbrakte informasjonspakken til Jule NISSEN har dessverre glemt passordet som ble benyttet. 
+Hans små grå begynner dessverre å gå ut på dato, men han mente at passordet var nevnt som en av teknologiene 
+i annonsen fra vår samarbeidende tjeneste, PST.
+
+FILER:
+https://kalender.npst.no/logger.7z.001
+https://kalender.npst.no/logger.7z.002
+https://kalender.npst.no/logger.7z.003
+https://kalender.npst.no/logger.7z.004
+
+Kan en alvebetjent finne ut av hvilken API-nøkkel som er kompromittert, og legge det inn i intranettet på 
+formen PST{&lt;den-kompromitterte-nøkkelen&gt;}?
+
+Unngå lekkasje
+NISSEN vil også oppfordre alle ansatte til å beskytte informasjon bedre ved bruk av kryptering. 
+Sørg også for å bruke gode passord.
+</code></pre></div></div><blockquote><p>PS min kode for denne oppgave er på en annen maskin, derfor har jeg ikke inkludert koden jeg faktisk brukte på denne.</blockquote><p>Aller først må vi finne nøkkelen for å dekryptere <a href="https://www.7-zip.org/">7zip</a> arkivet. Her hintes det til en teknologi som er nevnt i en finn annonse for PST. For å gjøre det enkelt for meg bruker jeg <a href="https://github.com/digininja/CeWL/">cewl</a> for å lage en ordliste basert på finn annonsen. Så bruker jeg <a href="https://gist.github.com/bcoles/421cc413d07cd9ba7855">7zip-JTR Decrypt Script</a>, og finner passordet <code class="highlighter-rouge">Graylog</code>. (Of course, misset hintet “små grå”). Arkivet inneholder enda en zip fil, som er enda en zip-fil osv. Uten et hint fra Roy Solberg om å passe på å få pakket ut absolutt alle loggfiler, hadde jeg nok ikke løst denne (jeg manglet den viktigste). Ved slike oppgaver så er det IKKE lurt å gjøre dette manuelt. Så når jeg til slutt får laget meg et lite bash script som rekursivt pakker ut alt som pakkes ut kan, ender vi opp med fem loggfiler. Analysering av tokens viser at det er 1000 unike tokens som brukes. Det er ikke noe mønster på user agents, ei heller noe access-pattern mønster, IP adressene er interne, så man kan ikke se om en av de kommer fra sydpolen f.eks. ved å hente ut alle tokens for en dag, og lagre de i en liste, og så kjøre EXCEPT/minus for alle dager i alle kombinasjoner, så kan man se at det er en dag som peker seg ut med at det er et extra token den dagen. Dette viste seg å være Pen Gwyn (pingvinjævel) igjen.<br /> <strong>Flagg: PST{67e49727affdee991ec58180ee657b28}</strong><h2 id="luke-14---lekket-data-5">Luke 14 - Lekket data (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ukens ansatt
+Jule NISSEN gratulerer joey som ukens ansatt, og takker for at han har skapt et fantastisk arbeidsmiljø 
+tross den korte tiden han har jobbet med oss. NISSENS sekretariat vil ta kontakt via elektronisk post førstkommende virkedag. 
+NISSEN håper gårsdagens prøvelser gikk bra.
+
+Lekkasje fra SPST
+NPST har gjennom en temmelig hemmelig kilde fått tilsendt et dokument som stammer fra SPST sitt interne nettverk. 
+Kilden sier at filen kommer fra en harddisk som ikke ble makulert da datamaskinen ble kastet. 
+Harddisken var markert med U+2295/U+22BB. Utover dette har vi ingen andre spor om krypteringen som er brukt. 
+Kan en alvebetjent se om det finnes noen mulighet for å hente ut dataen her?
+
+Det krypterte dokumentet følger etter en viktig beskjed om julebordet!
+
+Julebord
+
+Det nærmer seg julebord for våre alvebetjenter! Det blir konkurranse i hammerkasting 
+og lengste hammerdistanse vil vinne en premie! Juleskinke vil også bli servert etter en forrett av julegrøt. 
+Mandel er så klart inkludert!
+
+Melding GSU/MWR0QXpUW1p7TGZvITUXJgQaHiUbCRdONxcgEQwAahgDEU4LIgcxYyclGEwODysBPw8MVCcUAgILZRoxF0kdaiY8NjplGjUXSRKvARh⏎
+FAyAWdBYME2oGiUUGJAB0NjknHlUKChwgBjURHVQlBQkXDzYYOwsMBmoFiUUgKgAwFQYYKwcfDgtlBjEXGx0+Gh4MGyhSPUUNESRVHwwdMRd0EQAQLx⏎
+tCRTsrFjEXSRKyGQsAHGUXOkUGBDoGGQgDIAA9Cw5UKwNMAQc2ATFFBgQvBw0WBCocMQsMWkA5CQELNxc6RQgCajs8NjppUh4QBRFqOwUWHSAceEUBE⏎
+TgQGBELN1I7CB0VJgFMFgEoUh8pKCEZVQQEHGUEshcdVCUXBgAFMVIyChtULBkJFwtlEyJFDR05BglFATUXJgQaHiUbCQsLa3heSEkgIwcfAQ8iUmRW⏎
+R0V4W11cTi4eNRcdEWoDiRcLZRYtDh0dLRBMDQ8mGTEXDFSvVQgABTcLJBEMBi9VlAsdLhc4DBoALwdMFgEoUiIEG1Q5EAIBGmUGPQlJPwY0OTZAZSQ⏎
+9RQMbKBcJF04jHSYRGhU+AUwNDzcWIEUEES5ViUUPKxM4HBoROBBMDAArGjsJDRE+VQVFCiwBJwBJjCQGBwACLAEgAAcRZH9BRSErATAEDlR6QUJUXG⏎
+tDbUUPGzgQGAoFZRc6RQgTLxsYRQsxUiIABRgzHgcAGmUBJAQHHSQSHwoeNRYmBA5UJxoYRSUJMwE2RVQmEAgAHCAcdAQfVAQlPzFAZTkYJDwnagMNF⏎
+04wBjFFGZFqHwMCCSAGIRdJACMZTBUBNgY/CgcAJQcJEU4oFzBFDBpqFBpFBiQcJ0UbESMbHwEXN1x0IB0ALwdMBAIxUrFFDYwnGAlFHaBSNgAHDT4B⏎
+CRZONR0nEQIbJAEDFwsxUjIKG1SvVR8AACEXdJ0HByEQAAwdMRcmRQ8GK1VOFgAsHjgAS1QoFB4LQGU2MRFJAiMHBwAcZQE7CEkbJ1UiNT0RUj0OAhF⏎
+qHQ0XTisdMQtJFSQQABYLZR05RQgAahEJERogUjIKGxEtkB5FHqBSMAAbETlVGAAcNxsgChsdL1tmSE4DADEBCBNqRVpLX3dcZVxJB69VHw4HIwYxEU⏎
+k6GiY4RRosHnQAB1QkDEwOHDwCIAAbHSQSHwQCIh0mDB0ZL1UfCgNlFT4KGxAvVQ0RTjMbdAwCHy9VAAAAIhcmRQ+ROFUYDAIiEzoCSQAjGUwMACsaO⏎
+wkNET5VBUWWKwE/AAUdOQEJCwtrUgKAGxFqHQ0GBSAAMUUDGygXCRdONZd0FhkGLxsLRQgqAHSASRIjGwIATiAcdBMMHWoHGQsKMVIwAAcaL1UCHAtl⏎
+GSYcGQAvBwULCSAcem9EVAaNHgEPIlJkUkdFeFtdXE4sHDIMBQA4EB4RC2UXOkUIEy8bGEUlCTMBNkkHIwEYRRggAD8WHREuVQMCTjcdIAAdVCwaHkW⏎
+LZQE1BwYALwcJRQQwHjEDBgYoEB4ACiAeJwAHEWZVAQAAZQQxFwIHPhAIABplBDUXSRUmGQkXCyEXdBMMGC4cC0UcKgYxEQxaajMDFwagAjELHRgjEh⏎
+oMHWUUOxcaHSQeCRdOIRcgEQxULBoeBws3FzAABQcvGwlFACoZdBEAGGoUGEUMIBQ7CQIaIxsLAABlEDgMG1Q/BgUOBSAAdBWMVCUYTAELMVI2CQAGa⏎
+hACRQkqFnQPHBhkf0FFOiwAJwEIE2pEXEtfd1xlXEkYLwMJFxogUjELSRUtEAIRTiAGdBUIBj4cTA8bKRc2FxwHagEFCU4gHHQVBgAvGx8MCykedA4A⏎
+GC4QTAxOCyIHMUdUDhAYEQtlEDgASRMgGh4RTiAGIAAbVCsBTBOLN1IgDA0YIxIJFwtlGT0JDRFqBYlFByscJwwNESRVCgwFLlInFQgGIRACRQsxBjE⏎
+XSRU+VQQEAGUQOABJGzoFCAQJIAZ6RT8dahAeRRs2Gz8XDFQ6kEwKA2UBOZ0bHSQSHwMBNwGsDgwAah0NF04jBzoCDAY+VQkRGiAAJwoEVCsZGgAAZQ⏎
+ExF0kBPlUYDAJll3QNCFQnEAABGmUWMREdEWocAhELNxwgS2NZaiEDFx0hEzNFWEZkRF5LX3xSJwsIBDoQGEUYLFI7FRlULxtMCAspFj0LDlQlGEwEG⏎
+mU5GCQ8J2odDRdOJx49ER1UOQwHS04DHSYNjAQvGxgJByIEPRZJAiMZTAELMQYxRQsRPgxMBBplBDEXAgc+EAgAGmUGPQlJPwY0OTZOLRMiCwwGahAC⏎
+AQ9lHjELDgYvVQ4EBWUCsUUPGzgXCRcLIRc4FgwaL1UfDAAgUiAMBVQgAABLZE94EAQdFSsbCxcLNVI5Ch1UGSU/MWQWBjsXDRU+FAEEHS4bOgAHVDy⏎
+QHkUGJAB0BwUdPgFMEBo2EyARSRIlB0wAGmUWNREIFSQSHgAeZRt0CwgAPlUfCgNlATEXSQE+VRgMAmWXdBYdFScYCUUINxN0AAdULQcZFR4gUjIXAA⏎
+IjGQAMCSBSJwoEVCAaDgcLN1IyChtUBCU/MUBlJD1FCxE4VQ0JAiBSNQsaFT4BCUUbKxwzgEmRahcJCxcxBjFFGhEtVQ0TTjEYMQsMBz4QAgBOIwA1R⏎
+RoAJQcIBBokHzUWAh0kEAJFCDcXOUUdHSZVDQEDLBw9Fh0GKwYGCgA2BjEEBBE+VQQEHGUUsREdVDkcBxcLMVI4nRoaIxsLAABreF5vPB8vGx9FDysB⏎
+NREdfhoQAkUpMgs6RQ8bOFUZEQMgAD8AHVQ/GwgAHCYdIgAbVCsHDgAHIVI5Ch1UBCU/MUBPeF4xCB8hVRgMAmUTOAkMVCwaHkUbMR8xFwIRPlUNFww⏎
+gGzBFDREkVR8MHTEXdBEAEC8bQm89LxcyRTokGSFARSUgGycAGwQjGwsTBysXOm9jOghPZi4PKwY9CwwaagMFCU4zlCYASQc+EAICGmUWMUUHETkBCU⏎
+UaKlIwBA4RJBBMABoxFyZFAhgrEgkXTjWXdAGMBiYcC0UFMxM4DB0RPlUcgE4jGycODBpkVToMTikXIAAbVC8BGAAcZRc6RQcNahkJEws3EzoBkQZqB⏎
+gMITi4TOkUFETwQHgBOJxcwFwxUOJAaBBwgAHpvOSceDg1WV3dLYlVdRntMXVZfc0dlXF5MfkAKVlonFGEBWBVyCA==
+</code></pre></div></div><p>Ah, denne oppgaven er gøy. Noe er kryptert, og vi har fått et hint <code class="highlighter-rouge">U+2295/U+22BB</code>. Disse er unicode karakterer ⊕/⊻, som er symboler brukt for <a href="https://en.wikipedia.org/wiki/Exclusive_or">XOR</a>. Så det er høyst sannsynlig en XOR encryption som er brukt med en nøkkel av noe slag. Jeg husker ikke helt hvordan jeg faktisk kom fram til løsningen her, jeg jobbet en del med bruteforcing og søk etter korrekt lengde på nøkkel. Uansett, <a href="https://github.com/hellman/xortool">xortool</a> er ganske fantastisk for å knekke xor encryption. Aller først må vi hente ut de faktiske bytes (strengen er base 64 encoded). Lagre strengen som en tekstfil <code class="highlighter-rouge">melding.b64</code>, deretter converter til bytes i bash. Ser ut til at vi har fått en delvis match, teksten var ikke helt korrekt. enkelt å gjette seg fram til den korrekte nøkkelen <code class="highlighter-rouge">JulenErTeit</code>, og vi finner flagget. <a href="https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9%2B/%3D',false)XOR(%7B'option':'UTF8','string':'JulenErTeit'%7D,'Standard',false)&amp;input=R1NVL01XUjBRWHBVVzFwN1RHWnZJVFVYSmdRYUhpVWJDUmRPTnhjZ0VRd0FhaGdERVU0TElnY3hZeWNsR0V3T0R5c0JQdzhNVkNjVUFnSUxaUm94RjBrZGFpWThOanBsR2pVWFNSS3ZBUmhGQXlBV2RCWU1FMm9HaVVVR0pBQjBOamtuSGxVS0Nod2dCalVSSFZRbEJRa1hEellZT3dzTUJtb0ZpVVVnS2dBd0ZRWVlLd2NmRGd0bEJqRVhHeDArR2g0TUd5aFNQVVVORVNSVkh3d2RNUmQwRVFBUUx4dENSVHNyRmpFWFNSS3lHUXNBSEdVWE9rVUdCRG9HR1FnRElBQTlDdzVVS3dOTUFRYzJBVEZGQmdRdkJ3MFdCQ29jTVFzTVdrQTVDUUVMTnhjNlJRZ0NhanM4TmpwcFVoNFFCUkZxT3dVV0hTQWNlRVVCRVRnUUdCRUxOMUk3Q0IwVkpnRk1GZ0VvVWg4cEtDRVpWUVFFSEdVRXNoY2RWQ1VYQmdBRk1WSXlDaHRVTEJrSkZ3dGxFeUpGRFIwNUJnbEZBVFVYSmdRYUhpVWJDUXNMYTNoZVNFa2dJd2NmQVE4aVVtUldSMFY0VzExY1RpNGVOUmNkRVdvRGlSY0xaUll0RGgwZExSQk1EUThtR1RFWERGU3ZWUWdBQlRjTEpCRU1CaTlWbEFzZExoYzREQm9BTHdkTUZnRW9VaUlFRzFRNUVBSUJHbVVHUFFsSlB3WTBPVFpBWlNROVJRTWJLQmNKRjA0akhTWVJHaFUrQVV3TkR6Y1dJRVVFRVM1VmlVVVBLeE00SEJvUk9CQk1EQUFyR2pzSkRSRStWUVZGQ2l3Qkp3QkpqQ1FHQndBQ0xBRWdBQWNSWkg5QlJTRXJBVEFFRGxSNlFVSlVYR3REYlVVUEd6Z1FHQW9GWlJjNlJRZ1RMeHNZUlFzeFVpSUFCUmd6SGdjQUdtVUJKQVFISFNRU0h3b2VOUlltQkE1VUp4b1lSU1VKTXdFMlJWUW1FQWdBSENBY2RBUWZWQVFsUHpGQVpUa1lKRHduYWdNTkYwNHdCakZGR1pGcUh3TUNDU0FHSVJkSkFDTVpUQlVCTmdZL0NnY0FKUWNKRVU0b0Z6QkZEQnBxRkJwRkJpUWNKMFViRVNNYkh3RVhOMXgwSUIwQUx3ZE1CQUl4VXJGRkRZd25HQWxGSGFCU05nQUhEVDRCQ1JaT05SMG5FUUliSkFFREZ3c3hVaklLRzFTdlZSOEFBQ0VYZEowSEJ5RVFBQXdkTVJjbVJROEdLMVZPRmdBc0hqZ0FTMVFvRkI0TFFHVTJNUkZKQWlNSEJ3QWNaUUU3Q0VrYkoxVWlOVDBSVWowT0FoRnFIUTBYVGlzZE1RdEpGU1FRQUJZTFpSMDVSUWdBYWhFSkVSb2dVaklLR3hFdGtCNUZIcUJTTUFBYkVUbFZHQUFjTnhzZ0Noc2RMMXRtU0U0REFERUJDQk5xUlZwTFgzZGNaVnhKQjY5Vkh3NEhJd1l4RVVrNkdpWTRSUm9zSG5RQUIxUWtERXdPSER3Q0lBQWJIU1FTSHdRQ0loMG1EQjBaTDFVZkNnTmxGVDRLR3hBdlZRMFJUak1iZEF3Q0h5OVZBQUFBSWhjbVJRK1JPRlVZREFJaUV6b0NTUUFqR1V3TUFDc2FPd2tORVQ1VkJVV1dLd0UvQUFVZE9RRUpDd3RyVWdLQUd4RnFIUTBHQlNBQU1VVURHeWdYQ1JkT05aZDBGaGtHTHhzTFJRZ3FBSFNBU1JJakd3SUFUaUFjZEJNTUhXb0hHUXNLTVZJd0FBY2FMMVVDSEF0bEdTWWNHUUF2QndVTENTQWNlbTlFVkFhTkhnRVBJbEprVWtkRmVGdGRYRTRzSERJTUJRQTRFQjRSQzJVWE9rVUlFeThiR0VVbENUTUJOa2tISXdFWVJSZ2dBRDhXSFJFdVZRTUNUamNkSUFBZFZDd2FIa1dMWlFFMUJ3WUFMd2NKUlFRd0hqRURCZ1lvRUI0QUNpQWVKd0FIRVdaVkFRQUFaUVF4RndJSFBoQUlBQnBsQkRVWFNSVW1HUWtYQ3lFWGRCTU1HQzRjQzBVY0tnWXhFUXhhYWpNREZ3YWdBakVMSFJnakVob01IV1VVT3hjYUhTUWVDUmRPSVJjZ0VReFVMQm9lQndzM0Z6QUFCUWN2R3dsRkFDb1pkQkVBR0dvVUdFVU1JQlE3Q1FJYUl4c0xBQUJsRURnTUcxUS9CZ1VPQlNBQWRCV01WQ1VZVEFFTE1WSTJDUUFHYWhBQ1JRa3FGblFQSEJoa2YwRkZPaXdBSndFSUUycEVYRXRmZDF4bFhFa1lMd01KRnhvZ1VqRUxTUlV0RUFJUlRpQUdkQlVJQmo0Y1RBOGJLUmMyRnh3SGFnRUZDVTRnSEhRVkJnQXZHeDhNQ3lrZWRBNEFHQzRRVEF4T0N5SUhNVWRVRGhBWUVRdGxFRGdBU1JNZ0doNFJUaUFHSUFBYlZDc0JUQk9MTjFJZ0RBMFlJeElKRnd0bEdUMEpEUkZxQllsRkJ5c2NKd3dORVNSVkNnd0ZMbEluRlFnR0lSQUNSUXN4QmpFWFNSVStWUVFFQUdVUU9BQkpHem9GQ0FRSklBWjZSVDhkYWhBZVJSczJHejhYREZRNmtFd0tBMlVCT1owYkhTUVNId01CTndHc0Rnd0FhaDBORjA0akJ6b0NEQVkrVlFrUkdpQUFKd29FVkNzWkdnQUFaUUV4RjBrQlBsVVlEQUpsbDNRTkNGUW5FQUFCR21VV01SRWRFV29jQWhFTE54d2dTMk5aYWlFREZ4MGhFek5GV0Vaa1JGNUxYM3hTSndzSUJEb1FHRVVZTEZJN0ZSbFVMeHRNQ0FzcEZqMExEbFFsR0V3RUdtVTVHQ1E4SjJvZERSZE9KeDQ5RVIxVU9Rd0hTMDRESFNZTmpBUXZHeGdKQnlJRVBSWkpBaU1aVEFFTE1RWXhSUXNSUGd4TUJCcGxCREVYQWdjK0VBZ0FHbVVHUFFsSlB3WTBPVFpPTFJNaUN3d0dhaEFDQVE5bEhqRUxEZ1l2VlE0RUJXVUNzVVVQR3pnWENSY0xJUmM0Rmd3YUwxVWZEQUFnVWlBTUJWUWdBQUJMWkU5NEVBUWRGU3NiQ3hjTE5WSTVDaDFVR1NVL01XUVdCanNYRFJVK0ZBRUVIUzRiT2dBSFZEeVFIa1VHSkFCMEJ3VWRQZ0ZNRUJvMkV5QVJTUklsQjB3QUdtVVdOUkVJRlNRU0hnQWVaUnQwQ3dnQVBsVWZDZ05sQVRFWFNRRStWUmdNQW1XWGRCWWRGU2NZQ1VVSU54TjBBQWRVTFFjWkZSNGdVaklYQUFJakdRQU1DU0JTSndvRVZDQWFEZ2NMTjFJeUNodFVCQ1UvTVVCbEpEMUZDeEU0VlEwSkFpQlNOUXNhRlQ0QkNVVWJLeHd6Z0VtUmFoY0pDeGN4QmpGRkdoRXRWUTBUVGpFWU1Rc01CejRRQWdCT0l3QTFSUm9BSlFjSUJCb2tIelVXQWgwa0VBSkZDRGNYT1VVZEhTWlZEUUVETEJ3OUZoMEdLd1lHQ2dBMkJqRUVCQkUrVlFRRUhHVVVzUkVkVkRrY0J4Y0xNVkk0blJvYUl4c0xBQUJyZUY1dlBCOHZHeDlGRHlzQk5SRWRmaG9RQWtVcE1nczZSUThiT0ZVWkVRTWdBRDhBSFZRL0d3Z0FIQ1lkSWdBYlZDc0hEZ0FISVZJNUNoMVVCQ1UvTVVCUGVGNHhDQjhoVlJnTUFtVVRPQWtNVkN3YUhrVWJNUjh4RndJUlBsVU5Gd3dnR3pCRkRSRWtWUjhNSFRFWGRCRUFFQzhiUW04OUx4Y3lSVG9rR1NGQVJTVWdHeWNBR3dRakd3c1RCeXNYT205ak9naFBaaTRQS3dZOUN3d2FhZ01GQ1U0emxDWUFTUWMrRUFJQ0dtVVdNVVVIRVRrQkNVVWFLbEl3QkE0UkpCQk1BQm94RnlaRkFoZ3JFZ2tYVGpXWGRBR01CaVljQzBVRk14TTREQjBSUGxVY2dFNGpHeWNPREJwa1ZUb01UaWtYSUFBYlZDOEJHQUFjWlJjNlJRY05haGtKRXdzM0V6b0JrUVpxQmdNSVRpNFRPa1VGRVR3UUhnQk9KeGN3Rnd4VU9KQWFCQndnQUhwdk9TY2VEZzFXVjNkTFlsVmRSbnRNWFZaZmMwZGxYRjVNZmtBS1Zsb25GR0VCV0JWeUNBPT0">Cyberchef oppskrift</a><br /> <strong>Flagg: PST{a392960421913165197845f34bf5d1a8}</strong><p>Kode:<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>melding.b64 | <span class="nb">base64</span> <span class="nt">-d</span> <span class="o">&gt;</span> melding.bin
+<span class="nv">$ </span>xortool melding.bin
+The most probable key lengths:
+   1:   10.6%
+   5:   9.6%
+   9:   8.8%
+  11:   24.4%
+  18:   5.8%
+  22:   14.4%
+  25:   4.6%
+  33:   9.7%
+  44:   6.9%
+  55:   5.4%
+Key-length can be 3<span class="k">*</span>n
+Key-length can be 4<span class="k">*</span>n
+Most possible char is needed to guess the key!
+<span class="nv">$ </span>xortool <span class="nt">-l</span> 11 <span class="nt">-c</span> 20 melding.bin
+1 possible key<span class="o">(</span>s<span class="o">)</span> of length 11:
+<span class="s1">'Ju)enEr\x11eit
+Found 1 plaintexts with 95%+ valid characters
+See files filename-key.csv, filename-char_used-perc_valid.csv
+</span></code></pre></div></div><h2 id="luke-15">Luke 15</h2><h3 id="15-desember-10">15. desember (10)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Beslag av minnepenn
+NPST har i all hemmelighet tatt beslag i en minnepenn som tilhører en sydpolarsk aktør ved navn Pen Gwyn. 
+Minnepennen ser i første øyekast ut til å være privat og inneholde feriebilder, 
+men det er også en kryptert zip fil lagret på den. 
+NPST trenger tilgang til denne zip filen og søker umiddelbar hjelp 
+fra alvebetjentene for å finne passordet. Merk: Passordet ønskes innlevert i klartekst på intranettet!
+
+Eksempel: Hunter2 -&gt; PST{Hunter2}
+
+Jule NISSENS sykdomsforløp
+Jule NISSEN ser ut til å være på bedringens vei allerede 
+og han vil mest sannsynlig være tilbake på jobb i god tid før jul.
+
+Julevurdering
+Med bakgrunn i endringen av Jule NISSENS sykdom blir julevurderingen oppgradert. 
+Det er nå sannsynlig at det blir en GOD JUL.
+</code></pre></div></div><p>Ooo. En minnepinne. Ok, la oss se hva vi har å jobbe med.<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>file spst_minnepinne.dd
+spst_minnepinne.dd: DOS/MBR boot sector MS-MBR Windows 7 english at offset 0x163 
+<span class="s2">"Invalid partition table"</span> at offset 0x17b 
+<span class="s2">"Error loading operating system"</span> at offset 0x19a 
+<span class="s2">"Missing operating system"</span>, disk signature 0x75be3a56<span class="p">;</span> 
+partition 1 : <span class="nv">ID</span><span class="o">=</span>0x7, start-CHS <span class="o">(</span>0x0,32,33<span class="o">)</span>, end-CHS <span class="o">(</span>0x82,170,40<span class="o">)</span>, startsector 2048, 2097152 sectors
+</code></pre></div></div><p>Hmm, vel kanskje vi bare skal mounte den for å se hva den inneholder?<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>losetup <span class="nt">--partscan</span> <span class="nt">--find</span> <span class="nt">--show</span> spst_minnepinne.dd
+/dev/loop0
+<span class="nv">$ </span><span class="nb">cd</span> /media/root/SPST/
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span>
+total 5552
+drwxrwxrwx  1 root root    4096 Nov 29 16:22  <span class="nb">.</span>
+drwxr-x---+ 3 root root    4096 Jan  5 15:58  ..
+<span class="nt">-rwxrwxrwx</span>  1 root root 5676023 Nov 29 16:22  feriebilder.zip
+drwxrwxrwx  1 root root       0 Nov 29 16:21 <span class="s1">'System Volume Information'</span>
+<span class="nv">$ </span><span class="nb">cd </span>System<span class="se">\ </span>Volume<span class="se">\ </span>Information/
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span>
+total 5
+drwxrwxrwx 1 root root    0 Nov 29 16:21 <span class="nb">.</span>
+drwxrwxrwx 1 root root 4096 Nov 29 16:22 ..
+<span class="nt">-rwxrwxrwx</span> 1 root root   76 Nov 29 16:21 IndexerVolumeGuid
+<span class="nt">-rwxrwxrwx</span> 1 root root   12 Nov 29 16:21 WPSettings.dat
+<span class="nv">$ </span><span class="nb">cat </span>IndexerVolumeGuid 
+<span class="o">{</span>6BA8F788-A856-4200-A576-2F97CDF4A269<span class="o">}</span>
+<span class="nv">$ </span><span class="nb">cat </span>WPSettings.dat 
+
+<span class="nb">.</span> 
+</code></pre></div></div><p>Så, der har vi feriebildene, og de er passordbeskyttet. Det er alt som vises på disken, ikke no gøy i andre filer. Da må passordet være skjult en plass, vi prøver med en <code class="highlighter-rouge">strings</code> på dd filen, og der kommer faktisk et password ut di gitt, base 64 encoded. “Et kjempelangt passord som aldri vil kunne gjettes av NPST! :)”<br /> <strong>Flagg: PST{Et kjempelangt passord som aldri vil kunne gjettes av NPST! :)}</strong><p>Ett av bildene har nok en gul lapp med informasjon <code class="highlighter-rouge">VII TW ⚙️</code>.<h3 id="alternativer-15">Alternativer (15)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NPST har mottatt informasjon om at minnepennen var tiltenkt en nordpolar kilde ført av en sydpolar kildefører. 
+Kilden og kildeføreren skal ikke ha noe direkte kjennskap til hverandre, 
+men kommuniserer på en forhåndsavtalt måte. 
+Våre alveteknikere trenger en innføring i hvordan de skjuler dataen sin. Kan du hjelpe dem?
+
+Flagget er PST{md5(navnet på stedet du fant passordet i forrige trinn (ett tegn))}
+
+eks: echo -ne "?" | md5sum d1457b72c3fb323a2671125aef3eab5d -
+
+Flagget blir da PST{d1457b72c3fb323a2671125aef3eab5d}
+</code></pre></div></div><p>Hrmph. Så vi trenger å finne ut hvordan de lagrer informasjonen. Ok, opp med “the big gun”, <a href="https://www.sleuthkit.org/autopsy/">Sleuth kit - Autopsy</a>. litt snusing rundt der eksponerer informasjonen er lagret i en <code class="highlighter-rouge">_</code>. Dette er en feature man finner i NTFS - <a href="https://blogs.technet.microsoft.com/askcore/2013/03/24/alternate-data-streams-in-ntfs/">Alternate Data Streams</a>. <hy-img root-margin="512px" src="/assets/img/blog/2020-npst/15-autopsy.png" alt="Autopsy sleuthkit">  <noscript><img data-ignore src="/assets/img/blog/2020-npst/15-autopsy.png" alt="Autopsy sleuthkit"/></noscript>  <span slot="loading" class="loading"><span class="icon-cog"></span></span></hy-img> Følger vi oppskriften over får vi flagget.<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nt">-ne</span> <span class="s2">"_"</span> | <span class="nb">md5sum
+</span>b14a7b8059d9c055954c92674ce60032
+</code></pre></div></div><p><strong>Flagg: PST{b14a7b8059d9c055954c92674ce60032}</strong><h3 id="feriebilder-20">Feriebilder (20)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bildene ser jo ut til å være helt normale sydpolare feriebilder, 
+men vi vet jo at sydpolare spioner liker å gjemme data inni andre ting. 
+Kan du hente ut et flagg fra ett av bildene?
+</code></pre></div></div><p><hy-img root-margin="512px" src="/assets/img/blog/2020-npst/15_Blue_0.png" alt="PST{md5(red_herring)}">  <noscript><img data-ignore src="/assets/img/blog/2020-npst/15_Blue_0.png" alt="PST{md5(red_herring)}"/></noscript>  <span slot="loading" class="loading"><span class="icon-cog"></span></span></hy-img> Dette må jo bare være en stego oppgave, og jeg hadde rett. Ved å bruke <a href="https://github.com/bannsec/stegoVeritas">stegoveritas</a> på <code class="highlighter-rouge">varm dag på stranda.png</code>, så dukker det opp informasjon i <a href="https://itnext.io/steganography-101-lsb-introduction-with-python-4c4803e08041">LSB</a> i Blå og Grønn kanalen. PST{md5(red_herring)}. Noe mer informasjon klarer jeg ikke å finne, men det ser jo ut til at kan spiser fisk på ett av bildene, vedder på at det er en red herring. Rød er den iallefall, og md5 av filen er det korrekte flagget.<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">md5sum </span>måltid.png 
+07385aacc9264738cd7c32e76f3b81a5  måltid.png
+</code></pre></div></div><p><strong>Flagg: PST{07385aacc9264738cd7c32e76f3b81a5}</strong><h2 id="luke-16">Luke 16</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Opptrapping av fremmed rekruttering
+SPST har trappet opp sine forsøk på å rekruttere informanter i både NPST og i den nordpolare alvebefolkningen. 
+NPST ber derfor alle alvebetjenter om å være oppmerksomme på tegn 
+på at de eller andre blir utsatt for påvirkningsoperasjoner. 
+Slike tegn kan for eksempel være at partier med pepperkaker eller julebrus blir levert til din adresse. 
+Dersom du opplever situasjoner der du mistenker at deg selv eller andre blir forsøkt rekruttert, 
+ta kontakt med din lokale sikkerhetsavdeling.
+
+Vi ber også alvebetjenter om å være forsiktige med å dele intern informasjon. 
+Selv om informasjonen ikke nødvendigvis er gradert temmelig hemmelig 
+så kan den gi et innblikk i hvordan NPST jobber. 
+Dette kan gjøre fremmede makters påvirkningskampanjer mer effektive, 
+og øke sjansene for velykket sabotasje mot nordpolare interesser. 
+Vær derfor ekstra påpasselig når du snakker med andre om arbeidet ditt i NPST 
+og sørg for at du ikke deler informasjon unødig. 
+Husk også at fremmede makter kan forsøke å overhøre samtaler, 
+så vær forsiktig dersom du observerer pingviner i området.
+
+Du snakker. Hvem lytter?
+
+Falske nyheter og julevurdering
+En artikkel om at julen er avlyst har spredd seg på sosiale medier. Med bakgrunn i disse falske nyhetene 
+nedjusteres sannsynligheten for at det blir en god jul. Det er nå mulig at det blir en GOD JUL.
+</code></pre></div></div><p>Ingen oppgaver denne dagen.<h2 id="luke-17---passorddatabase-5">Luke 17 - Passorddatabase (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Passorddatabase
+I tråd med Jule NISSENS anmodninger om at en bør beskytte informasjon bedre har alvene i kantinen tatt i bruk 
+en hjemmesnekret passorddatabase. Problemet er bare at de dessverre har glemt passordet til denne. 
+Det er kritisk at kantinealvene får tilgang til passordet som er lagret i denne databasen så fort som mulig, 
+ellers så vil de ikke kunne åpne matlageret og lage julegrøt til i morgen! 
+Kan en alvebetjent ta på seg oppgaven med å finne passordet til matlageret?
+
+FIL: https://kalender.npst.no/p2w
+
+Oppdatering av Jule NISSENS sykdomsforløp
+Jule NISSEN er frisk og rask og vil være tilbake i full jobb i morgen. 
+Det vil forståelig nok være litt tregere behandling av listen over snille og slemme barn mens Jule NISSEN 
+tar igjen det utestående arbeidet. Vi ber om at alle tar hensyn til dette.
+</code></pre></div></div><p>Hm, hva er dette? la oss se hva vi har å jobbe med.<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file p2w
+p2w: ELF 64-bit LSB pie executable, x86-64, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, 
+interpreter /lib64/ld-linux-x86-64.so.2, <span class="k">for </span>GNU/Linux 2.6.32, 
+BuildID[sha1]<span class="o">=</span>758ae2fdb3384d82e1c697e0977354612bce94bf, not stripped
+<span class="nv">$ </span><span class="nb">chmod</span> +x p2w
+<span class="nv">$ </span>./p2w
+Passord: hei
+Feil, pigg av!
+</code></pre></div></div><p>Fantastisk. Pigg av igjen. Oh well, la oss ta en titt på om den gjør noe gøy vha <a href="https://en.wikipedia.org/wiki/Ltrace">ltrace</a>. Ørrr, tror jeg ser passordet på høyresiden av strcmp(), la meg prøve… yep, it works.<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ltrace ./p2w
+<span class="nb">printf</span><span class="o">(</span><span class="s2">"Passord: "</span><span class="o">)</span>
+fgets<span class="o">(</span>Passord: hei 
+<span class="s2">"hei</span><span class="se">\n</span><span class="s2">"</span>, 33, 0x7fbafec5ea00<span class="o">)</span>
+strcmp<span class="o">(</span><span class="s2">"hei</span><span class="se">\n</span><span class="s2">"</span>, <span class="s2">"625b2055fe2dcda72e418940599b881d"</span>...<span class="o">)</span>
+puts<span class="o">(</span><span class="s2">"Feil, pigg av!"</span>Feil, pigg av!<span class="o">)</span>
++++ exited <span class="o">(</span>status 0<span class="o">)</span> +++
+<span class="nv">$ </span>ltrace ./p2w
+<span class="nb">printf</span><span class="o">(</span><span class="s2">"Passord: "</span><span class="o">)</span>                
+fgets<span class="o">(</span>Passord: 625b2055fe2dcda72e418940599b881d
+<span class="s2">"625b2055fe2dcda72e418940599b881d"</span>..., 33, 0x7f19021b2a00<span class="o">)</span>
+strcmp<span class="o">(</span><span class="s2">"625b2055fe2dcda72e418940599b881d"</span>..., <span class="s2">"625b2055fe2dcda72e418940599b881d"</span>...<span class="o">)</span>
+puts<span class="o">(</span><span class="s2">"PST{f3ad88918fd18414cc773271f586"</span>...PST<span class="o">{</span>f3ad88918fd18414cc773271f586f6a9<span class="o">})</span>
++++ exited <span class="o">(</span>status 0<span class="o">)</span> +++
+
+</code></pre></div></div><p>Så… der var svaret ja. rimelig enkel begynner reverserings oppgave uten at man har behov for noe tungt ala <a href="https://www.hex-rays.com/products/ida/">IDA</a>, <a href="https://rada.re/n/radare2.html">Radare2</a>, <a href="https://ghidra-sre.org/">Ghidra</a> etc.<p><strong>Flagg: PST{f3ad88918fd18414cc773271f586f6a9}</strong><h2 id="luke-18">Luke 18</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mistenkelig ponni
+En ponni ble oppdaget i reinsdyrstallen i formiddag. 
+Den ble oppdaget i etterkant av svært uvanlige lyder blant reinsdyrene. 
+Det er uvisst hvor lenge ponnien har befunnet seg i stallen. 
+Det foretas undersøkelser av våre fremste teknikere for å utelukke at det er en trojansk ponni.
+</code></pre></div></div><p>Ingen oppgaver denne dagen.<h2 id="luke-19---ppkv3-5">Luke 19 - PPKv3 (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ny PPK
+I lys av senere tids passordproblematikk har NISSEN utviklet en ny PPK. 
+Kan noen alvebetjenter undersøke om NISSEN har klart å luke ut alle svakheter fra tidligere designiterasjoner?
+
+Eksempel
+PPKv3("Pompøst og metodisk") → øMSijrt Mc SÅtMZPrU
+
+ømQ UæjEEi4æÅktÅr i4æÅktÅr SZG tWM tPSÅ i4Z i4æÅktÅr rE0tt UæjEEi4æÅktÅr rE0tt
+</code></pre></div></div><p>Mere penn og papir kryptering. Med et eksempel. Ser ut til at det er en substitusjon av noe slag, la oss ta input fra eksemplet og legge inn det vi har vha substitusjon i <a href="https://gchq.github.io/CyberChef/#recipe=Substitute('ABCDEFGHIJKLMNOPQRSTUVWXYZ%C3%86%C3%98%C3%85abcdefghijklmnopqrstuvwxyz%C3%A6%C3%B8%C3%A5','ABCDEFGHIJKLoNOiQRmTkVWXYd%C3%86%C3%98eabgdefghp%C3%B8klmnopqsstuvwxyz%C3%A6P%C3%A5')&amp;input=%2BE1TaWpydCBNYyBTxXRNWlByVQr4bVEgVeZqRUVpNObFa3TFciBpNObFa3TFciBTWkcgdFdNIHRQU8UgaTRaIGk05sVrdMVyIHJFMHR0IFXmakVFaTTmxWt0xXIgckUwdHQ">cyberchef</a>, for å se hva vi får.<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pompøst og metodisk
+PmQ kæøEEp4æektes p4æektes mdG tWo time p4d p4æektes sE0tt kæøEEp4æektes sE0tt
+</code></pre></div></div><p>Begynner å ligne på noenting, la oss gjekke litt til på krøllparentes, PST og slutt<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pompøst og metodisk
+PST krøllparentes parentes mdG tWo time pad parentes slutt krøllparentes slutt
+</code></pre></div></div><p>Litt mere gjetting, så tipper jeg det står <code class="highlighter-rouge">PST{(md5 two time pad)}</code>. parentesene er nok feil, så resultatet skal nok være <code class="highlighter-rouge">PST{md5(two time pad)}</code>. Litt banning og sverting, men med et hint fra Roy Solberg gjorde at jeg kom i mål her også. (husk på -n på echo for å unngå å få med linjeskift)<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'two time pad'</span> | <span class="nb">md5sum
+</span>4a0fc5f3c88874cab11c64e965dff58d  -
+</code></pre></div></div><p><strong>Flagg: PST{4a0fc5f3c88874cab11c64e965dff58d}</strong><h2 id="luke-20---mystisk-kort-5">Luke 20 - Mystisk kort (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mystisk kort
+
+NPST har grunn til å tro at SPST har noen systemer kjørende på meget gammel hardware. 
+Fra temmelig hemmelige kilder har vi greie på at SPST har outsourcet utviklingen av disse systemene, 
+og får tilsendt kildekode for oppdateringen og ny funksjonalitet på postkort. 
+NPST har nylig snappet opp et slikt kort markert "360", som anntas å innholde kode av noe slag. 
+Dessverre ser det ut til at teknikerne våre har noen hull i programmeringskunnskapene sine, 
+de kommer rett og slett til kort. Kunne en alvebetjent sett på kortet?
+
+1020 2020 0010 2012 2001 2200 1020 0000 0800 0200 0001 200A 2001 2200 1020 0C00 0300 0008 0800 1012
+
+Om noen finner ut av det hadde NISSEN satt pris på om vedkommende kunne kjørt koden, 
+og lagt outputen de får inn i intranettet omkranset av { og }, samt prefikset med PST. 
+Eksempel: kode: print("Hei, verden!") → output: Hei, verden! → svar: PST{Hei, verden!}.
+</code></pre></div></div><p>Haugevis med hint til gammelt system, kort, hull og 360. Så her snakker vi gammelt hullkort system. Finner masse gøy informasjon på <a href="https://www.masswerk.at/keypunch/">The virtual keypunch</a>, spesielt under “advanced usage”, hvor vi kan finne IBM/360 Column Binary Format. Jeg finner ingen online tools for dette (er jo gammelt), så jeg skriver en dekoder basert på informasjonen over og får ut <code class="highlighter-rouge">MD5(IBM 029+IBM/S60)</code>. Tipper S er feil og at det skal stå <code class="highlighter-rouge">MD5(IBM 029+IBM/360)</code>, som gir oss korrekt flagg.<br /> <strong>Flagg: PST{8dc9112fecac5e5d50eaf14e0fff2440}</strong><p>Kode:<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">input</span> <span class="o">=</span> <span class="s">'1020 2020 0010 2012 2001 2200 1020 0000 0800 0200 0001 200A 2001 2200 1020 0C00 0300 0008 0800 1012'</span>
+<span class="c1"># split into blocks
+</span><span class="n">blocks</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">getCbf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
+    <span class="n">retVal</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">pos</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">retVal</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">7</span> <span class="o">-</span> <span class="n">pos</span><span class="p">]</span> <span class="o">+</span> <span class="n">retVal</span>
+    <span class="k">return</span> <span class="n">retVal</span>
+
+
+<span class="k">def</span> <span class="nf">getCbf1</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">getCbf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s">'JKYX0123'</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">getCbf2</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">getCbf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s">'LM456789'</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">getKeyPunch</span><span class="p">(</span><span class="n">cbf</span><span class="p">):</span>
+    <span class="n">cbf1</span> <span class="o">=</span> <span class="n">cbf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cbf</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">cbf2</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">cbf</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">cbf</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cbf</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cbf2</span> <span class="o">=</span> <span class="n">cbf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">cY</span> <span class="o">=</span> <span class="s">'&amp;ABCDEFGHI¢.&lt;(+|'</span>
+    <span class="n">cX</span> <span class="o">=</span> <span class="s">'-JKLMNOPQR!$*);¬'</span>
+    <span class="n">c0</span> <span class="o">=</span> <span class="s">'0/STUVWXYZ ,</span><span class="si">%</span><span class="s">_&gt;?'</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="s">'1AJ/'</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="s">'2BKS:¢! '</span>
+    <span class="n">c3</span> <span class="o">=</span> <span class="s">'3CLT#.$,'</span>
+    <span class="n">c4</span> <span class="o">=</span> <span class="s">'4DMU@&lt;*</span><span class="si">%</span><span class="s">'</span>
+    <span class="n">c5</span> <span class="o">=</span> <span class="s">'5ENV</span><span class="se">\'</span><span class="s">()_'</span>
+    <span class="n">c6</span> <span class="o">=</span> <span class="s">'6FOW=+;&gt;'</span>
+    <span class="n">c7</span> <span class="o">=</span> <span class="s">'7GPX"|¬?'</span>
+    <span class="n">c8</span> <span class="o">=</span> <span class="s">'8QY:#@</span><span class="se">\'</span><span class="s">="¢.&lt;(+|!$*);¬ ,</span><span class="si">%</span><span class="s">_&gt;?'</span>
+    <span class="n">c9</span> <span class="o">=</span> <span class="s">'9IRZ'</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">''</span> <span class="ow">and</span> <span class="n">cbf2</span> <span class="o">==</span> <span class="s">''</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">' '</span>
+    <span class="k">if</span> <span class="n">cbf2</span> <span class="o">==</span> <span class="s">''</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'?'</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'X'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cX</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'Y'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cY</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'0'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c0</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'1'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'2'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c2</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'3'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c3</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'4'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c4</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'5'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c5</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'6'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c6</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'7'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c7</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'8'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c8</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">cbf1</span> <span class="o">==</span> <span class="s">'9'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c9</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">cbf2</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="s">'?'</span>
+
+
+<span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="n">getCbf1</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="n">getCbf2</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
+    <span class="n">cbf</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span>
+    <span class="n">kp</span> <span class="o">=</span> <span class="n">getKeyPunch</span><span class="p">(</span><span class="n">cbf</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">block</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">cbf</span><span class="p">,</span> <span class="n">kp</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'hex</span><span class="se">\t</span><span class="s">b1</span><span class="se">\t</span><span class="s">b2</span><span class="se">\t</span><span class="s">c1</span><span class="se">\t</span><span class="s">c2</span><span class="se">\t</span><span class="s">cbf</span><span class="se">\t</span><span class="s">kp'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span>
+        <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span> <span class="o">+</span>
+        <span class="p">(</span><span class="s">"0x</span><span class="si">%0.2</span><span class="s">X"</span> <span class="o">%</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span> <span class="o">+</span>
+        <span class="p">(</span><span class="s">"0x</span><span class="si">%0.2</span><span class="s">X"</span> <span class="o">%</span> <span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span> <span class="o">+</span>
+        <span class="n">line</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span> <span class="o">+</span>
+        <span class="n">line</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span> <span class="o">+</span>
+        <span class="n">line</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span> <span class="o">+</span>
+        <span class="n">line</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+
+</code></pre></div></div><h2 id="luke-21---nytt-kryptosystem-5">Luke 21 - Nytt kryptosystem (5)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ukens ansatt Jule NISSEN gratulerer Karine som ukens ansatt, og takker for god innsats. 
+NISSENS sekretariat vil ta kontakt via elektronisk post så fort det lar seg gjøre. 
+Beregn noe ekstra tid grunnet julestri.
+
+Nytt kryptosystem
+
+SPST har nylig fått installert et nytt kryptosystem, og vi i NPST har vært tidlig på ballen 
+og fått plassert avlyttingsutstyr på linjene over Antarktis.
+
+Det kan se ut som at leverandøren til SPST har noen innkjøringsproblemer, da nøkkelen ikke ser ut til å virke. 
+Klarer du å finne ut av hva som er galt?
+
+Link til melding
+
+Jule NISSENS sykdomsforløp
+
+Jule NISSEN er frisk og rask, og har vært på jobb innenfor kjernetiden de siste dagene. 
+Han vil for sikkerhets skyld ta det rolig frem til og med lille julaften i påvente av den store dagen, 
+og vil på grunn av dette sannsynligvis trenge noe ekstra hjelp på mandag.
+
+Julevurdering
+
+Ettersom Jule NISSEN er blitt frisk, blir julevurderingen oppgradert. 
+Det er nå meget sannsynlig at det blir en GOD JUL.
+</code></pre></div></div><p>Javel, et nytt kryptosystem. Skal vi se hva vi har å jobbe med:<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"cipher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes-256-gcm"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ciphertext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"69cf99390e143fbab3ea8326c05b2fde58c964555bd673de10ff4cf2bf49586454b0466afd01c36b0e4dc1e3361d8ff⏎
+                  ec8998d88c13b6ff83798a4607b86f3d14f20f63486d256e65d2164ac90a931d7c36fed071321298ce6eb4206bbc31db⏎
+                  dbd08d72dca0f5ce486e68979f083e0e4f46d1f0eee0fec2aa48de030cb2f2069eb719563443c324b052a913e5007f11⏎
+                  4de4ed7ae44044c03278e2392b46e7815626424d735196f93adc446c4a4a30373e936fa7164112d0867e63e63a4d809d⏎
+                  10e90e805130eb7114422ae17fddd3a272cee6100087fb37eb0268ab187721fc7e8dc8b2b79e91a1d9e276a16bcb79c3⏎
+                  6a7c91b127ea3b08fe57a33ba7d0767e35508b4ab2127aa0a2948cd2a1aace305a49cf63d03a41ca110e9d04636a8595⏎
+                  6aa1b9eac89bc4091ab59bd1ea9d9cd1c225422a7a40ef56d4b65d1e56f138df24dcf74557a72ba055160f82bf39470f⏎
+                  785b12633584ae9639a4352ef08fe5c7f788b0f83021ccf13d7a99a0c088abf72ccc36a30e2447ce10157113a56461bf⏎
+                  afd68be40f6f79dbdf2c901028cfe06a96e5ab9a1121c7e2d8b91e495c9722b2cd97d378844328bfba9870b814df6028⏎
+                  2fec98f70d1639d35205d399d0a858a5cf7210cd9110faecc55c79ae7fe963d908aaa8a34d68b4c0556aeaa4db1ec74c⏎
+                  d321b249602c24dabc961b30ae456199fb1deca09f36cdf8a5d9b0b492e42f7f841cb4627880f9fdd4b2e2d94a553c61⏎
+                  c5c9a0a253a4616af93310eb7a55a74316d595c017cd2953e505d893f85f324a50fecd459e6bce60294aef9e34b7d57c⏎
+                  98f4e9dc5e09a9a6fe620865308d807d767e4c9fec6041b58d003b152d18473e8ce5a9bfe5203b748945a8f4c4683177⏎
+                  b09c6b97603d37451a6220c7cf94fa4cb2f8c26331e08f8b8035acebdeaba4cec24bbdacad448b332ba67d355a91363d⏎
+                  13a4030a7f4e5b3e0d12a5cca08d6431e356a1bf5050c9bb6373a375a58909cb59d851c0da4905a62389aef2809e354f⏎
+                  b2d6b672071ded673f50a3ca475b229999d5a8566e3d7742a271c91f97d8182cb6dcbd3811276cea2386e66b10f047f5⏎
+                  cfd0628e3a55ed420412a4fd1b568ef4a62384694dc6b966defe4226afcc545ff10cd61c181d5df9ce6011995df72a21⏎
+                  9f45ac44eccc63450989df746edbc7165ae008caa158c9298e6c8f8907be02c89313ec55be8eef3521a251518e394071⏎
+                  b9deb5af8d2273cf7fe2ed9ddc96609a8057ca50e5a5c1b0a9b9e4dfa04e58be60feee17632dd713257916416471560c⏎
+                  82da72e49962d1bfcda8db174948765bfc51159e98d38cad9a7ba51a7c8658af998534a6b223d25ba4805c4a12bf0807⏎
+                  e043abc0b47e4562a800b6f79fca703bbd93b1c617d3a8b9244ebfcaffd7f8e44440a20ce1ed7ab8039d5cf182c7c16e⏎
+                  7be51856ac8a516ca25acf79001af3612d7b4d304c2a5b9671620b80db4fedca8df2ec6b57ddbcf4fe9ece3da44bf47e⏎
+                  0f3b21b61f0699e6c38a3169b2890f57636757a894caf22879b1515d1aa00ee8131d3cf7b61ab9c747690bd6ef3d93ed⏎
+                  002c1f3a8e9b7a6b056f76cad42d67ae3f01c1d8d4d8576b950efe65b6312b700f2000f8c3821a70ba1e4800b5bdb422⏎
+                  3f9db27c509495eb638025c4dc898c13ae9f86c944e5428209a111701bc4e2db44a7c890774b0063e20158fd0d9cebf4⏎
+                  f05d40c74afd168d0e8968b14a56c95b0a3b657cbe0ad270170e4154d596c112156c2a9a9fc30898be1f362ca2ce1fe4⏎
+                  e4399ab8ea3735b8f091ada9d613411b54760b7c39c956f225bb9724bd4fd8174a4703151d1b5acf2c979f446d8a3303⏎
+                  6ec652add04478a44f34bab617f15ed40451cf7603ead7f8f58f8e2fc02ca7c75c7d37cbcd9f09811abd881ef16a15e6⏎
+                  bb4e1fe37ff96fe03421286fe37f19120fc66a105fb2b1ee0cbd19feb4e9f20b02fc5d06f6b0d8bbf393da408e2f7e7c⏎
+                  ae536852b5f81690596e78b66ca1ec10af873a8acd62cb716bdb40107019e7f3acb4d11d3e50590c2ca485c0b4a47f0c⏎
+                  28847ee0afaa617284e5ef1fcf9fc5ec00c6cc2404016a565e4154538f93d0adee6cdb72665efb4a319a98dd58dd81e5⏎
+                  2263516a006c037a27ad249ce0efd69e4f6a685a1b6404e95938325bb1b2db35984bc37c4e9751825aaa592089511344⏎
+                  328c84e18a470b718e3a3fa7cd6f06cf2c2352d5e6895c734bf1c8d22eb9c2037378f0609211298f71fa633ed923f31c⏎
+                  934b05ece2375bbf700f4fd30525a20a510b7f0102f24ff2b7eb76ac77d98bc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d97c2e3410f37ac7b5dcd8df"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"recovered_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"800816b1629bcfa519f57a502a6a841298a9f5c20203d8818fdd18271a3b1682"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76fe172806c0b41816887630ca74f2f8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uncertain_bits_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div><p>AES-256 GCM, med en kryptert melding, tilgjengelig nonce, tilgjengelig tag og tilgjengelig key. Pluss en tag, uncertain_bits_count: 2. En slurve-tabbe fører her til at jeg bruker veldig mye tid på å bytte ut bytes isteden for bits. Så snart jeg fikk et hint fra Roy Solberg, så var denne raskt i boks ved å flippe bits i nøkkelen. <br /> <strong>Flagg: PST{7e7343c9cbe6114f8fd312490816387d}</strong><p>Kode:<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<span class="kn">from</span> <span class="nn">bitarray</span> <span class="kn">import</span> <span class="n">bitarray</span>
+
+<span class="nb">vars</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"cipher"</span><span class="p">:</span> <span class="s">"aes-256-gcm"</span><span class="p">,</span>
+    <span class="s">"ciphertext"</span><span class="p">:</span> <span class="s">"69cf99390e143fbab3ea8326c05b2fde58c964555bd673de10ff4cf2bf49586454b0466afd01c36b0e4dc1e3361d8ff⏎</span><span class="err">
+</span><span class="s">                  ec8998d88c13b6ff83798a4607b86f3d14f20f63486d256e65d2164ac90a931d7c36fed071321298ce6eb4206bbc31db⏎</span><span class="err">
+</span><span class="s">                  dbd08d72dca0f5ce486e68979f083e0e4f46d1f0eee0fec2aa48de030cb2f2069eb719563443c324b052a913e5007f11⏎</span><span class="err">
+</span><span class="s">                  4de4ed7ae44044c03278e2392b46e7815626424d735196f93adc446c4a4a30373e936fa7164112d0867e63e63a4d809d⏎</span><span class="err">
+</span><span class="s">                  10e90e805130eb7114422ae17fddd3a272cee6100087fb37eb0268ab187721fc7e8dc8b2b79e91a1d9e276a16bcb79c3⏎</span><span class="err">
+</span><span class="s">                  6a7c91b127ea3b08fe57a33ba7d0767e35508b4ab2127aa0a2948cd2a1aace305a49cf63d03a41ca110e9d04636a8595⏎</span><span class="err">
+</span><span class="s">                  6aa1b9eac89bc4091ab59bd1ea9d9cd1c225422a7a40ef56d4b65d1e56f138df24dcf74557a72ba055160f82bf39470f⏎</span><span class="err">
+</span><span class="s">                  785b12633584ae9639a4352ef08fe5c7f788b0f83021ccf13d7a99a0c088abf72ccc36a30e2447ce10157113a56461bf⏎</span><span class="err">
+</span><span class="s">                  afd68be40f6f79dbdf2c901028cfe06a96e5ab9a1121c7e2d8b91e495c9722b2cd97d378844328bfba9870b814df6028⏎</span><span class="err">
+</span><span class="s">                  2fec98f70d1639d35205d399d0a858a5cf7210cd9110faecc55c79ae7fe963d908aaa8a34d68b4c0556aeaa4db1ec74c⏎</span><span class="err">
+</span><span class="s">                  d321b249602c24dabc961b30ae456199fb1deca09f36cdf8a5d9b0b492e42f7f841cb4627880f9fdd4b2e2d94a553c61⏎</span><span class="err">
+</span><span class="s">                  c5c9a0a253a4616af93310eb7a55a74316d595c017cd2953e505d893f85f324a50fecd459e6bce60294aef9e34b7d57c⏎</span><span class="err">
+</span><span class="s">                  98f4e9dc5e09a9a6fe620865308d807d767e4c9fec6041b58d003b152d18473e8ce5a9bfe5203b748945a8f4c4683177⏎</span><span class="err">
+</span><span class="s">                  b09c6b97603d37451a6220c7cf94fa4cb2f8c26331e08f8b8035acebdeaba4cec24bbdacad448b332ba67d355a91363d⏎</span><span class="err">
+</span><span class="s">                  13a4030a7f4e5b3e0d12a5cca08d6431e356a1bf5050c9bb6373a375a58909cb59d851c0da4905a62389aef2809e354f⏎</span><span class="err">
+</span><span class="s">                  b2d6b672071ded673f50a3ca475b229999d5a8566e3d7742a271c91f97d8182cb6dcbd3811276cea2386e66b10f047f5⏎</span><span class="err">
+</span><span class="s">                  cfd0628e3a55ed420412a4fd1b568ef4a62384694dc6b966defe4226afcc545ff10cd61c181d5df9ce6011995df72a21⏎</span><span class="err">
+</span><span class="s">                  9f45ac44eccc63450989df746edbc7165ae008caa158c9298e6c8f8907be02c89313ec55be8eef3521a251518e394071⏎</span><span class="err">
+</span><span class="s">                  b9deb5af8d2273cf7fe2ed9ddc96609a8057ca50e5a5c1b0a9b9e4dfa04e58be60feee17632dd713257916416471560c⏎</span><span class="err">
+</span><span class="s">                  82da72e49962d1bfcda8db174948765bfc51159e98d38cad9a7ba51a7c8658af998534a6b223d25ba4805c4a12bf0807⏎</span><span class="err">
+</span><span class="s">                  e043abc0b47e4562a800b6f79fca703bbd93b1c617d3a8b9244ebfcaffd7f8e44440a20ce1ed7ab8039d5cf182c7c16e⏎</span><span class="err">
+</span><span class="s">                  7be51856ac8a516ca25acf79001af3612d7b4d304c2a5b9671620b80db4fedca8df2ec6b57ddbcf4fe9ece3da44bf47e⏎</span><span class="err">
+</span><span class="s">                  0f3b21b61f0699e6c38a3169b2890f57636757a894caf22879b1515d1aa00ee8131d3cf7b61ab9c747690bd6ef3d93ed⏎</span><span class="err">
+</span><span class="s">                  002c1f3a8e9b7a6b056f76cad42d67ae3f01c1d8d4d8576b950efe65b6312b700f2000f8c3821a70ba1e4800b5bdb422⏎</span><span class="err">
+</span><span class="s">                  3f9db27c509495eb638025c4dc898c13ae9f86c944e5428209a111701bc4e2db44a7c890774b0063e20158fd0d9cebf4⏎</span><span class="err">
+</span><span class="s">                  f05d40c74afd168d0e8968b14a56c95b0a3b657cbe0ad270170e4154d596c112156c2a9a9fc30898be1f362ca2ce1fe4⏎</span><span class="err">
+</span><span class="s">                  e4399ab8ea3735b8f091ada9d613411b54760b7c39c956f225bb9724bd4fd8174a4703151d1b5acf2c979f446d8a3303⏎</span><span class="err">
+</span><span class="s">                  6ec652add04478a44f34bab617f15ed40451cf7603ead7f8f58f8e2fc02ca7c75c7d37cbcd9f09811abd881ef16a15e6⏎</span><span class="err">
+</span><span class="s">                  bb4e1fe37ff96fe03421286fe37f19120fc66a105fb2b1ee0cbd19feb4e9f20b02fc5d06f6b0d8bbf393da408e2f7e7c⏎</span><span class="err">
+</span><span class="s">                  ae536852b5f81690596e78b66ca1ec10af873a8acd62cb716bdb40107019e7f3acb4d11d3e50590c2ca485c0b4a47f0c⏎</span><span class="err">
+</span><span class="s">                  28847ee0afaa617284e5ef1fcf9fc5ec00c6cc2404016a565e4154538f93d0adee6cdb72665efb4a319a98dd58dd81e5⏎</span><span class="err">
+</span><span class="s">                  2263516a006c037a27ad249ce0efd69e4f6a685a1b6404e95938325bb1b2db35984bc37c4e9751825aaa592089511344⏎</span><span class="err">
+</span><span class="s">                  328c84e18a470b718e3a3fa7cd6f06cf2c2352d5e6895c734bf1c8d22eb9c2037378f0609211298f71fa633ed923f31c⏎</span><span class="err">
+</span><span class="s">                  934b05ece2375bbf700f4fd30525a20a510b7f0102f24ff2b7eb76ac77d98bc"</span><span class="p">,</span> 
+    <span class="s">"nonce"</span><span class="p">:</span> <span class="s">"d97c2e3410f37ac7b5dcd8df"</span><span class="p">,</span>
+    <span class="s">"recovered_key"</span><span class="p">:</span> <span class="s">"800816b1629bcfa519f57a502a6a841298a9f5c20203d8818fdd18271a3b1682"</span><span class="p">,</span>
+    <span class="s">"tag"</span><span class="p">:</span> <span class="s">"76fe172806c0b41816887630ca74f2f8"</span><span class="p">,</span>
+    <span class="s">"uncertain_bits_count"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">reverse_mask</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x55555555</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xAAAAAAAA</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x33333333</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xCCCCCCCC</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x0F0F0F0F</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xF0F0F0F0</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x00FF00FF</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xFF00FF00</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x0000FFFF</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xFFFF0000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="nb">max</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">bytearray</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="s">"recovered_key"</span><span class="p">]))</span> <span class="o">*</span> <span class="mi">8</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"c1:"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">c2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="nb">max</span><span class="p">):</span>
+        <span class="n">keyBytes</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="s">"recovered_key"</span><span class="p">])</span>
+        <span class="n">char1Idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">c1</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="n">bit1Index</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">-</span> <span class="n">char1Idx</span> <span class="o">*</span> <span class="mi">8</span>
+        <span class="n">keyBytes</span><span class="p">[</span><span class="n">char1Idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">keyBytes</span><span class="p">[</span><span class="n">char1Idx</span><span class="p">]</span> <span class="o">^</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">bit1Index</span>
+        <span class="n">char2Idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">c2</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="n">bit2Index</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">char2Idx</span> <span class="o">*</span> <span class="mi">8</span>
+        <span class="n">keyBytes</span><span class="p">[</span><span class="n">char2Idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">keyBytes</span><span class="p">[</span><span class="n">char2Idx</span><span class="p">]</span> <span class="o">^</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">bit2Index</span>
+
+        <span class="n">nonceBytes</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="s">"nonce"</span><span class="p">])</span>
+        <span class="n">cipherBytes</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="s">"ciphertext"</span><span class="p">])</span>
+        <span class="n">tagBytes</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="s">"tag"</span><span class="p">])</span>
+        <span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_GCM</span><span class="p">,</span> <span class="n">nonce</span><span class="o">=</span><span class="n">nonceBytes</span><span class="p">)</span>
+        <span class="n">plaintext</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">cipherBytes</span><span class="p">)</span>
+        <span class="c1"># print(plaintext.decode('iso-8859-1'))
+</span>        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cipher</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">tagBytes</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Bits in pos "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span> <span class="o">+</span> <span class="s">" must be flipped."</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"The message is authentic:"</span><span class="p">,</span> <span class="n">plaintext</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span>
+            <span class="nb">exit</span><span class="p">()</span>
+        <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># print("Key incorrect or message corrupted")
+</span></code></pre></div></div><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bits in pos 148 and 174 must be flipped.
+The message is authentic: ﻿
+SPST
+21.12.19
+
+Kantinesituasjonen
+Kantinen har nå landet avtale med ny råvareleverandør, og første leveranse blir idag. 
+Det blir altså vintersolverv-torsk som planlagt.
+
+Lekkasje fra SPSTs interne nettverk
+I forbindelse med angrepet mot stordatamaskinen som startet 12.12.19, ble det eksfiltrert en mindre mengde 
+dokumenter gradert TEMMELIG HEMMELIG. 
+Som en konsekvens av dette har vi fra idag tatt i bruk en ny krypteringsalgoritme 
+for data i bevegelse. Vi har opplevd litt problemer med de dedikerte linjene for overføring av nøkkelmateriell, 
+men leverandøren vår jobber på spreng for å fikse dette.
+
+
+Ytterligere operasjoner mot NPST
+- Lørdag 14.12.19 fikk en av våre dyktige kildeføringspingviner informasjon om NPSTs planlagte julebord. 
+Vi har ikke lykkes i å bekrefte informasjonen, men kilden forteller at det skal konkurreres i hammerdistanse
+- Tirsdag 17.12.19 ble det gjennomført en vellykket sabotasjeaksjon mot NPSTs matlager. 
+Her ble passordet skiftet til rudolf2, og hashing-algoritme byttet ut med MD5. 
+Det vurderes som MULIG at dette vil påvirke julen.
+- Onsdag 18.12.19 ble det som en HOAX/avledningsoperasjon plassert 
+en helt vanlig ponni i reinsdyrstallen til Jule NISSEN. 
+Dette vil trolig kunne påvirke julen ytterligere.
+
+
+Ukens ansatt
+Denne ukens ansatt ønsker ikke å opptre med navn, 
+men vi kan avsløre at pingvinen jobber ved SPSTs PINGINT-seksjon, 
+og har gjort en utmerket jobb med kildene sine den siste tiden.
+
+
+Takk til alle for utmerket arbeid uka som har vært.
+Sjef SPST, Keiserpingvinen
+
+FLAGG: PST{7e7343c9cbe6114f8fd312490816387d}
+</code></pre></div></div><h2 id="luke-22">Luke 22</h2><h3 id="22-desember">22. desember</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Opptrapping av falske nyheter
+SPST har den siste tiden trappet opp sin pågående falske nyhets-kampanje. som, i følge betrodde kilder, 
+refereres til som "Operasjon Avlys julen" internt hos SPST. Det er kritisk at vi får stoppet denne operasjonen 
+så rask som mulig, men foreløpig har vi ikke helt oversikt over hva dette innebærer.
+
+Analytikerne våre mener det kanskje ligger noe gjemt på SPST sin kampanje-side, 
+men dessverre greier ikke agentene våre å finne noe. Kunne noen alvebetjeneter sett om de finner noe der?
+
+https://spst.no
+</code></pre></div></div><p>Her har vi altså en kampanjeside. En rask titt på robots.txt gir oss:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Disallow: /temmelig-hemmelig/
+</code></pre></div></div><p><code class="highlighter-rouge">https://spst.no/temmelig-hemmelig/</code> gir oss flagget direkte på siden.<p><strong>Flagg: PST{fc35fdc70d5fc69d269883a822c7a53e}</strong><h3 id="kildekode-15">Kildekode (15)</h3><p>Joda, source koden til websiden inneholder en skjult tag:<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"forkongithub"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com/SydpolarSikkerhetstjeneste/spst.no"</span><span class="nt">&gt;</span>🍴 meg på GitHub<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
+</code></pre></div></div><p>Kildekoden er tilgjengelig på github, og ved å gå gjennom historikken, finner vi at nøkkelen var <code class="highlighter-rouge">pingvinerbestingenprotest</code>, har blitt endret til morse med regex pattern <code class="highlighter-rouge">[ -\.]+</code>. Cyberchef er nok en gang mitt goto-tool. Ved å legge inn korrekt morsekode på denne siden får vi:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Til Pen Gwyn
+Fra Keiserpingvinen
+
+Alt ligger i vedlagt bilde.
+</code></pre></div></div><p>Flagget ligger bokstavelig talt i alt-tag til bildet.<br /> <strong>Flagg: PST{f2e0e89f59722af1f388529720b9db03}</strong><p>Bildet er også av en gul lapp med teksten <code class="highlighter-rouge">CO NG RA TS</code>. I tillegg ser det ut til at det er noen spesielle kabler i bildet, sannsynligvis <a href="https://en.wikipedia.org/wiki/Enigma_machine">ENIGMA</a> kabler (du har vel sett <a href="https://en.wikipedia.org/wiki/The_Imitation_Game">The Imitation Game</a>?).<h3 id="npsp-20">&amp;npsp; (20)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Våre analytikere mener SPST kan ha skjult informasjon for hackere som deg.
+</code></pre></div></div><p>Denne er litt tricky, men veldig gøy. Jeg har stort sett vært gjennom alt på websidene fram til nå, så det eneste som kan inneholde skjult informasjon må jo være bildet. zsteg viser at det kan være noe i <code class="highlighter-rouge">b1,rgb,lsb,xy</code>, ser iallefall ut til å være lange linjer og et linjeskift. En extract viser at det ser ut til å være en <a href="https://en.wikipedia.org/wiki/QR_code">QR kode</a>.<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>zsteg <span class="nt">-E</span> b1,rgb,lsb,xy 95728ce2159815f2e2a253c664b2493f.png <span class="o">&gt;</span> qr-code.txt
+</code></pre></div></div><p>For å lese av QR koden erstatter jeg ‘S’ med ‘█’, åpner opp i firefox, lager en skjermdump, åpner denne i <a href="https://www.gimp.org/">gimp</a>, reskalerer slik at qr koden er kvadratisk, bruker en QR leser på mobiltelefonen til å lese av koden og tilslutt kopierer resultatet til meg selv. QR koden representerer en URL, ser det ut til <code class="highlighter-rouge">/8a2a8e12017977d9dbf0ed33e254e94e.txt</code>.<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>These aren't the Penguins you're looking for
+
+
+             a8888b.
+            d888888b.
+            8P"YP"Y88
+            8|o||o|88
+            8'    .88
+            8`._.' Y8.
+           d/      `8b.
+         .dP   .     Y8b.
+        d8:'   "   `::88b.
+       d8"           `Y88b
+      :8P     '       :888
+       8a.    :      _a88P
+     ._/"Yaa_ :    .| 88P|
+     \    YP"      `| 8P  `.
+    /     \._____.d|    .'
+     `--..__)888888P`._.'
+</code></pre></div></div><p>Det ser tilsynelatende ut som en standard feilmeldings-side, men skinnet kan bedra. Den gir faktisk ikke 404 Not Found, men derimot 200 OK. Ved å laste ned filen og ta en nærmere titt på den, kan man se at den inneholder en rekke bytes som ikke tilsvarer noen karakterer. Ved å kjøre litt nummeranalyse på disse bytes, kan jeg se at det er 888 bytes totalt. Jeg kan også se at det er et mønster, det ser ut til at tallene opptrer i grupper på 3 og 3. UTF-8/Unicode er det ikke, ei heller RGB. Ved å sjekke antall av unike grupper, kan jeg se at det er kun 4 unike grupperinger. Jeg forsøker base 4 på de tre første gruppene, og får PST som resultat. Løsningen er altså base4 enkodet, erstattet med en gruppering på 3 bytes og printet ut. Ved å reversere dette finner vi det siste flagget.<br /> <strong>Flagg: PST{67b8601a11e47a9ee3bf08ddfd0b79ba}</strong><p>Kode:<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"8a2a8e12017977d9dbf0ed33e254e94e.txt"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">bytes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">other</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">chr</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">other</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># OK, the first letter should be P.
+# the first 24 values represent this somehow.
+# lets see if we find a pattern:
+</span><span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+<span class="c1"># we have these unique combos (subtracted with the base value):
+# 0,0,0 - 0
+# 0,0,1 - 1
+# 0,0,32 - 2
+# 13,59,51 - 3
+</span>
+<span class="c1"># what happens if we decode to base4? I think I got it!
+# 80 - 83 - 84
+</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">base1</span> <span class="o">=</span> <span class="mi">226</span>
+<span class="n">base2</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">base3</span> <span class="o">=</span> <span class="mi">140</span>
+<span class="n">line</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">888</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="n">other</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="n">other</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">num3</span> <span class="o">=</span> <span class="n">other</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">24</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="n">num_base1</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">base1</span>
+    <span class="n">num_base2</span> <span class="o">=</span> <span class="n">num2</span> <span class="o">-</span> <span class="n">base2</span>
+    <span class="n">num_base3</span> <span class="o">=</span> <span class="n">num3</span> <span class="o">-</span> <span class="n">base3</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">num_base1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">num_base2</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">num_base3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">num_base1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">num_base2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">num_base3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">num_base1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">num_base2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">num_base3</span> <span class="o">==</span> <span class="mi">32</span><span class="p">:</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">num_base1</span> <span class="o">==</span> <span class="mi">13</span> <span class="ow">and</span> <span class="n">num_base2</span> <span class="o">==</span> <span class="mi">59</span> <span class="ow">and</span> <span class="n">num_base3</span> <span class="o">==</span> <span class="mi">51</span><span class="p">:</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"agh!"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">()</span>
+    <span class="n">line</span><span class="o">+=</span><span class="nb">str</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div><h2 id="luke-23">Luke 23</h2><h3 id="fragmentert-samtale-5">Fragmentert samtale (5)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fragmentert samtale
+
+Arbeidet som ble gjort 21. desember rundt avdekking av feil ved SPST sitt nye kryptosystem, 
+har gjort oss i stand til å snappe opp en samtale mellom to høytstående SPST-agenter. 
+Teknikerne våre er dessverre på ferie, og vi greier ikke dekode meldingen helt, kunne noen alvebetjenter hørt på det?
+Vi har misstanke om at det utveksles en kode, og at denne koden kan benyttes for å finn'e en artikkel av noe slag. 
+Analytekerne våre mener det er artikkelens navn som er av interesse. Om noen finner ut av det, 
+legg inn md5-hashen av tittelen på artikkelen dere finn'er.
+
+Last ned PCAP
+
+Eksempel:
+tittel: "Gløgg og pepperkaker" → svar: PST{md5("Gløgg og pepperkaker")} = PST{9612ad6af8b6d78045b840b3c477d004}
+</code></pre></div></div><p>Vi får en zip-fil med en <a href="https://en.wikipedia.org/wiki/Pcap">pcap</a> og en tekstfil.<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INVITE sip:24700720@10.143.23.244:5060 SIP/2.0
+Max-Forwards: 59
+Via: SIP/2.0/UDP 10.22.48.6:5060;branch=z9hG4bKg3Zqkv7iqzibm3wfn8td5orxo7vyxe5q9
+To: &lt;tel:24700720;phone-context=+47&gt;
+From: "Anonymous" &lt;sip:anonymous@anonymous.invalid&gt;;tag=h7g4Estg_p63344t1976798986m456675c4958193147s1_3997725510-548775950
+Call-ID: p65599t1576767456m455575f2658294147s2
+CSeq: 1 INVITE
+Contact: &lt;sip:sgc_c@10.22.48.6;transport=udp&gt;;+g.3gpp.icsi-ref="urn%3Aurn-7%3A3gpp-service.ims.icsi.mmtel"
+Record-Route: &lt;sip:10.22.48.6;transport=udp;lr&gt;
+Accept-Contact: *;+g.3gpp.icsi-ref="urn%3Aurn-7%3A3gpp-service.ims.icsi.mmtel"
+Min-Se: 900
+Resource-Priority: q735.4
+Session-Expires: 1800
+Supported: timer
+Supported: 100rel
+Supported: precondition
+Supported: histinfo
+Content-Type: application/sdp
+Content-Length: 421
+Session-ID: 5b8e6d5f89b8ea975b77e0a6bbf782a8
+Allow: REGISTER, REFER, NOTIFY, SUBSCRIBE, PRACK, UPDATE, INVITE, ACK, OPTIONS, CANCEL, BYE
+Accept: application/sdp
+
+v=0
+o=- 2022048203 3887725258 IN IP4 10.22.48.6
+s=-
+c=IN IP4 10.64.65.129
+t=0 0
+a=sendrecv
+m=audio 45248 RTP/AVP 97 100 105
+c=IN IP4 10.64.65.129
+a=curr:qos local none
+a=curr:qos remote none
+a=des:qos mandatory local sendrecv
+a=des:qos optional remote sendrecv
+a=rtpmap:97 PCMA/8000
+a=rtpmap:100 telephone-event/16000
+a=fmtp:100 0-15
+a=rtpmap:105 telephone-event/8000
+a=fmtp:105 0-15
+a=maxptime:40
+</code></pre></div></div><p>Så det ser ut til at vi har fått en pcap av en lydsamtale med protokollen <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol">RTP</a> med <a href="https://tools.ietf.org/html/rfc3551#section-4.5.14">PCMA</a> payload på 8000 Hz. Jeg åpner pcap filen i <a href="https://www.wireshark.org/">wireshark</a>, spesifiserer at det er RTP istedenfor UDP, så får jeg faktisk opp at dette er en samtale mellom to parter. Jeg får ikke til å spille av lyd i min wireshark, så jeg eksporterer i RAW format, og importerer dette til <a href="https://www.audacityteam.org/">audacity</a>. Her finner jeg egentlig ikke ut av så mye, men etter litt konferering med Roy Solberg, så var det en enklere måte å løse denne på, det er masse hint til finn, og PST hadde kun tre annonser ute denne dagen, så det var bare å prøve tittelen på alle tre, så kom man fram til riktig flagg. Jeg ser i etterkant at jeg var inne på den påtenkte løsningen, <a href="https://github.com/myrdyr/ctf-writeups/tree/master/npst#fragmentert-samtale">her er en beskrivelse</a>.<br /> <strong><code class="highlighter-rouge">PST{0844d949169d24679a1f0438f89c69e3}</code></strong><h3 id="mystisk-julekort-5">Mystisk julekort (5)</h3><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mystisk julekort
+
+Jule NISSEN fikk i går et meget spesielt julekort levert i den elektroniske postkassen hans. 
+Julekortet har ingen bakside, og derfor heller ingen tekst knyttet til seg.
+Klarer du å finne ut noe mer om avsender e.l.?
+</code></pre></div></div><p>Eneste oppgaven jeg ikke løste, og jeg ser i etterkant at jeg var langt ifra å finne korrekt løsning. Awesome writeup av løsningen <a href="https://github.com/myrdyr/ctf-writeups/tree/master/npst#mystisk-julekort">finner du her</a>.<h2 id="24-desember-24">24. desember (24)</h2><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Operasjon Avlys julen
+Situasjonen rundt SPSTs operasjon "Avlys julen" har eskalert, 
+og vi må sette inn umiddelbare tiltak for å få stoppet den. 
+Betrodde kilder sier det hele styres fra SPSTs digitale operasjonssentral. 
+Keiserpingvinens mange reiser ryktes det at operasjonssentralen er åpent tilgjengelig fra hele verden, 
+men at den er beskyttet med avansert kryptografi.
+Kan noen av alvebetjentene se om greier å spore opp SPST sin operasjonssentral, 
+hacke seg inn og avbryte operasjonen deres?
+</code></pre></div></div><p>Endelig til slutten! Det har vært mange oppgaver, en fin blanding av enkle, vanskelige og ultra-vanskelige (23 - Mystisk julekort). Denne oppgaven hadde jeg også problemer med, men klarte den til slutt med fine hint ifra Roy Solberg. Ikke så mye informasjon å gå på, men la oss gjette på at vi trenger enten å finne et subdomene eller en katalog. Jeg setter igang directory enumeration med <a href="https://github.com/OJ/gobuster">gobuster</a> og subdomain enumeration med <a href="https://github.com/fwaeytens/dnsenum">dnsenum</a>, og finner til slutt et nytt subdomene, <code class="highlighter-rouge">ops.spst.no</code><div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dnsenum <span class="nt">-f</span> /usr/share/seclists/Discovery/DNS/namelist.txt <span class="nt">--threads</span> 50 <span class="nt">--noreverse</span> spst.no
+</code></pre></div></div><p>Der får vi presentert en side med en sjenert knapp. litt kildekode inspisering sier oss at URL-en er: <code class="highlighter-rouge">https://ops.spst.no/api/abort</code>. Denne siden gir oss tilbake en kryptert melding, tydeligvis:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SAXVC OIWPT GQOJZ OXEHI ZVCWU NCCOW FIKVP NOENT CETAU IKPCM ZLOYP BJHEC KPEXG RJWDO DJBBI HQDTG FFBQV LJAZC ZOFIC 
+ZAIWJ QEVCL FXAVC PDUWT GBIGM SSWAO OXJHP PLKXH TGQAY COIQL ZSWIL HKMYR YMPZZ PTIEL PSRIP YVRKC DINBR WJZJP HHNXM 
+HGYWN XXIGB UTTOX AEPKZ TUCMC MGFHC WHSAY KFVVS PDBFE KABAB PNBVR IZGTX PERJZ GDHQJ JDUYV FAOYV JWZOU WXXPR HVDLL 
+BQTJI HULQP ACIXG NUPUS PCKHT LOKLN ZCLZO QVWSL HPBWD ATZES JEITM AJIFU SIVVF PHPEN UYHZK AWIZY MNQLH ZVKJJ EEYSZ 
+LLUEM NZAFA OZXYL WBRPX JUKQG KIEXX CDYAT IHVJK HOMGI UVAOQ PBXRN HAAWG XOBAZ UILJB KYSBP IOBKH GYZBD IPQNG VSUTS 
+YXOGY KEIKK TIKKQ RFVWQ NBCEK TIJLC CXRDB TUNXT SBKWR YDBR
+</code></pre></div></div><p>La oss håpe på at vi nå får bruk for alle kodene på de gule lappene vi har funnet (ser mistenkelig ut som enigma innstillinger):<br /> <code class="highlighter-rouge">IV PS ⚙️</code><br /> <code class="highlighter-rouge">VII TF ⚙️</code><br /> <code class="highlighter-rouge">VII TW ⚙️</code><br /> <code class="highlighter-rouge">CO NG RA TS</code><br /> Vi gjettet korrekt, ved å punche inn kodene over i <a href="https://gchq.github.io/CyberChef/#recipe=Enigma('3-rotor','LEYJVCNIXWPBQMDRTAKZGFUHOS','A','A','ESOVPZJAYQUIRHXLNFTGKDCMWB%3CK','P','S','NZJHGRCXMYSWBOUFAIVLPEKQDT%3CAN','T','F','NZJHGRCXMYSWBOUFAIVLPEKQDT%3CAN','T','W','AY%20BR%20CU%20DH%20EQ%20FS%20GL%20IP%20JX%20KN%20MO%20TZ%20VW','CO%20NG%20RA%20TS',true)&amp;input=U0FYVkMgT0lXUFQgR1FPSlogT1hFSEkgWlZDV1UgTkNDT1cgRklLVlAgTk9FTlQgQ0VUQVUgSUtQQ00gWkxPWVAgQkpIRUMgS1BFWEcgUkpXRE8gREpCQkkgSFFEVEcgRkZCUVYgTEpBWkMgWk9GSUMgWkFJV0ogUUVWQ0wgRlhBVkMgUERVV1QgR0JJR00gU1NXQU8gT1hKSFAgUExLWEggVEdRQVkgQ09JUUwgWlNXSUwgSEtNWVIgWU1QWlogUFRJRUwgUFNSSVAgWVZSS0MgRElOQlIgV0paSlAgSEhOWE0gSEdZV04gWFhJR0IgVVRUT1ggQUVQS1ogVFVDTUMgTUdGSEMgV0hTQVkgS0ZWVlMgUERCRkUgS0FCQUIgUE5CVlIgSVpHVFggUEVSSlogR0RIUUogSkRVWVYgRkFPWVYgSldaT1UgV1hYUFIgSFZETEwgQlFUSkkgSFVMUVAgQUNJWEcgTlVQVVMgUENLSFQgTE9LTE4gWkNMWk8gUVZXU0wgSFBCV0QgQVRaRVMgSkVJVE0gQUpJRlUgU0lWVkYgUEhQRU4gVVlIWksgQVdJWlkgTU5RTEggWlZLSkogRUVZU1ogTExVRU0gTlpBRkEgT1pYWUwgV0JSUFggSlVLUUcgS0lFWFggQ0RZQVQgSUhWSksgSE9NR0kgVVZBT1EgUEJYUk4gSEFBV0cgWE9CQVogVUlMSkIgS1lTQlAgSU9CS0ggR1laQkQgSVBRTkcgVlNVVFMgWVhPR1kgS0VJS0sgVElLS1EgUkZWV1EgTkJDRUsgVElKTEMgQ1hSREIgVFVOWFQgU0JLV1IgWURCUg">Cyberchef Enigma</a>, får vi ut en rekke med engelske tall.<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FIVEZ EROSI XNINE SIXSE VENSI XSEVE NTWOZ EROSI XONES EVENS IXTWO ONEZE ROAFO URNIN ESIXE SIXSE VENSI XFIVE SIXET 
+WOZER OSIXT WOSIX FSIXB SEVEN THREE SEVEN FOURS IXONE SEVEN SIXSI XBSIX ASIXF IVESI XBSEV ENTHR EETWO EZERO AFOUR 
+CSIXF IVESE VENFO URTWO ZEROS IXNIN ETWOZ EROSI XEIGH TSIXF IVESE VENEI GHTTW OZERO SEVEN ZEROC THREE AFIVE TWOZE 
+ROSIX SIXCT HREEB EIGHT SIXCS IXSEV ENSIX FIVES IXESI XFOUR SIXFI VETWO ZEROS EVENT WOSIX FIVES IXSEV ENSIX FIVES 
+EVENE IGHTT HREEA TWOZE ROFIV EBFIV ECSIX FOURS IXONE TWODS IXSIX FIVED SEVEN BTHRE ETWOS EVEND FIVEC TWOES EVENT 
+HREES EVENZ EROSE VENTH REESE VENFO URFIV ECTWO ESIXE SIXF Et lite python program som søker og erstatter gir oss:
+
+50696767206176210A496E67656E20626F6B737461766B6A656B732E0A4C65742069206865782070C3A52066C3B86C67656E64652072656765783A205B5C64612D665D7B327D5C2E737073745C2E6E6F
+</code></pre></div></div><p>Som kan enkelt konverteres til tekst vha <a href="https://gchq.github.io/CyberChef/#recipe=From_Hex('None')&amp;input=NTA2OTY3NjcyMDYxNzYyMTBBNDk2RTY3NjU2RTIwNjI2RjZCNzM3NDYxNzY2QjZBNjU2QjczMkUwQTRDNjU3NDIwNjkyMDY4NjU3ODIwNzBDM0E1MjA2NkMzQjg2QzY3NjU2RTY0NjUyMDcyNjU2NzY1NzgzQTIwNUI1QzY0NjEyRDY2NUQ3QjMyN0Q1QzJFNzM3MDczNzQ1QzJFNkU2Rg">Cyberchef</a> (det er rå hex verdier), som gir oss neste steg:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pigg av!
+Ingen bokstavkjeks.
+Let i hex på følgende regex: [\da-f]{2}\.spst\.no
+</code></pre></div></div><p>Masse testing, feiling og banning senere, så kom jeg et steg videre. på domenene fra <code class="highlighter-rouge">00.spst.no</code> opp til <code class="highlighter-rouge">ff.spst.no</code> så finnes det <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">TXT records og CNAME records</a>. Jeg hentet ut TXT og CNAME recordene med <a href="https://en.wikipedia.org/wiki/Dig_(command)">dig</a>. En TXT record inneholder en bokstav, mens en CNAME record inneholder en annen dns entry, eksempelvis <code class="highlighter-rouge">aa.spst.no</code>. En CNAME record inneholder den spesielle DNS entry: <code class="highlighter-rouge">slutt.spst.no</code> Enda mere testing feiling og banning senere kom jeg fram til at alle 256 entries i CNAME recordene dannet en “self referencing chain”. Så, ved å splitte opp i hex-fra og hex-til, “slutt” er i hex-til, så har vi den siste hex entry. så finner vi denne i hex-til og plukker hex-fra. Slik fortsetter vi inntill vi har plukket alle hex verdier. ved å rokkere om TXT entriene basert på denne rekkefølgen får vi:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bokstav=edG1y9Dq9ram2hb0mQYNT4wcWeNXRkY22JU7wa6qFJqkWMLRF0nxeFZNr02jxpJ7ZIzVeWnwe60pbSKLXcwvbV23yFOdN4aPXCV6GHN4fYnzswDTAop3O8vTEEDJFOeuKdBVWGcWy7LDcsucwz8nBHbR9UG9CP4zpMZLQPvEl1eu4Tp9Lto4zuA0ijU2eLk0qQBlRQdxZKrajIqiW5P1K1HkKrjgGIj4M7xP7Sg3pSNXLklGm4LBBbhG
+</code></pre></div></div><p>Noe kjent er det iallefall, og leser vi litt tilbake, så tyter api/abort over “Ingen bokstavkjeks”, som sannsynligvis betyr “Du mangler en cookie med navn ‘bokstav’”. Klem inn denne verdien som cookie, og vi får et annet resultat.<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Arrgh! Vi gir opp for denne gang.
+https://npst.no/_6331fff126233c324c9f5fc49c49a8b6.html
+</code></pre></div></div><p><strong>Flagg: PST{82a1f79e6ce39ef16d0ef4ef1c1d2fcc}</strong><p><hy-img root-margin="512px" src="/assets/img/blog/2020-npst/24-final-scene.png" alt="star wars">  <noscript><img data-ignore src="/assets/img/blog/2020-npst/24-final-scene.png" alt="star wars"/></noscript>  <span slot="loading" class="loading"><span class="icon-cog"></span></span></hy-img><h2 id="til-slutt">Til slutt</h2><p>Jeg satt virkelig fast på noen oppgaver, og brukte Roy Solberg (<a href="https://twitter.com/roysolberg">Twitter</a>, <a href="https://blog.roysolberg.com/">Blog</a>) som en veldig kjekk “rubber duck” og hint master. Uten hans hjelp hadde jeg nok ikke kommet videre på en del av oppgavene.<p>🙌🙌 Takk for at du tok deg tid til å lese alt, trykk på recommend og legg inn en kommentar! 🙌🙌</div></article><hr class="dingbat related" /><aside class="about related mt4 mb4" role="complementary"><div class="author mt4"><h2 class="page-title hr"> About</h2><p>Mainly a java-developer, but has played with C++, javascript, html, css, php, python and perl. Especially interested in performance and security<div class="sidebar-social"> <span class="sr-only">Social:</span><ul><li> <a href="https://twitter.com/fjankk" title="Twitter" class="no-mark-external" rel="me"> <span class="icon-twitter"></span> <span class="sr-only">Twitter</span> </a><li> <a href="https://github.com/fjank" title="GitHub" class="no-mark-external" rel="me"> <span class="icon-github"></span> <span class="sr-only">GitHub</span> </a></ul></div></div></aside><aside class="related mb4" role="complementary"><h2 class="hr">Related Posts</h2><ul class="related-posts"><li> <a href="/blog/2019-11-18-adidas-smart-run/" class="h4 flip-title"><span>Adidas Smart Run</span></a> <time class="heading faded fine" datetime="2019-11-18T00:00:00+01:00">18 Nov 2019</time><li> <a href="/blog/2019-03-18-overthewire-natas-10/" class="h4 flip-title"><span>OverTheWire natas 10</span></a> <time class="heading faded fine" datetime="2019-03-18T00:00:00+01:00">18 Mar 2019</time><li> <a href="/blog/2019-03-17-overthewire-natas-5-9/" class="h4 flip-title"><span>OverTheWire natas 5-9</span></a> <time class="heading faded fine" datetime="2019-03-17T00:00:00+01:00">17 Mar 2019</time></ul></aside><aside class="comments related" role="complementary"><h2 class="hr">Comments</h2><div id="disqus_thread"></div><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript> <script>!function(w, d) { if (d.getElementById("disqus_thread")) { if (w.DISQUS) { w.DISQUS.reset({ reload: true, config() { this.page.url = w.location.href; this.page.title = d.title; }, }); } else { w.disqus_config = function disqusConfig() { this.page.url = w.location.href; this.page.title = d.title; }; w.loadJSDeferred(d.getElementById("_hrefDisqus").href + '/embed.js'); } } }(window, document);</script></aside><footer role="contentinfo"><hr/><p><small class="copyright">© 2019. All rights reserved. </small><p><small>Powered by <a class="external" href="https://hydejack.com/">Hydejack</a> v<span id="_version">8.5.2</span></small><hr class="sr-only"/></footer></main><hy-drawer class="" align="left" threshold="10" touch-events prevent-default ><header id="_sidebar" class="sidebar" role="banner"><div class="sidebar-bg sidebar-overlay" style="background-color:rgb(25,55,71);background-image:url(/assets/img/sidebar-bg.jpg)"></div><div class="sidebar-sticky"><div class="sidebar-about"><h2 class="h1"><a href="/">Fjanks security pages</a></h2><p class="fine"> A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security.</div><nav class="sidebar-nav heading" role="navigation"> <span class="sr-only">Navigation:</span><ul><li> <a id="_navigation" href="/about/" class="sidebar-nav-item" > About </a></ul></nav><div class="sidebar-social"> <span class="sr-only">Social:</span><ul><li> <a href="https://twitter.com/fjankk" title="Twitter" class="no-mark-external" rel="me"> <span class="icon-twitter"></span> <span class="sr-only">Twitter</span> </a><li> <a href="https://github.com/fjank" title="GitHub" class="no-mark-external" rel="me"> <span class="icon-github"></span> <span class="sr-only">GitHub</span> </a></ul></div></div></header></hy-drawer><hr class="sr-only" hidden /> </hy-push-state> <!--[if gt IE 10]><!----> <script nomodule>!function(){var e=document.createElement("script");if(!("noModule"in e)&&"onbeforeload"in e){var t=!1;document.addEventListener("beforeload",function(n){if(n.target===e)t=!0;else if(!n.target.hasAttribute("nomodule")||!t)return;n.preventDefault()},!0),e.type="module",e.src=".",document.head.appendChild(e),e.remove()}}(); </script> <script type="module" src="/assets/js/hydejack-8.5.2.js"></script> <script nomodule src="/assets/js/hydejack-legacy-8.5.2.js" defer></script> <script>!function(w, d) { w.ga=w.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date; /**/ ga('create', 'UA-136398928-1', 'auto'); /**/ var pushStateEl = d.getElementsByTagName('hy-push-state')[0]; var timeoutId; pushStateEl.addEventListener('hy-push-state-load', function() { w.clearTimeout(timeoutId); timeoutId = w.setTimeout(function() { ga('set', 'page', w.location.pathname); ga('send', 'pageview'); }, 500); }); d.addEventListener('hy--cookies-ok', function () { w.ga(function(tracker) { w.ga("set", "anonymizeIp", undefined); localStorage && localStorage.setItem("ga--client-id", tracker.get("clientId")); }); }); w.loadJSDeferred('https://www.google-analytics.com/analytics.js'); }(window, document);</script> <!--<![endif]--><h2 class="sr-only" hidden>Templates (for web app):</h2><template id="_animation-template" hidden><div class="animation-main fixed-top"><div class="content"><div class="page"></div></div></div></template> <template id="_loading-template" hidden><div class="loading nav-btn fr"> <span class="sr-only">Loading…</span> <span class="icon-cog"></span></div></template> <template id="_error-template" hidden><div class="page"><h1 class="page-title">Error</h1><p class="lead"> Sorry, an error occurred while loading <a class="this-link" href=""></a>.</div></template> <template id="_forward-template" hidden> <button id="_forward" class="forward nav-btn no-hover fl"> <span class="sr-only">Forward</span> <span class="icon-arrow-right2"></span> </button> </template> <template id="_back-template" hidden> <button id="_back" class="back nav-btn no-hover fl"> <span class="sr-only">Back</span> <span class="icon-arrow-left2"></span> </button> </template> <template id="_permalink-template" hidden> <a href="#" class="permalink"> <span class="sr-only">Permalink</span> <span class="icon-link"></span> </a> </template></html>
