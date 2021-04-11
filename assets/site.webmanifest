@@ -1,0 +1,62 @@
+{
+  "lang": "en",
+  "name": "Fjanks security pages",
+  "short_name": "Fjanks security pages",
+  "description": "A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM’s and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.",
+  "start_url": "/?utm_source=homescreen",
+  "theme_color": "rgb(8,46,57)",
+  "background_color": "#fff",
+  "orientation": "portrait",
+  "display": "minimal-ui",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/assets/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/assets/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/assets/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/assets/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/assets/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    }
+  ]
+}
