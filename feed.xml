@@ -1,5 +1,399 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2021-05-24T11:12:38+02:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
-</subtitle><author><name>Frank Karlstrøm</name></author><entry><title type="html">Finally OSCP certified</title><link href="https://fjank.no/blog/2021-05-24-oscp-certified/" rel="alternate" type="text/html" title="Finally OSCP certified" /><published>2021-05-24T00:00:00+02:00</published><updated>2021-05-24T11:08:41+02:00</updated><id>https://fjank.no/blog/oscp-certified</id><content type="html" xml:base="https://fjank.no/blog/2021-05-24-oscp-certified/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fjank.no/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fjank.no/" rel="alternate" type="text/html" hreflang="en" /><updated>2021-06-28T21:53:28+02:00</updated><id>https://fjank.no/feed.xml</id><title type="html">Fjanks security pages</title><subtitle>A blog about security, CTF, vulnerabilities, pen-testing and other interesting things that are related to security. Mostly writeups from results of challenges, war-games, hacking into local vulnerable VM's and similar. I will try to make the writeups as realistic as possible by including all my wrong assumptions and failures. Also I will try to not include code complete walkthroughs, but leave the actual coding as an excercise to the reader.
+</subtitle><author><name>Frank Karlstrøm</name></author><entry><title type="html">Java, XML og sikkerhet, juni 2021</title><link href="https://fjank.no/blog/2021-06-28-java-xml-security/" rel="alternate" type="text/html" title="Java, XML og sikkerhet, juni 2021" /><published>2021-06-28T00:00:00+02:00</published><updated>2021-06-28T21:49:38+02:00</updated><id>https://fjank.no/blog/java-xml-security</id><content type="html" xml:base="https://fjank.no/blog/2021-06-28-java-xml-security/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#hvem-har-nytte-av-lese-dette-&quot; id=&quot;markdown-toc-hvem-har-nytte-av-lese-dette-&quot;&gt;Hvem har nytte av lese dette? 🎯&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#hvem-bruker-xml-da-kan-vi-ikke-bare-bruke-json-&quot; id=&quot;markdown-toc-hvem-bruker-xml-da-kan-vi-ikke-bare-bruke-json-&quot;&gt;Hvem bruker XML da, kan vi ikke bare bruke JSON? 😇&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xml-prosessering-i-java&quot; id=&quot;markdown-toc-xml-prosessering-i-java&quot;&gt;XML-prosessering i Java&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#er-ikke-java-sikkert-som-banken-da-trenger-man-å-tenke-på-det-&quot; id=&quot;markdown-toc-er-ikke-java-sikkert-som-banken-da-trenger-man-å-tenke-på-det-&quot;&gt;Er ikke Java sikkert som banken da, trenger man å tenke på det? 🙈🙉🙊&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#introduksjon&quot; id=&quot;markdown-toc-introduksjon&quot;&gt;Introduksjon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#forutsetninger&quot; id=&quot;markdown-toc-forutsetninger&quot;&gt;Forutsetninger&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#kode&quot; id=&quot;markdown-toc-kode&quot;&gt;Kode&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#nasty-stuff-hva-er-dette-&quot; id=&quot;markdown-toc-nasty-stuff-hva-er-dette-&quot;&gt;Nasty stuff, hva er dette? 🥶&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#xxe-for-lfi-&quot; id=&quot;markdown-toc-xxe-for-lfi-&quot;&gt;XXE for LFI 👀&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#oob-xxe&quot; id=&quot;markdown-toc-oob-xxe&quot;&gt;OOB-XXE&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#error-based-xxe&quot; id=&quot;markdown-toc-error-based-xxe&quot;&gt;Error based XXE&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xxe-for-dos-&quot; id=&quot;markdown-toc-xxe-for-dos-&quot;&gt;XXE for DoS 💣&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xxe-for-portscanning-og-nettverksscanning-&quot; id=&quot;markdown-toc-xxe-for-portscanning-og-nettverksscanning-&quot;&gt;XXE for portscanning og nettverksscanning 🔎&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xxe-for-ssrf-&quot; id=&quot;markdown-toc-xxe-for-ssrf-&quot;&gt;XXE for SSRF 🐱‍👤&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xxe-to-rce-️&quot; id=&quot;markdown-toc-xxe-to-rce-️&quot;&gt;XXE to RCE 🦸‍♀️&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#når-må-man-tenke-på-xml-og-xxe-hva-kan-vi-stole-på-️️&quot; id=&quot;markdown-toc-når-må-man-tenke-på-xml-og-xxe-hva-kan-vi-stole-på-️️&quot;&gt;Når må man tenke på XML og XXE? Hva kan vi stole på? 🕵️‍♀️&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#javel-hva-er-den-beste-måten-å-lese-xml-på-i-java-ifølge-oracle-&quot; id=&quot;markdown-toc-javel-hva-er-den-beste-måten-å-lese-xml-på-i-java-ifølge-oracle-&quot;&gt;Javel, hva er den beste måten å lese XML på i Java ifølge Oracle? 😑&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#defence-in-depth-innstillinger-for-dom&quot; id=&quot;markdown-toc-defence-in-depth-innstillinger-for-dom&quot;&gt;Defence in depth-innstillinger for DOM&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#defence-in-depth-innstillinger-for-sax&quot; id=&quot;markdown-toc-defence-in-depth-innstillinger-for-sax&quot;&gt;Defence in depth-innstillinger for SAX&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#defence-in-depth-innstillinger-for-stax&quot; id=&quot;markdown-toc-defence-in-depth-innstillinger-for-stax&quot;&gt;Defence in depth-innstillinger for StAX&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#defence-in-depth-innstillinger-for-schema-og-validator&quot; id=&quot;markdown-toc-defence-in-depth-innstillinger-for-schema-og-validator&quot;&gt;Defence in depth-innstillinger for Schema og Validator&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#defence-in-depth-innstillinger-for-transformerfactorysaxtransformerfactory&quot; id=&quot;markdown-toc-defence-in-depth-innstillinger-for-transformerfactorysaxtransformerfactory&quot;&gt;Defence in depth-innstillinger for TransformerFactory/SAXTransformerFactory&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#defence-in-depth-innstillinger-for-xpathfactory&quot; id=&quot;markdown-toc-defence-in-depth-innstillinger-for-xpathfactory&quot;&gt;Defence in depth-innstillinger for XPathFactory&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#defence-in-depth-innstillinger-for-domls&quot; id=&quot;markdown-toc-defence-in-depth-innstillinger-for-domls&quot;&gt;Defence in depth-innstillinger for DOMLS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#viktig-info&quot; id=&quot;markdown-toc-viktig-info&quot;&gt;Viktig info&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#fallgruver&quot; id=&quot;markdown-toc-fallgruver&quot;&gt;Fallgruver&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#oppsummering&quot; id=&quot;markdown-toc-oppsummering&quot;&gt;Oppsummering&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;hvem-har-nytte-av-lese-dette-&quot;&gt;Hvem har nytte av lese dette? 🎯&lt;/h2&gt;
+&lt;p&gt;Dette er &lt;strong&gt;ikke&lt;/strong&gt; en introduksjonsartikkel, jeg regner med du har erfaring med Java og at du har snust i Javas XML-implementasjon. Du er kanskje også klar over at det finnes sårbarheter omkring XML som XXE og deserialiserings-angrep.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Backend Javautviklere som leser/skriver/prosesserer XML&lt;/li&gt;
+  &lt;li&gt;Pentestere som ønsker å vite mer om Java og XML sårbarheter&lt;/li&gt;
+  &lt;li&gt;Teamledere (send til teamet hvis de bruker XML)
+    &lt;h3 id=&quot;hvem-bruker-xml-da-kan-vi-ikke-bare-bruke-json-&quot;&gt;Hvem bruker XML da, kan vi ikke bare bruke JSON? 😇&lt;/h3&gt;
+    &lt;p&gt;XML benyttes i forferdelig mange bransjer i Norge, til forferdelig mye forskjellig. Det brukes gjerne som overføringsformat for at forskjellige systemer skal kunne snakke sammen, API-er kan eksponeres ved hjelp av XML &lt;a href=&quot;https://en.wikipedia.org/wiki/SOAP&quot;&gt;(SOAP)&lt;/a&gt;, konfigurasjoner kan leses og skrives vha. XML, import/export av data i forskjellige systemer kan gjerne bruke XML, En del systemer har standarisert på forskjellige XML-formater i henhold til et &lt;a href=&quot;https://en.wikipedia.org/wiki/XML_schema&quot;&gt;XML Schema&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Så hvis du jobber innenfor, eller oppimot bransjer som bank, finans, helse, utdanning, kartdata, regnskap, transport, offentlige institusjoner/etater så er det stor sannsynlighet for at du enten må lese eller skrive XML, eller det benyttes XML-biblioteker her og der.
+&lt;strong&gt;Som Javautvikler må du som regel forholde deg til XML.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;xml-prosessering-i-java&quot;&gt;XML-prosessering i Java&lt;/h3&gt;
+&lt;p&gt;Dette er alternativene man har for XML prosessering med bruk av standard Java API-er:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;JAXP - Java API for XML Processing
+    &lt;ul&gt;
+      &lt;li&gt;DOM - Document Object Model&lt;/li&gt;
+      &lt;li&gt;SAX - Simple API for XML&lt;/li&gt;
+      &lt;li&gt;TrAX - Transformation API for XML + xpath&lt;/li&gt;
+      &lt;li&gt;StAX - Streaming API for XML&lt;/li&gt;
+      &lt;li&gt;Validation - XSD Schema and Validation&lt;/li&gt;
+      &lt;li&gt;DOMLS - DOM Load and Save&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;JAXB - Java Architecture for XML Binding&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Det finnes også en del andre biblioteker som kan håndtere XML, både for enkel XML, og serialisering/deserialisering av objekter til/fra XML (&lt;a href=&quot;https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization&quot;&gt;med sine egne sikkerhetsproblemer&lt;/a&gt;, stolt medlem av &lt;a href=&quot;https://owasp.org/www-project-top-ten/&quot;&gt;OWASP Top 10 Web Application Security Risks&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Det er en del å tenke på hvis man velger å inkludere og bruke et eksternt bibliotek, eksempelvis utbredelse, dokumentasjon, sårbarheter, oppdateringsfrekvens, alder, egne rutiner for oppdatering, egne policies ++. Sjekk &lt;a href=&quot;https://www.cvedetails.com/&quot;&gt;cvedetails&lt;/a&gt;, &lt;a href=&quot;https://nvd.nist.gov/&quot;&gt;National Vulnerability Database&lt;/a&gt;, Stack Overflow, Google, &lt;a href=&quot;https://www.exploit-db.com/&quot;&gt;exploit-db&lt;/a&gt;, deres egne nettsider for dokumentasjon for å researche om det er et bibliotek man har lyst til å ta i bruk.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;For denne artikkelens del så ser jeg ikke på andre biblioteker, kun standard Java-API, eksplisitt JAXP, ikke JAXB.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;er-ikke-java-sikkert-som-banken-da-trenger-man-å-tenke-på-det-&quot;&gt;Er ikke Java sikkert som banken da, trenger man å tenke på det? 🙈🙉🙊&lt;/h2&gt;
+&lt;h3 id=&quot;introduksjon&quot;&gt;Introduksjon&lt;/h3&gt;
+&lt;p&gt;Dette eksempelet er et eksempel hvor stort sett alt er gjort &lt;em&gt;“getting started way”&lt;/em&gt;, så enkelt som mulig. Det er satt opp ved hjelp av de seneste versjoner som er kompatible pr. mai 2021 av:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker 20.10.6&lt;/a&gt;,&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spring.io/projects/spring-boot&quot;&gt;Spring Boot 2.4.6&lt;/a&gt; med Web MVC&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://openjdk.java.net/projects/jdk/11/&quot;&gt;Java SE 11&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Intensjonen er å lage en simpel applikasjon på en server som skal lese XML fra request body og plukke ut en verdi. Har kan man tenke seg at verdien som plukkes ut brukes i f.eks et databaseoppslag, eller for å berike et objekt el.l. men for enkelhets skyld returnerer jeg bare verdien som en tekststreng i en enkel &lt;a href=&quot;https://www.json.org/json-en.html&quot;&gt;JSON-respons&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;forutsetninger&quot;&gt;Forutsetninger&lt;/h3&gt;
+&lt;p&gt;Jeg stoler kun på offisielle kilder så jeg benytter meg av &lt;a href=&quot;https://www.oracle.com/java/technologies/jaxp-introduction.html&quot;&gt;tutorials fra Oracle&lt;/a&gt;, og jeg bryr meg ikke om error håndtering eller validering (Det er ikke noe schema) for å gjøre koden så enkel som mulig. Eksemplet som jeg viser her benytter DOM, men github kildekoden inneholder også kode som demonstrerer XXE vha SAX, StAX, TrAX, xpath, Schema, Validation og DOMLS.
+Du kan prøve ut koden selv ved å klone dette prosjektet og starte docker-containeren (testet på Ubuntu 20.04):&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;openjdk-11-jdk
+git clone https://github.com/fjank/vulnerable-java-xml-1.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;vulnerable-java-xml-1
+./gradlew build
+docker build &lt;span class=&quot;nt&quot;&gt;--build-arg&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;JAR_FILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;build/libs/&lt;span class=&quot;se&quot;&gt;\*&lt;/span&gt;.jar &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; fjank/vuln-xml &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+docker run &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8080:8080 fjank/vuln-xml &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;kode&quot;&gt;Kode&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Initialiseringen er gjort ved hjelp av &lt;a href=&quot;https://start.spring.io/&quot;&gt;Spring Initializr&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spring.io/guides/gs/spring-boot-docker/&quot;&gt;Spring Boot with docker tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spring.io/guides/gs/serving-web-content/&quot;&gt;Serving Web Content with Spring MVC tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.oracle.com/java/technologies/jaxp-introduction.html&quot;&gt;Java API for XML Processing (JAXP) Tutorial&lt;/a&gt;
+&lt;img src=&quot;/assets/img/blog/2021-java-xml/initializer.png&quot; alt=&quot;Spring Initializr&quot; /&gt;
+DOM koden som kjøres i kontrolleren uten validering, errorhåndtering etc. skal se slik ut ihht tutorial:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// DocumentBuilderFactory er starten for DOM parsing&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;DocumentBuilderFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DocumentBuilderFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// .newDocumentBuilder() lager DocumentBuilder som er klassen som står for parsing av XML.&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;DocumentBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newDocumentBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// .parse(...) for å parse til et XML Document, her ut ifra en streng via InputSource og StringReader.&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Resten er kun API kall for å plukke ut verdien vi er på jakt etter, ikke så viktig for denne artikkel.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For å teste ut at mini-applikasjonen fungerer slik den skal (hent ut tekst fra en XML-tag som postes til serveren med en HTTP request body), kan man for eksempel bruke &lt;a href=&quot;https://www.postman.com/&quot;&gt;Postman&lt;/a&gt;, Eller hvis du har sjekket ut prosjektet nevnt over, så finner du en form på http://localhost:8080 hvor du kan modifisere XML slik at den blir som under.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;root&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;test&amp;gt;&lt;/span&gt;It works!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/test&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/root&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/blog/2021-java-xml/it-works.png&quot; alt=&quot;It works&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Her er request body som er en XML (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type: application/xml&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Svaret ifra applikasjonen som en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application/json&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://curl.se/&quot;&gt;curl&lt;/a&gt; equivalent (hvis du er mer en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt; fan)&lt;/li&gt;
+  &lt;li&gt;rå request og response (hvis du vil se alt som sendes fram og tilbake)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Dette ser jo fint og flott ut, teksten ble hentet ut som forventet, og levert tilbake som en JSON. 😎&lt;/p&gt;
+
+&lt;p&gt;🏴‍☠️ La oss modde litt på requesten… 🏴‍☠️&lt;/p&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE foo [&amp;lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot;&amp;gt;&lt;/span&gt;]&amp;gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;root&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;test&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;xxe;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/test&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/root&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/blog/2021-java-xml/ouch.png&quot; alt=&quot;Ouch!&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;nasty-stuff-hva-er-dette-&quot;&gt;Nasty stuff, hva er dette? 🥶&lt;/h2&gt;
+&lt;p&gt;Jeg utnyttet her en XXE for LFI mot DOM-koden. Det samme skjer også mot alle de andre API-ene i JAXP, sjekk gjerne ut koden og prøv selv for å verifisere at dette er tilfelle.&lt;/p&gt;
+&lt;h3 id=&quot;xxe-for-lfi-&quot;&gt;&lt;a href=&quot;https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing&quot;&gt;XXE&lt;/a&gt; for &lt;a href=&quot;https://en.wikipedia.org/wiki/File_inclusion_vulnerability&quot;&gt;LFI&lt;/a&gt; 👀&lt;/h3&gt;
+&lt;p&gt;Lo and behold, jeg fikk lest ut filen &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passwd&lt;/code&gt;. Heldigvis så er applikasjonen startet med en spesifikk bruker (&lt;em&gt;spring&lt;/em&gt;, definert i Dockerfile) hvis jeg ikke hadde spesifisert en bruker, hadde applikasjonen blitt startet som &lt;em&gt;root&lt;/em&gt;, og jeg hadde hatt full lesetilgang til alle filer på hele docker-containeren. Nå er det iallefall kun begrenset til filer som bruker &lt;em&gt;spring&lt;/em&gt; har tilgang til. 
+Det er ille nok, jeg kan f.eks. lese ut konfigurasjonen til applikasjonen med brukernavn, passord, tokens, kanskje også SSH-nøkler, laste ned klassefilene og dekompilere de for å pløye gjennom kildekoden etter flere sårbarheter, pløye gjennom loggfiler, historikkfiler osv. osv. Jeg kan lese alt som brukeren &lt;em&gt;spring&lt;/em&gt; har tilgang til.
+&lt;em&gt;Fun fact: hvis serveren kjører på en windows-boks, og du spesifiserer en mappe i XML exploit isteden for en fil, så får du ut directory listingen!&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&quot;oob-xxe&quot;&gt;&lt;a href=&quot;https://www.acunetix.com/blog/articles/band-xml-external-entity-oob-xxe/&quot;&gt;OOB-XXE&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Hvis man ikke får resultatet tilbake direkte kan man bruke out-of-band teknikker for likevel å lese filer. Det er mulig å benytte OOB-XXE i &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javax.xml.validation.Validator&lt;/code&gt; i Java 11 for å lese enkle filer uten linjeskift.&lt;/p&gt;
+&lt;h4 id=&quot;error-based-xxe&quot;&gt;&lt;a href=&quot;https://niravgadhiya.blogspot.com/2020/03/blind-error-based-xxe.html&quot;&gt;Error based XXE&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Hvis man får feilmeldinger tilbake fra serveren, kan man prøve å injecte i selve feilmeldingen.&lt;/p&gt;
+&lt;h3 id=&quot;xxe-for-dos-&quot;&gt;XXE for &lt;a href=&quot;https://en.wikipedia.org/wiki/Denial-of-service_attack&quot;&gt;DoS&lt;/a&gt; 💣&lt;/h3&gt;
+&lt;p&gt;Jeg kan prøve å kræsje serveren, bare for å være ond med f.eks. &lt;a href=&quot;https://en.wikipedia.org/wiki/Billion_laughs_attack&quot;&gt;billion laughs attack&lt;/a&gt;, men det er ikke noe gøy, dessuten har java 11 default beskyttelse for å unngå dette. 😅&lt;/p&gt;
+
+&lt;h3 id=&quot;xxe-for-portscanning-og-nettverksscanning-&quot;&gt;XXE for &lt;a href=&quot;https://en.wikipedia.org/wiki/Port_scanner&quot;&gt;portscanning&lt;/a&gt; og nettverksscanning 🔎&lt;/h3&gt;
+&lt;p&gt;Eksempelvis ved å bruke &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!DOCTYPE foo [&amp;lt;!ENTITY xxe SYSTEM &quot;http://internal-server.intra.net:22&quot;&amp;gt;]&amp;gt;&lt;/code&gt; så vil XML-parser prøve å connecte til den serveren på port 22, typisk åpen på Linux-maskiner, eller vi kan bruke port 139, typisk åpen på Windows-maskiner. Finnes maskinen, så vil det gå raskt (DNS-oppslaget returnerer med en gang), finnes den ikke går DNS-oppslaget tregere, ergo kan vi bruke timing og gigantiske ordlister for å mappe opp maskiner på samme nettverk (&lt;strong&gt;bak brannmuren, husk at det er serveren som hoster applikasjonen som utfører kallene&lt;/strong&gt;). Jakting på tjenester og porter ved hjelp av XXE er gøy.&lt;/p&gt;
+
+&lt;h3 id=&quot;xxe-for-ssrf-&quot;&gt;XXE for &lt;a href=&quot;https://owasp.org/www-community/attacks/Server_Side_Request_Forgery&quot;&gt;SSRF&lt;/a&gt; 🐱‍👤&lt;/h3&gt;
+&lt;p&gt;Er vi heldige så får vi svaret vårt tilbake i en respons, da kan vi etter å ha kjørt hostscanning og portscanning, forespørre interne nettverksressurser uten å tenke på brannmurregler. &lt;a href=&quot;https://www.aon.com/cyber-solutions/aon_cyber_labs/ssrf-and-xxe-vulnerabilities-in-pdfreactor/&quot;&gt;Her er et eksempel ifra virkeligheten&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;xxe-to-rce-️&quot;&gt;XXE to &lt;a href=&quot;https://en.wikipedia.org/wiki/Arbitrary_code_execution&quot;&gt;RCE&lt;/a&gt; 🦸‍♀️&lt;/h3&gt;
+&lt;p&gt;XXE alene er ikke så gøy, det er når man kan kombinere med andre sårbarheter at det begynner å bli gøy. &lt;a href=&quot;https://www.ambionics.io/blog/oracle-peoplesoft-xxe-to-rce&quot;&gt;Her er et nasty eksempel fra 2018&lt;/a&gt; på en XXE som ble utnyttet til å få &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nt authority/system&lt;/code&gt; shell på alle servere med Oracle PeopleSoft installert.&lt;/p&gt;
+
+&lt;h3 id=&quot;når-må-man-tenke-på-xml-og-xxe-hva-kan-vi-stole-på-️️&quot;&gt;Når må man tenke på XML og XXE? Hva kan vi stole på? 🕵️‍♀️&lt;/h3&gt;
+&lt;p&gt;Alle XML-er som man ikke har kontroll på bør man ikke stole på.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;XML-er som kommer inn som en request ifra internet: Åfy!&lt;/li&gt;
+  &lt;li&gt;XML-er ifra en partner: sikker på at partneren har kontroll? Ikke stol på det.&lt;/li&gt;
+  &lt;li&gt;XML-er fra en server i samme VLAN: Sikker på at maskinen ikke er kompromittert? Don’t trust it!&lt;/li&gt;
+  &lt;li&gt;XML-er på disk: Sikker på at ingen har tuklet med de?&lt;/li&gt;
+  &lt;li&gt;Osv osv.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ikke stol på noen, ha som utgangspunkt at XML som skal prosesseres er ondskapens verk som kun er ute etter å lage bråk.&lt;/p&gt;
+
+&lt;h2 id=&quot;javel-hva-er-den-beste-måten-å-lese-xml-på-i-java-ifølge-oracle-&quot;&gt;Javel, hva er den beste måten å lese XML på i Java ifølge Oracle? 😑&lt;/h2&gt;
+&lt;p&gt;Å kun lese og bruke &lt;a href=&quot;https://www.oracle.com/java/technologies/jaxp-introduction.html&quot;&gt;Java API for XML Processing (JAXP) Tutorial&lt;/a&gt; er ikke nok for å prosessere XML på en sikker måte. &lt;strong&gt;Man må også lese &lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/security/index.html&quot;&gt;sikkerhetsguide for utviklere&lt;/a&gt;,&lt;/strong&gt; spesifikt kapittel 12 hvor vi finner en god del mer informasjon. Man må lese denne med lupe, for her står det at &lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/security/java-api-xml-processing-jaxp-security-guide.html#GUID-88B04BE2-35EF-4F61-B4FA-57A0E9102342&quot;&gt;FSP&lt;/a&gt; er default på for å beskytte mot DoS, men det tilgjengeliggjør fremdeles eksterne entiteter, &lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/security/java-api-xml-processing-jaxp-security-guide.html#GUID-94ABC0EE-9DC8-44F0-84AD-47ADD5340477&quot;&gt;den må eksplisitt settes for å blokkere XXE&lt;/a&gt;. &lt;strong&gt;JAXP er “vulnerable by design”&lt;/strong&gt; 🤯.&lt;/p&gt;
+
+&lt;p&gt;For å beskytte seg mot 0-days, ukjente bugs eller framtidige bugs som enda ikke er laget, bør man bruke &lt;a href=&quot;https://en.wikipedia.org/wiki/Defense_in_depth_(computing)&quot;&gt;defence-in-depth&lt;/a&gt; tankegang, og skru på alle sikkerhets-features for XML-parsere, selv om de tilsynelatende ikke er nødvendig. Det kan for eksempel være en spesifikk kodebane i JAXP/JAXB som gjør at den ene sikkerhets-featuren ikke blir trigget. Har man kun den beskyttelsen, så har angripere funnet en åpning. Derimot hvis man har skrudd på flere lag med beskyttelse, så vil forhåpentligvis angrepet bli stoppet av neste lag.&lt;/p&gt;
+
+&lt;p&gt;Etter min mening er sikkerhetsguiden forferdelig. Komplisert, ikke komplett, ustrukturert og kommer med vage anbefalinger, så den bør ikke være eneste kilde til sannheten.&lt;/p&gt;
+
+&lt;p&gt;Ei heller har ikke alle factories støtte for de samme features og properties, så man må finne ut hva som er støttet og ikke støttet for hver enkelt type ved hjelp av API-dokumentasjon, JAXP Security Guide, inspisering av JDK-kildekode (f.eks. debugging) og andre kilder (pentestrapporter, sårbarhetsrapporter, bug bounty-rapporter etc.). Under følger min anbefaling for de forskjellige delene av JAXP, tror jeg har fått med meg alle sammen.
+&lt;em&gt;Jeg skal få sjekket om buggen jeg fant (DOMLS) er rapportert eller ikke, og rapportere den.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Selvfølgelig så bør man bruke standard OO teknikker f.eks. factories, factory methods, singletons e.l. for å få config på en plass. Dette gjelder for programmatisk konfigurasjon av JAXP factories. Det er også mulig å bruke jaxp.properties og/eller System properties, men det er utenfor scope til denne artikkelen.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bruk eksemplene under som det de er, eksempler! Les &lt;a href=&quot;#Viktig-info&quot;&gt;viktig info under eksemplene.&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;defence-in-depth-innstillinger-for-dom&quot;&gt;Defence in depth-innstillinger for DOM&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// For DOM, skru på sikkerhetsinnstillinger via SAXParserFactory&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;DocumentBuilderFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DocumentBuilderFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru på FSP&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FEATURE_SECURE_PROCESSING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for at XML kan ha en DOCTYPE&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/disallow-doctype-decl&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne DTDs&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/nonvalidating/load-external-dtd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne entiteter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-general-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne parameter-entiteter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-parameter-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for ekstern DTD til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_DTD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for eksterne schema til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_SCHEMA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru av xinclude støtte &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setXIncludeAware&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/xinclude&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av entity resolution&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setExpandEntityReferences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Nå kan du lage en DocumentBuilder og parse på en trygg måte.&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;DocumentBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newDocumentBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;defence-in-depth-innstillinger-for-sax&quot;&gt;Defence in depth-innstillinger for SAX&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Defence in depth innstillinger for SAX&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// For SAX, skru på sikkerhetsinnstillinger via SAXParserFactory&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;SAXParserFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SAXParserFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru på FSP&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FEATURE_SECURE_PROCESSING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for at XML kan ha en DOCTYPE&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/disallow-doctype-decl&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne DTDs&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/nonvalidating/load-external-dtd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne entiteter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-general-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne parameter-entiteter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-parameter-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;// skru av xinclude støtte &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setXIncludeAware&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/xinclude&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Nå kan du lage en SAXParser med en ContentHandler og parse på en trygg måte.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;defence-in-depth-innstillinger-for-stax&quot;&gt;Defence in depth-innstillinger for StAX&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Beware! StAX støtter ikke FSP!&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// For StAX, skru på sikkerhetsinnstillinger via XMLInputFactory&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;XMLInputFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;XMLInputFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Skru av støtte for DOCTYPE&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLInputFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SUPPORT_DTD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Skru av støtte for eksterne entiteter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLInputFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;IS_SUPPORTING_EXTERNAL_ENTITIES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for ekstern DTD til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_DTD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for eksterne schema til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_SCHEMA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Skru på ignorering av eksterne DTD's.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://java.sun.com/xml/stream/properties/ignore-external-dtd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Nå kan du lage en XMLStreamReader/XMLEventReader og plukke verdier på en trygg måte.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;defence-in-depth-innstillinger-for-schema-og-validator&quot;&gt;Defence in depth-innstillinger for Schema og Validator&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// XXE i Schema/Validator er som regel error-basert eller OOB&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;SchemaFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SchemaFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newDefaultInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru på FSP&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FEATURE_SECURE_PROCESSING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for ekstern DTD til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_DTD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for eksterne schema til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_SCHEMA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Schema vil nå få sine innstillinger fra SchemaFactory&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Schema&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newSchema&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StreamSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Validator vil også få sine innstillinger fra SchemaFactory&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Validator&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newValidator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/* Det er også mulig å hente en ValidatorHandler med newValidatorHandler(),
+ * men jeg har ikke brukt den og vet heller ikke hvordan den fungerer, 
+ derfor har jeg heller ingen eksempelinstillinger for denne.*/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;defence-in-depth-innstillinger-for-transformerfactorysaxtransformerfactory&quot;&gt;Defence in depth-innstillinger for TransformerFactory/SAXTransformerFactory&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Her er det mulig å injecte både i xml og i stylesheet&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;TransformerFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TransformerFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newDefaultInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru på FSP&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FEATURE_SECURE_PROCESSING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for ekstern DTD til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_DTD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Sett tillatte protokoller for eksterne stylesheets til ingen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_STYLESHEET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Her brukes StreamSource, bruker man DOMSource, SAXSource eller StAXSource, &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// sørg også for å sette defence in depth-innstillinger for disse kildene.&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;StringWriter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;writer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringWriter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StreamResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Transformer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newTransformer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StreamSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xslt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StreamSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;defence-in-depth-innstillinger-for-xpathfactory&quot;&gt;Defence in depth-innstillinger for XPathFactory&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;XPathFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xpf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;XPathFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newDefaultInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Skru på FSP, men den skrur kun av eksterne xpath funksjoner. XXE via xml er fremdeles mulig!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;xpf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FEATURE_SECURE_PROCESSING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;XPath&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xPath&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xpf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newXPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;XPathExpression&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xpe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Ikke bruk xpe.evaluate(inputSource, XPathConstants.STRING), siden den bruker en utrygg DocumentBuilderFactory&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Lag en DocumentBuilderBuilderFactory som hindrer XXE, parse deretter til org.w3c.dom.Document og send dette til evaluate.&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;DocumentBuilderFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DocumentBuilderFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newDefaultInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FEATURE_SECURE_PROCESSING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/disallow-doctype-decl&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/nonvalidating/load-external-dtd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-general-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-parameter-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_DTD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;XMLConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_EXTERNAL_SCHEMA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setXIncludeAware&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/xinclude&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setExpandEntityReferences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;DocumentBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newDocumentBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xpe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;evaluate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;XPathConstants&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;STRING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;defence-in-depth-innstillinger-for-domls&quot;&gt;Defence in depth-innstillinger for DOMLS&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;DOMImplementationRegistry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DOMImplementationRegistry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;DOMImplementationLS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;impl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DOMImplementationLS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDOMImplementation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LS&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;LSParser&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createLSParser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DOMImplementationLS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;MODE_SYNCHRONOUS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;DOMConfiguration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDomConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// FSP er støttet, men en subtil bug hindrer oss i å aktivere FSP.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//dbf.setParameter(XMLConstants.FEATURE_SECURE_PROCESSING, true);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for at XML kan ha en DOCTYPE&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// ekvivalente verdier.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;disallow-doctype&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/disallow-doctype-decl&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne DTDs&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/nonvalidating/load-external-dtd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne entiteter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-general-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// skru av mulighetene for eksterne parameter-entiteter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://xml.org/sax/features/external-parameter-entities&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Skru av XInclude:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://apache.org/xml/features/xinclude&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Nå kan du lage en LSInput og parse på en trygg måte.&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;LSInput&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lsInput&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createLSInput&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lsInput&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setCharacterStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lsInput&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;viktig-info&quot;&gt;Viktig info&lt;/h3&gt;
+&lt;p&gt;Uansett om applikasjonen fungerer, eller hvis applikasjonen din gjør noe litt annerledes en de enkle eksemplene over, og/eller hvis applikasjonen ikke fungerer etter dette enten fordi den bruker for mye ressurser, trenger eksterne/interne entiteter eller du absolutt skal gjøre noe fancy, anbefaler jeg å gjøre følgende:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hold tunga rett i munnen&lt;/li&gt;
+  &lt;li&gt;Les API-dokumentasjonen&lt;/li&gt;
+  &lt;li&gt;Les &lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/security/java-api-xml-processing-jaxp-security-guide.html&quot;&gt;JAXP Security Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Følg Oracle’s anbefalinger for JAXP og sikkerhet som du finner &lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/security/java-api-xml-processing-jaxp-security-guide.html#GUID-82A5172C-C75E-4276-93C4-C3D2774C97E1&quot;&gt;helt nederst i sikkerhetsguiden&lt;/a&gt; som en en kort sjekkliste.
+    &lt;ul&gt;
+      &lt;li&gt;Skru på featuren FSP, juster deretter de individuelle features og egenskaper i henhold til dine spesifikke krav.&lt;/li&gt;
+      &lt;li&gt;For prosesseringsbegrensninger, juster de slik at de er akkurat store nok til å håndtere maksimum som applikasjonen krever.&lt;/li&gt;
+      &lt;li&gt;For eksterne tilgangsrestriksjoner, reduser eller fjern applikasjonens avhengigheter av eksterne ressurser inkludert bruken av “resolvere”, deretter begrens disse restriksjonene.&lt;/li&gt;
+      &lt;li&gt;Sett opp en lokal katalog og åpne opp Catalog API for alle XML parsere for å ytterligere redusere applikasjonens avhengighet av eksterne ressurser.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Sjekk andre kilder for sårbarheter&lt;/li&gt;
+  &lt;li&gt;Kjør code review med fokus på sikkerhet&lt;/li&gt;
+  &lt;li&gt;Kjør statisk kodeanalyse f.eks. &lt;a href=&quot;https://www.sonarqube.org/&quot;&gt;SonarQube&lt;/a&gt;, &lt;a href=&quot;https://find-sec-bugs.github.io/&quot;&gt;Find Security Bugs&lt;/a&gt;, &lt;a href=&quot;https://semgrep.dev/&quot;&gt;semgrep&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Kjør eksplisitt pentesting av delen som har med XML å gjøre&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;fallgruver&quot;&gt;Fallgruver&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Java-versjon:&lt;/strong&gt; Denne artikkelen og tilhørende eksempler er basert på Oracle Java versjon 11.0.9 og 11.0.11, testet på Windows 10 og Ubuntu 20.04. Eldre eller nyere versjoner av Java kan ha annen funksjonalitet, deprekerte klasser/metoder, andre defaults, bugs, etc. Sjekk ut API-dokumentasjon og Security guide for tilhørende versjon, og gjør dine egne tester.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;JVM-type:&lt;/strong&gt; På samme måte som med Java-versjon, så er også &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_Java_virtual_machines&quot;&gt;JVM-typen&lt;/a&gt; viktig å ta hensyn til, forskjellige implementasjoner kan ha forskjellig underliggende funksjonalitet, forskjellige defaults, andre bugs etc. Sjekk implementasjonsspesifikke guider vedrørende sikkerhet.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ikke default parser:&lt;/strong&gt; Det er også mulig å bytte ut default implementasjonen for JAXP med en annen XML-parser, (Enten på egen hånd, eller en applikasjonsserver kan trylle inn sin egen parser), som igjen kan ha forskjellig underliggende funksjonalitet, forskjellige defaults osv. Sjekk implementasjonsspesifikke guider vedrørende sikkerhet hvis dette er gjort.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;oppsummering&quot;&gt;Oppsummering&lt;/h2&gt;
+&lt;p&gt;Jobber man med Java, og har med XML å gjøre, så er sikkerhet noe man må tenke på og sette seg godt inn i. 
+Jeg anbefaler å ikke stole på noen andre enn deg selv (&lt;em&gt;ikke på meg og denne artikkelen heller&lt;/em&gt;), utforsk sikkerhetsinnstillinger, prøv å bryt deg inn i egen kode, få hjelp av en pentester, viktigst av alt: &lt;strong&gt;ikke tro! Ha håndfaste bevis for deg selv basert på det du selv vet.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Denne artikkelen har kun snakket om en spesifikk XML-sårbarhet (XXE), men det finnes også andre sårbarheter som man må vite om og ta høyde for under utvikling (f.eks. deserialiserings-angrep). Gode rutiner for sikker utvikling og kunnskap om sårbarheter er nødvendig for å beskytte applikasjonen(e) man skriver mot angrep, både målrettede og tilfeldige.&lt;/p&gt;
+
+&lt;p&gt;Finner du noen feil/svakheter/forbedringspotensiale i artikkelen eller koden på GitHub så vil jeg gjerne vite det! Legg igjen kommentarer, send epost, whatnot, jo før jo heller.&lt;/p&gt;
+
+&lt;p&gt;Hvis denne artikkelen var interessant og dere vil at jeg skal skrive mer, gjerne om noe spesifikt innenfor Java/PHP/Node/Python/C# -verdenen og en eksplisitt sårbarhet, legg igjen en kommentar så skal jeg se hva jeg får til. 🥰&lt;/p&gt;</content><author><name>Frank Karlstrøm</name></author><category term="blog" /></entry><entry><title type="html">Finally OSCP certified</title><link href="https://fjank.no/blog/2021-05-24-oscp-certified/" rel="alternate" type="text/html" title="Finally OSCP certified" /><published>2021-05-24T00:00:00+02:00</published><updated>2021-05-24T11:08:41+02:00</updated><id>https://fjank.no/blog/oscp-certified</id><content type="html" xml:base="https://fjank.no/blog/2021-05-24-oscp-certified/">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#preparation&quot; id=&quot;markdown-toc-preparation&quot;&gt;Preparation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#exam-report-and-result&quot; id=&quot;markdown-toc-exam-report-and-result&quot;&gt;Exam, report and result&lt;/a&gt;&lt;/li&gt;
